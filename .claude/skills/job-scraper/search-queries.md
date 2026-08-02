@@ -1,81 +1,146 @@
-# Search Queries for Job Scraper
+# Search Queries for Job Scraper — Canada
 
-<!-- SETUP: Customize these queries based on your skills, target roles, and location -->
+<!-- SETUP: Replace the [PLACEHOLDER] values with your own roles, skills, and cities. -->
 
 ## Installed portal CLIs (primary for `/scrape`)
 
-`/scrape` discovers every portal skill under `.agents/skills/*/SKILL.md` and runs its CLI first. Shipped country-agnostic CLIs include `linkedin-search` and `freehire-search`; Danish demos and any skill you add with `/add-portal` are included the same way. You do **not** need a matching `site:` line below for those CLIs to run.
+`/scrape` discovers every portal skill under `.agents/skills/*/SKILL.md` and runs its CLI
+first. In this Canadian fork the relevant ones are:
 
-The `site:` query templates in this file are the **WebSearch fallback** — for portals without a CLI, company career pages, or when a CLI fails.
+| Skill | Covers | Notes |
+|-------|--------|-------|
+| `jobbank-ca-search` | Job Bank / Guichet-Emplois, all of Canada | Government-run, every province and territory, all sectors. `--lang fr` for the French listings |
+| `gcjobs-search` | GC Jobs — federal public service | Jobs open to the public. Sweeps the listing and filters locally, so give it ~30 s |
+| `linkedin-search` | Global, incl. Canada | Pass a Canadian place string, e.g. `-l "Toronto, Ontario, Canada"` |
+| `freehire-search` | Country-agnostic REST API | Ships with upstream |
 
-## Search Sites
+The Danish demo skills (`jobindex-search`, `jobnet-search`, `jobbank-search`,
+`jobdanmark-search`) are inherited from upstream and left installed for reference.
+**Set `enabled: false` in their `SKILL.md` frontmatter so `/scrape` skips them** — they
+will otherwise run Danish queries on every scrape.
 
-Primary (your market's job boards - scaffold one with `/add-portal`):
-- **[YOUR_JOB_BOARD]** - your market's largest general job board
-- **linkedin.com/jobs** - LinkedIn job listings (filter: [YOUR_COUNTRY] / [YOUR_CITY]); also covered by `linkedin-search` CLI
-- **[YOUR_INDUSTRY_JOB_BOARD]** - a niche/industry board for your field (optional)
-- **[YOUR_ADDITIONAL_JOB_BOARD]** - another major board for your market (optional)
+> `jobbank-search` (upstream, Danish `jobbank.dk`) and `jobbank-ca-search` (this fork,
+> Canadian `jobbank.gc.ca`) are different boards with confusingly similar names. The
+> Canadian one always carries the `-ca` suffix.
 
-Secondary (company career pages via Google):
-- Direct Google searches with `site:` filters for known target companies
+The `site:` query templates below are the **WebSearch fallback** — for boards without a
+CLI, company career pages, or when a CLI fails.
 
-## Query Categories
+## Search sites
 
-Queries are grouped by priority. Each query should be combined with your location terms (e.g. your city, region, or metro area) where the site supports it.
+Primary (have CLIs — no `site:` line needed):
+- **jobbank.gc.ca** — Job Bank, national coverage
+- **emploisfp-psjobs.cfp-psc.gc.ca** — GC Jobs, federal public service
+- **linkedin.com/jobs** — filter to Canada / your city
+
+Secondary (WebSearch fallback, no CLI in this fork):
+- **indeed.ca** — largest commercial board in Canada; blocks automated access, so
+  WebSearch only
+- **glassdoor.ca** — postings plus salary and review context
+- **talent.com** — Canadian-founded aggregator
+- **jobillico.com** — strong in Quebec, bilingual
+- **eluta.ca** — indexes employer career pages directly, good for jobs never posted to boards
+- **workinnonprofits.ca**, **charityvillage.com** — non-profit sector
+- **[YOUR_PROVINCIAL_PORTAL]** — e.g. BC Public Service, OPS Careers (Ontario),
+  Alberta Government, Emplois Québec; each province runs its own
+- **[YOUR_MUNICIPAL_PORTAL]** — City of Toronto, City of Vancouver, etc.
+- Company career pages via `site:` search
+
+## Query categories
+
+Combine each query with your location terms. Canadian location strings that work well:
+`Toronto`, `Greater Toronto Area`, `GTA`, `Vancouver`, `Metro Vancouver`, `Montréal`,
+`Calgary`, `Ottawa-Gatineau`, `Edmonton`, `Winnipeg`, `Halifax`, `Québec City`,
+`Waterloo Region`, `Remote Canada`, `Hybrid [YOUR_CITY]`.
 
 ### Priority 1: [YOUR_PRIMARY_ROLE_TYPE]
 
-These match your strongest and most desired career direction.
+Your strongest and most desired direction.
 
 ```
-site:[YOUR_JOB_BOARD] "[YOUR_PRIMARY_JOB_TITLE]" [YOUR_CITY]
-site:[YOUR_JOB_BOARD] "[YOUR_KEY_SKILL]" [YOUR_CITY]
-site:linkedin.com/jobs "[YOUR_PRIMARY_JOB_TITLE]" [YOUR_COUNTRY]
+site:linkedin.com/jobs "[YOUR_PRIMARY_JOB_TITLE]" [YOUR_CITY] Canada
+site:indeed.ca "[YOUR_PRIMARY_JOB_TITLE]" [YOUR_CITY]
+site:eluta.ca "[YOUR_PRIMARY_JOB_TITLE]" [YOUR_CITY]
+"[YOUR_PRIMARY_JOB_TITLE]" "[YOUR_CITY]" careers -site:linkedin.com
 ```
+
+Also run the NOC official title for the role, not just the colloquial one — Canadian
+postings frequently use NOC wording verbatim. See `09-canada-conventions.md` §6.
 
 ### Priority 2: [YOUR_DOMAIN_EXPERTISE]
 
-These match your domain expertise.
-
 ```
-site:[YOUR_JOB_BOARD] [YOUR_DOMAIN_KEYWORD_1] [YOUR_CITY] OR [YOUR_REGION]
-site:[YOUR_JOB_BOARD] [YOUR_DOMAIN_KEYWORD_2] [YOUR_COUNTRY]
-site:linkedin.com/jobs [YOUR_DOMAIN_KEYWORD_1] [YOUR_CITY] [YOUR_COUNTRY]
+site:linkedin.com/jobs [YOUR_DOMAIN_KEYWORD_1] [YOUR_CITY] Canada
+site:indeed.ca [YOUR_DOMAIN_KEYWORD_1] OR [YOUR_DOMAIN_KEYWORD_2] [YOUR_PROVINCE]
+site:jobillico.com [YOUR_DOMAIN_KEYWORD_1] [YOUR_CITY]
 ```
 
 ### Priority 3: [YOUR_ADJACENT_ROLE_TYPE]
 
-Adjacent roles you could pivot into.
+Roles you could pivot into.
 
 ```
-site:[YOUR_JOB_BOARD] "[YOUR_ADJACENT_TITLE_1]" [YOUR_KEY_SKILL] [YOUR_CITY]
-site:[YOUR_JOB_BOARD] "[YOUR_ADJACENT_TITLE_2]" [YOUR_KEY_SKILL] [YOUR_CITY]
+site:linkedin.com/jobs "[YOUR_ADJACENT_TITLE_1]" [YOUR_KEY_SKILL] [YOUR_CITY]
+site:indeed.ca "[YOUR_ADJACENT_TITLE_2]" [YOUR_KEY_SKILL] [YOUR_PROVINCE]
 ```
 
-### Priority 4: Broader Technical / Consulting
+### Priority 4: Public sector
 
-Wider net for general technical roles.
+Federal is covered by the `gcjobs-search` CLI. These reach the provincial, municipal,
+and broader-public-sector boards it does not:
 
 ```
-site:[YOUR_JOB_BOARD] [YOUR_KEY_SKILL] developer [YOUR_CITY]
-site:linkedin.com/jobs "[YOUR_KEY_SKILL] developer" [YOUR_CITY]
-site:[YOUR_JOB_BOARD] "technical consultant" [YOUR_DOMAIN] [YOUR_CITY]
+site:gov.bc.ca/careers [YOUR_KEY_SKILL]
+site:gojobs.gov.on.ca [YOUR_KEY_SKILL]
+"[YOUR_PRIMARY_JOB_TITLE]" city of [YOUR_CITY] careers
+"[YOUR_PRIMARY_JOB_TITLE]" [YOUR_PROVINCE] health authority careers
 ```
 
-## Location Filter
+### Priority 5: Remote and cross-border
 
-When evaluating results, verify the job location is within reasonable commute distance from your home. Define acceptable areas:
-- [YOUR_CITY] and surrounding areas
-- [ACCEPTABLE_AREA_1]
-- [ACCEPTABLE_AREA_2]
-- [BORDERLINE_AREA] (borderline - ~X min by transit)
+```
+site:linkedin.com/jobs "[YOUR_PRIMARY_JOB_TITLE]" "remote" Canada
+"[YOUR_PRIMARY_JOB_TITLE]" "remote - Canada" OR "Canada remote"
+```
+
+Watch for US postings that say "remote" but are not open to Canadian residents —
+check for a Canadian entity or "authorized to work in Canada" before applying.
+
+## Location filter
+
+Verify the job location is realistically commutable, or genuinely remote. Define your
+acceptable areas:
+- [YOUR_CITY] and surrounding municipalities
+- [ACCEPTABLE_AREA_1] — e.g. within [X] min by transit or car
+- [BORDERLINE_AREA] (borderline)
 - [TOO_FAR_AREA] (too far)
 
-## Date Filter
+Canadian specifics worth encoding:
+- Job Bank writes locations as `City (PR)`, e.g. `Mississauga (ON)`; GC Jobs writes
+  `City (Province)`, e.g. `Ottawa (Ontario)`. Both spell Québec with the accent.
+- Postings covering several sites appear as "Various locations" — open the posting to
+  see whether yours is included.
+- Winter commute distances are not summer commute distances; be honest about the limit.
 
-Only include jobs posted within the last 14 days, or with an application deadline that has not yet passed. If a posting date cannot be determined, include it but flag as "date unknown".
+## Date filter
 
-## Adapting Queries
+Only include jobs posted within the last 14 days, or whose closing date has not passed.
+Where a posting date cannot be determined, include it but flag as "date unknown".
 
-If the user specifies a focus area, select queries from the matching category and also generate 2-3 custom queries for that focus. For example:
-- "/scrape [focus_area]" -> relevant category queries + custom focus-specific queries
+GC Jobs publishes a **closing** date rather than a posting date — filter those on the
+deadline instead, and treat anything closing within 48 hours as urgent.
+
+## Work-authorization filter
+
+Screen out postings you are not eligible for before spending effort on them:
+- Federal postings: check the *Who can apply* rule (`whoCanApply` from `gcjobs-search`)
+- Security-cleared roles: many require Canadian citizenship, not just residency
+- Postings that state sponsorship is unavailable, if that applies to you
+
+## Adapting queries
+
+If the user specifies a focus area, select queries from the matching category and
+generate 2-3 custom queries for that focus. For example:
+- `/scrape federal` → run `gcjobs-search` with no title filter plus the public-sector queries
+- `/scrape bilingual` → `gcjobs-search --lang-req Bilingual` plus `jobbank-ca-search --lang fr`
+- `/scrape remote` → the remote category plus `linkedin-search --remote remote -l "Canada"`

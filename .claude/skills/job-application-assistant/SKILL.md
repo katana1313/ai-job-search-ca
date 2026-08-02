@@ -10,6 +10,12 @@ framework_version: 1.1.0
 
 # Job Application Assistant
 
+> **Canadian fork.** For any application to a Canadian employer, read
+> `09-canada-conventions.md` before drafting. It overrides the generic CV and
+> cover-letter guidance where the two differ — most importantly on what must be left
+> off a Canadian résumé (photo, age, marital status, SIN) and on stating work
+> authorization explicitly.
+
 ---
 
 ## Workflow
@@ -28,12 +34,18 @@ When the user provides a job posting (URL or text), follow this workflow:
 ### Step 2: Tailor CV
 - Read the most relevant existing CV variant from `cv/` as a starting point
 - Follow the guidelines in `05-cv-templates.md`
+- For Canadian employers, apply `09-canada-conventions.md`: no photo/age/marital status/SIN,
+  city + province only, Canadian spelling, work authorization stated, ≤2 pages
 - Create `cv/main_<company>_<role>.tex` with tailored content
 - Adjust: profile statement, skills section, experience bullet emphasis, section order
 
 ### Step 3: Write Cover Letter
 - Follow the writing style rules in `03-writing-style.md` (critical: no em-dashes, no cliches)
 - Follow the template structure in `06-cover-letter-templates.md`
+- For Canadian employers, apply `09-canada-conventions.md`; match the language of the
+  posting (a French posting means a fully French application)
+- For federal (GC Jobs) postings, screening questions replace the letter — answer each
+  essential qualification separately with a dated, concrete example
 - Create `cover_letters/cover_<company>_<role>.tex`
 - Ensure the letter connects specific experience to the role requirements
 
@@ -57,6 +69,7 @@ When the user provides a job posting (URL or text), follow this workflow:
 | `06-cover-letter-templates.md` | LaTeX cover letter structure and tailoring rules |
 | `07-interview-prep.md` | STAR examples, tough questions, roleplay guidelines |
 | `08-application-forms.md` | Portal free-text fields: self-introduction, project entries, character-limited pitches |
+| `09-canada-conventions.md` | **Canadian market rules** — what must never appear on a résumé, work-authorization phrasing, Canadian spelling, NOC codes, provincial licensing, Quebec/French, federal screening questions |
 
 ---
 
