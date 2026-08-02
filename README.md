@@ -94,8 +94,21 @@ The framework encodes career guidance best practices, including structured evalu
 ### 1. Fork and clone
 
 ```bash
-gh repo fork MadsLorentzen/ai-job-search --clone
-cd ai-job-search
+gh repo fork p3ji/ai-job-search-ca --clone
+cd ai-job-search-ca
+```
+
+Or clone this fork directly:
+
+```bash
+git clone https://github.com/p3ji/ai-job-search-ca.git
+cd ai-job-search-ca
+```
+
+To pull in later upstream changes, keep the original as a second remote:
+
+```bash
+git remote add upstream https://github.com/MadsLorentzen/ai-job-search.git
 ```
 
 ### 2. Install job search tools
