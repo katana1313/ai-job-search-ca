@@ -24,11 +24,12 @@ A community adaptation of [MadsLorentzen/ai-job-search](https://github.com/MadsL
 |----------|-------------------|
 | **`jobbank-ca-search`** | [Job Bank](https://www.jobbank.gc.ca) / [Guichet-Emplois](https://www.guichetemplois.gc.ca) — the Government of Canada's national board. Every province and territory, every sector, English **and** French |
 | **`gcjobs-search`** | [GC Jobs](https://emploisfp-psjobs.cfp-psc.gc.ca/psrs-srfp/applicant/page2440) — federal public service advertisements open to the public, with classification levels, published salary bands, and language requirements |
+| **`talent-com-search`** | [Talent.com](https://ca.talent.com) — global job aggregator, Canada-scoped by default; mirrors postings pulled from employer career sites and ATSs, English and French |
 | **Canadian application conventions** | `09-canada-conventions.md` — what must never go on a Canadian résumé, work-authorization phrasing, Canadian spelling, NOC codes, provincial licensing, Quebec/French, federal screening questions |
 | **Canadian search strategy** | `search-queries.md` rewritten for Canadian boards, cities, and public-sector channels |
-| **Bilingual search** | Both new CLIs take `--lang en\|fr` and search the French listings, which surface postings the English side does not |
+| **Bilingual search** | All three new CLIs take `--lang en\|fr` and search the French listings, which surface postings the English side does not |
 
-Both new portals are **public data, no authentication, no API key, and zero runtime dependencies** — plain `bun`.
+All three new portals are **public data, no authentication, no API key, and zero runtime dependencies** — plain `bun`.
 
 The four Danish demo portals from upstream are still present but ship **disabled** (`enabled: false`), so `/scrape` skips them. Re-enable any of them by flipping that flag in its `SKILL.md`.
 
@@ -97,7 +98,7 @@ git remote add upstream https://github.com/MadsLorentzen/ai-job-search.git
 PowerShell:
 
 ```powershell
-$tools = @("jobbank-ca-search", "gcjobs-search", "linkedin-search", "freehire-search")
+$tools = @("jobbank-ca-search", "gcjobs-search", "talent-com-search", "linkedin-search", "freehire-search")
 foreach ($tool in $tools) {
   Push-Location ".agents/skills/$tool/cli"
   bun install
@@ -108,12 +109,12 @@ foreach ($tool in $tools) {
 Bash / zsh / Git Bash:
 
 ```bash
-for tool in jobbank-ca-search gcjobs-search linkedin-search freehire-search; do
+for tool in jobbank-ca-search gcjobs-search talent-com-search linkedin-search freehire-search; do
   (cd .agents/skills/$tool/cli && bun install)
 done
 ```
 
-All four are zero-runtime-dependency, so this step is optional — `bun install` only pulls
+All five are zero-runtime-dependency, so this step is optional — `bun install` only pulls
 TypeScript dev types for `bun run typecheck`. The CLIs run on a fresh clone with just `bun`.
 
 Add the Danish demo portals (`jobbank-search`, `jobdanmark-search`, `jobindex-search`,
@@ -211,6 +212,7 @@ ai-job-search/
 ├── .agents/skills/                    # Job portal CLI tools
 │   ├── jobbank-ca-search/             # 🇨🇦 Job Bank / Guichet-Emplois (Canada, EN+FR)
 │   ├── gcjobs-search/                 # 🇨🇦 GC Jobs (Canada, federal public service)
+│   ├── talent-com-search/             # 🇨🇦 Talent.com (Canada by default, EN+FR, job aggregator)
 │   ├── linkedin-search/               # LinkedIn public job listings (country-agnostic)
 │   ├── freehire-search/               # freehire.me tech job aggregator (multi-market, REST API)
 │   ├── jobbank-search/                # Akademikernes Jobbank (Denmark, disabled)
@@ -315,7 +317,7 @@ If you prefer doing it by hand, the manual route still works: update the guidanc
 
 ### Job search tools
 
-This fork's two Canadian CLI tools in `.agents/skills/` (`jobbank-ca-search`, `gcjobs-search`) — along with upstream's four Danish demos — show the pattern for building a job-portal integration for a specific market. Each carries a `url-reference.md` documenting its endpoints, quirks, and the parsing anchors to repair when the site changes; the Canadian ones also record the approaches that turned out **not** to work, so nobody rediscovers them.
+This fork's three Canadian CLI tools in `.agents/skills/` (`jobbank-ca-search`, `gcjobs-search`, `talent-com-search`) — along with upstream's four Danish demos — show the pattern for building a job-portal integration for a specific market. Each carries a `url-reference.md` documenting its endpoints, quirks, and the parsing anchors to repair when the site changes; the Canadian ones also record the approaches that turned out **not** to work, so nobody rediscovers them.
 
 To add another board, in Canada or elsewhere, run:
 
