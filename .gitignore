@@ -63,6 +63,10 @@ cover_letters/cover_*.*
 cover_letters/Cover_*.*
 !cover_letters/cover_example.tex
 
+# /setup generates a personal private-sector playbook containing real achievements,
+# compensation expectations, and network strategy. Personal - never commit.
+.claude/skills/job-application-assistant/10-private-sector-playbook.md
+
 # documents/ subfolder contents are personal — only README and folder structure are tracked
 documents/cv/**
 documents/linkedin/**
