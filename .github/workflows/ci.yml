@@ -32,7 +32,9 @@ name: CI
 
 on:
   push:
-    branches: [master]
+    # `canada` is this fork's default branch; `master` is kept so the workflow
+    # still fires if the branch is ever pointed back at the upstream default.
+    branches: [canada, master]
   pull_request:
   workflow_dispatch:
 
