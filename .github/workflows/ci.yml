@@ -13,10 +13,10 @@
 # CI runs typechecks and the checked-in fixture/mock test suites only; live
 # portal testing stays a local, on-demand step.
 #
-# The Canadian skills (jobbank-ca-search, gcjobs-search, talent-com-search) keep
-# their live tests in the same file as their fixture tests, gated behind `LIVE=1`.
-# Unset - as it is here - those suites skip, so CI stays offline. Run them locally
-# with `LIVE=1 bun test` before trusting a parser change.
+# The Canadian skills (jobbank-ca-search, gcjobs-search, talent-com-search,
+# eluta-search) keep their live tests in the same file as their fixture tests,
+# gated behind `LIVE=1`. Unset - as it is here - those suites skip, so CI stays
+# offline. Run them locally with `LIVE=1 bun test` before trusting a parser change.
 #
 # Security posture: this template ships pre-approved Claude Code permissions
 # and CLI code that every fork user executes, so the security-guards job
@@ -164,6 +164,7 @@ jobs:
       fail-fast: false
       matrix:
         tool:
+          - eluta-search
           - freehire-search
           - gcjobs-search
           - jobbank-ca-search
