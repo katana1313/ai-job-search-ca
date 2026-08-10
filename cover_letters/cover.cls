@@ -14,11 +14,9 @@
 \usepackage[usenames,dvipsnames]{xcolor}
 \usepackage{titlesec}
 \usepackage[absolute]{textpos}
-\usepackage{fontspec,xltxtra,xunicode}
+\usepackage{fontspec}
 
-% Publications
-\usepackage{cite}
-\renewcommand\refname{\vskip -1.5cm}
+% Publications (not used in cover letter)
 
 % Color definitions
 \definecolor{date}{HTML}{666666}

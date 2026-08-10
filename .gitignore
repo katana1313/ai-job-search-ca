@@ -62,6 +62,29 @@ cv/*.txt
 cover_letters/cover_*.*
 cover_letters/Cover_*.*
 !cover_letters/cover_example.tex
+# Catch application output that doesn't follow the main_/cover_ naming
+# convention (e.g. one-off packages built via the docx skill, named
+# <company>_<role>_package_N.tex/.docx) — any generated tex/docx in these
+# folders is personal and must never be committed, regardless of filename.
+cv/*.tex
+cv/*.docx
+!cv/main_example.tex
+cover_letters/*.tex
+cover_letters/*.docx
+!cover_letters/cover_example.tex
+# LaTeX package files (academicons, fontawesome6, import, needspace, etc.)
+# copied locally to satisfy compilation on a minimal TeX install, landing
+# loose in cv/, cover_letters/, or repo root. Scoped to those three
+# locations only (not a bare *.sty) — /add-template intentionally commits
+# companion .cls/.sty files under templates/<type>/<name>/, and those must
+# stay trackable.
+cv/*.sty
+cover_letters/*.sty
+/*.sty
+# Stray application output accidentally written to the repo root instead of
+# cv/ or cover_letters/ — same personal-data risk, wrong location.
+/*.tex
+/*.docx
 
 # /setup generates a personal private-sector playbook containing real achievements,
 # compensation expectations, and network strategy. Personal - never commit.
