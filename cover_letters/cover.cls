@@ -10,7 +10,6 @@
 
 % Package Imports
 \usepackage[hmargin=2.3cm, vmargin=2.3cm]{geometry}
-\usepackage[hidelinks]{hyperref}
 \usepackage[usenames,dvipsnames]{xcolor}
 \usepackage{titlesec}
 \usepackage[absolute]{textpos}
@@ -25,6 +24,11 @@
 \definecolor{primary}{HTML}{2b2b2b}
 \definecolor{headings}{HTML}{6A6A6A}
 \definecolor{subheadings}{HTML}{333333}
+% Accent blue matching the CV's moderncv "blue" color scheme - used on the
+% name and hyperlinks so the cover letter visually pairs with the CV
+% instead of reading as an unrelated grayscale document.
+\definecolor{accentblue}{HTML}{1E64C8}
+\usepackage[colorlinks=true, linkcolor=accentblue, urlcolor=accentblue, filecolor=magenta]{hyperref}
 
 % Set main fonts
 \setmainfont[Color=primary, Path = OpenFonts/fonts/lato/,BoldItalicFont=Lato-RegIta,BoldFont=Lato-Reg,ItalicFont=Lato-LigIta]{Lato-Lig}
@@ -41,8 +45,9 @@ Last Updated on \today
 % Name command
 \newcommand{\namesection}[3]{
 \centering{
+\color{accentblue}
 \fontsize{40pt}{60pt}
-\fontspec[Path = OpenFonts/fonts/lato/]{Lato-Hai}\selectfont #1 
+\fontspec[Path = OpenFonts/fonts/lato/]{Lato-Hai}\selectfont #1
 \fontspec[Path = OpenFonts/fonts/lato/]{Lato-Lig}\selectfont #2
 } \\[5pt]
 \centering{

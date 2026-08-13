@@ -85,3 +85,5 @@ Include:
 - [ ] Word and character counts measured, not estimated
 - [ ] In-progress qualifications described as in progress
 - [ ] `NOTE TO SELF` blocks clearly marked as internal
+- [ ] No run-on sentences, per `03-writing-style.md`'s Sentence Style rules — re-scan on every revision, not just the first draft, since fixing one run-on routinely introduces another nearby
+- [ ] Any comparison between the candidate's past work and the target company's product holds at the mechanism level, not just the surface level — see `03-writing-style.md`'s "Analogy accuracy" section. If only the shape of the story matches, say "adjacent, not identical" rather than implying equivalence

@@ -1,6 +1,6 @@
 # Search Queries for Job Scraper — Canada
 
-<!-- SETUP: Replace the [PLACEHOLDER] values with your own roles, skills, and cities. -->
+<!-- Populated by /setup for Raymond Chu. Re-run `/setup --section search` to update. -->
 
 ## Installed portal CLIs (primary for `/scrape`)
 
@@ -11,8 +11,10 @@ first. In this Canadian fork the relevant ones are:
 |-------|--------|-------|
 | `jobbank-ca-search` | Job Bank / Guichet-Emplois, all of Canada | Government-run, every province and territory, all sectors. `--lang fr` for the French listings |
 | `gcjobs-search` | GC Jobs — federal public service | Jobs open to the public. Sweeps the listing and filters locally, so give it ~30 s |
-| `linkedin-search` | Global, incl. Canada | Pass a Canadian place string, e.g. `-l "Toronto, Ontario, Canada"` |
+| `linkedin-search` | Global, incl. Canada | Pass a Canadian place string, e.g. `-l "Vancouver, British Columbia, Canada"` |
 | `freehire-search` | Country-agnostic REST API | Ships with upstream |
+| `talent-com-search` | Talent.com, defaults to ca.talent.com | Every province/territory, English and French |
+| `eluta-search` | Eluta.ca | Indexes employer career pages directly ("Canada's Top 100 Employers"), good for jobs never posted to boards |
 
 The Danish demo skills (`jobindex-search`, `jobnet-search`, `jobbank-search`,
 `jobdanmark-search`) are inherited from upstream and left installed for reference.
@@ -31,57 +33,66 @@ CLI, company career pages, or when a CLI fails.
 Primary (have CLIs — no `site:` line needed):
 - **jobbank.gc.ca** — Job Bank, national coverage
 - **emploisfp-psjobs.cfp-psc.gc.ca** — GC Jobs, federal public service
-- **linkedin.com/jobs** — filter to Canada / your city
+- **linkedin.com/jobs** — filter to Vancouver / Metro Vancouver
+- **ca.talent.com** — Canadian aggregator
+- **eluta.ca** — indexes employer career pages directly
 
 Secondary (WebSearch fallback, no CLI in this fork):
 - **indeed.ca** — largest commercial board in Canada; blocks automated access, so
   WebSearch only
 - **glassdoor.ca** — postings plus salary and review context
-- **talent.com** — Canadian-founded aggregator
-- **jobillico.com** — strong in Quebec, bilingual
-- **eluta.ca** — indexes employer career pages directly, good for jobs never posted to boards
+- **jobillico.com** — strong in Quebec, bilingual (lower priority — Raymond is
+  Vancouver-only and English-professional; keep for national sweeps, not a primary source)
 - **workinnonprofits.ca**, **charityvillage.com** — non-profit sector
-- **[YOUR_PROVINCIAL_PORTAL]** — e.g. BC Public Service, OPS Careers (Ontario),
-  Alberta Government, Emplois Québec; each province runs its own
-- **[YOUR_MUNICIPAL_PORTAL]** — City of Toronto, City of Vancouver, etc.
+- **BC Public Service Careers** (gov.bc.ca/careers) — provincial
+- **City of Vancouver careers** — municipal
 - Company career pages via `site:` search
 
 ## Query categories
 
-Combine each query with your location terms. Canadian location strings that work well:
-`Toronto`, `Greater Toronto Area`, `GTA`, `Vancouver`, `Metro Vancouver`, `Montréal`,
-`Calgary`, `Ottawa-Gatineau`, `Edmonton`, `Winnipeg`, `Halifax`, `Québec City`,
-`Waterloo Region`, `Remote Canada`, `Hybrid [YOUR_CITY]`.
+Combine each query with Vancouver-area location terms: `Vancouver`, `Metro Vancouver`,
+`Greater Vancouver`, `Burnaby`, `Richmond`, `North Vancouver`, `West Vancouver`,
+`New Westminster`, `Coquitlam`, `Surrey`, `Remote Canada`, `Hybrid Vancouver`.
 
-### Priority 1: [YOUR_PRIMARY_ROLE_TYPE]
+### Priority 1: Senior Product Manager / Group Product Manager / Principal Product Manager / Director of Product
 
-Your strongest and most desired direction.
+Core target titles, in rough order of seniority match.
 
 ```
-site:linkedin.com/jobs "[YOUR_PRIMARY_JOB_TITLE]" [YOUR_CITY] Canada
-site:indeed.ca "[YOUR_PRIMARY_JOB_TITLE]" [YOUR_CITY]
-site:eluta.ca "[YOUR_PRIMARY_JOB_TITLE]" [YOUR_CITY]
-"[YOUR_PRIMARY_JOB_TITLE]" "[YOUR_CITY]" careers -site:linkedin.com
+site:linkedin.com/jobs "Senior Product Manager" Vancouver Canada
+site:linkedin.com/jobs "Group Product Manager" Vancouver Canada
+site:linkedin.com/jobs "Principal Product Manager" Vancouver Canada
+site:linkedin.com/jobs "Director of Product" Vancouver Canada
+site:indeed.ca "Senior Product Manager" OR "Director of Product" Vancouver
+site:eluta.ca "Product Manager" Vancouver
+"Senior Product Manager" OR "Director of Product" "Vancouver" careers -site:linkedin.com
 ```
 
 Also run the NOC official title for the role, not just the colloquial one — Canadian
 postings frequently use NOC wording verbatim. See `09-canada-conventions.md` §6.
 
-### Priority 2: [YOUR_DOMAIN_EXPERTISE]
+### Priority 2: Domain keywords
+
+Primary (weight heavily): **CRM**, **GenAI/AI product**, **B2B SaaS**.
+Secondary (lighter weight — real experience, not the lead pitch): **PCI/payments compliance**, **IoT**.
 
 ```
-site:linkedin.com/jobs [YOUR_DOMAIN_KEYWORD_1] [YOUR_CITY] Canada
-site:indeed.ca [YOUR_DOMAIN_KEYWORD_1] OR [YOUR_DOMAIN_KEYWORD_2] [YOUR_PROVINCE]
-site:jobillico.com [YOUR_DOMAIN_KEYWORD_1] [YOUR_CITY]
+site:linkedin.com/jobs "Product Manager" CRM Vancouver Canada
+site:linkedin.com/jobs "Product Manager" "GenAI" OR "AI product" Vancouver Canada
+site:linkedin.com/jobs "Product Manager" "B2B SaaS" Vancouver Canada
+site:indeed.ca "Product Manager" CRM OR "GenAI" "British Columbia"
+site:talent.com "Product Manager" "B2B SaaS" Vancouver
+site:linkedin.com/jobs "Product Manager" PCI OR payments Vancouver Canada
+site:linkedin.com/jobs "Product Manager" IoT Vancouver Canada
 ```
 
-### Priority 3: [YOUR_ADJACENT_ROLE_TYPE]
-
-Roles you could pivot into.
+### Priority 3: Adjacent roles (pivot potential)
 
 ```
-site:linkedin.com/jobs "[YOUR_ADJACENT_TITLE_1]" [YOUR_KEY_SKILL] [YOUR_CITY]
-site:indeed.ca "[YOUR_ADJACENT_TITLE_2]" [YOUR_KEY_SKILL] [YOUR_PROVINCE]
+site:linkedin.com/jobs "Program Manager" Vancouver Canada
+site:linkedin.com/jobs "Manager, Call Centre Integrations" OR "Manager, Contact Centre Technology" Vancouver
+site:indeed.ca "Program Manager" "British Columbia"
+site:indeed.ca "Call Centre" Technology Manager Vancouver
 ```
 
 ### Priority 4: Public sector
@@ -90,36 +101,62 @@ Federal is covered by the `gcjobs-search` CLI. These reach the provincial, munic
 and broader-public-sector boards it does not:
 
 ```
-site:gov.bc.ca/careers [YOUR_KEY_SKILL]
-site:gojobs.gov.on.ca [YOUR_KEY_SKILL]
-"[YOUR_PRIMARY_JOB_TITLE]" city of [YOUR_CITY] careers
-"[YOUR_PRIMARY_JOB_TITLE]" [YOUR_PROVINCE] health authority careers
+site:gov.bc.ca/careers "Product Manager" OR "Program Manager"
+"Senior Product Manager" city of Vancouver careers
+"Product Manager" BC health authority careers
 ```
+
+**Language caution:** Raymond's French is conversational/travel-level only, not
+professional. Do not surface or prioritize "Bilingual - imperative" federal postings on
+the assumption his French qualifies — see `CLAUDE.md` Identity section and
+`09-canada-conventions.md` §8 on federal language requirements.
 
 ### Priority 5: Remote and cross-border
 
 ```
-site:linkedin.com/jobs "[YOUR_PRIMARY_JOB_TITLE]" "remote" Canada
-"[YOUR_PRIMARY_JOB_TITLE]" "remote - Canada" OR "Canada remote"
+site:linkedin.com/jobs "Senior Product Manager" "remote" Canada
+site:linkedin.com/jobs "Director of Product" "remote - Canada" OR "Canada remote"
 ```
 
 Watch for US postings that say "remote" but are not open to Canadian residents —
 check for a Canadian entity or "authorized to work in Canada" before applying.
 
+### Target Company Watch List
+
+Direct monitoring for companies of specific interest, run alongside the priority
+categories above. Confirm each company's actual careers-page/ATS domain before relying
+on a `site:` filter against it — these shift over time.
+
+```
+site:linkedin.com/jobs "Product Manager" Workday
+site:linkedin.com/jobs "Product Manager" Arc'teryx
+site:linkedin.com/jobs "Product Manager" Instacart
+site:linkedin.com/jobs "Product Manager" Asana
+site:linkedin.com/jobs "Product Manager" Wealthsimple
+```
+
+Also run `linkedin-search -k "Product Manager" -l "Vancouver, British Columbia, Canada"`
+and filter results locally for these five employers, since LinkedIn's own search often
+surfaces postings `site:` filters miss.
+
 ## Location filter
 
-Verify the job location is realistically commutable, or genuinely remote. Define your
-acceptable areas:
-- [YOUR_CITY] and surrounding municipalities
-- [ACCEPTABLE_AREA_1] — e.g. within [X] min by transit or car
-- [BORDERLINE_AREA] (borderline)
-- [TOO_FAR_AREA] (too far)
+Raymond is not open to relocation. Vancouver/Metro Vancouver only.
+
+- **Ideal:** Vancouver, Burnaby, Richmond, New Westminster, North Vancouver, West
+  Vancouver — core Metro Vancouver, realistic daily commute
+- **Acceptable:** Coquitlam, Port Moody, Port Coquitlam, Surrey, Delta — Metro
+  Vancouver periphery, commutable but longer
+- **Borderline:** Langley, Abbotsford, Fraser Valley — only if fully remote or rare
+  in-office days
+- **Too far:** anywhere outside Metro Vancouver requiring a regular in-person commute
+  (Victoria, Kelowna, Calgary, Toronto, etc.), unless the role is fully remote
 
 Canadian specifics worth encoding:
-- Job Bank writes locations as `City (PR)`, e.g. `Mississauga (ON)`; GC Jobs writes
-  `City (Province)`, e.g. `Ottawa (Ontario)`. Both spell Québec with the accent.
+- Job Bank writes locations as `City (PR)`, e.g. `Vancouver (BC)`; GC Jobs writes
+  `City (Province)`, e.g. `Vancouver (British Columbia)`.
 - Postings covering several sites appear as "Various locations" — open the posting to
-  see whether yours is included.
+  see whether Vancouver is included.
 - Winter commute distances are not summer commute distances; be honest about the limit.
 
 ## Date filter
@@ -132,15 +169,20 @@ deadline instead, and treat anything closing within 48 hours as urgent.
 
 ## Work-authorization filter
 
-Screen out postings you are not eligible for before spending effort on them:
-- Federal postings: check the *Who can apply* rule (`whoCanApply` from `gcjobs-search`)
-- Security-cleared roles: many require Canadian citizenship, not just residency
-- Postings that state sponsorship is unavailable, if that applies to you
+Raymond is a Canadian citizen — no sponsorship-related screening needed. Still screen
+out:
+- Federal postings with a *Who can apply* restriction that excludes external candidates
+  where relevant (`whoCanApply` from `gcjobs-search`)
+- Security-cleared roles that require a clearance level Raymond does not hold
+- "Bilingual - imperative" federal postings (see Priority 4 language caution above) —
+  his French does not meet a professional bilingual bar
 
 ## Adapting queries
 
 If the user specifies a focus area, select queries from the matching category and
 generate 2-3 custom queries for that focus. For example:
-- `/scrape federal` → run `gcjobs-search` with no title filter plus the public-sector queries
-- `/scrape bilingual` → `gcjobs-search --lang-req Bilingual` plus `jobbank-ca-search --lang fr`
-- `/scrape remote` → the remote category plus `linkedin-search --remote remote -l "Canada"`
+- `/scrape federal` → run `gcjobs-search` with no title filter plus the public-sector
+  queries (screen out bilingual-imperative postings per the language caution above)
+- `/scrape remote` → the remote category plus
+  `linkedin-search --remote remote -l "Canada"`
+- `/scrape companies` → the Target Company Watch List section only

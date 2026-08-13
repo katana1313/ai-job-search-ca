@@ -125,6 +125,21 @@ The font wrapper is mandatory — if you just move `\begin{itemize}` outside `\l
 
 ## Tailoring Guidelines
 
+### Recipient block and contact line (Raymond's finalized format)
+
+Based on the version actually submitted for the StackAdapt application, use a formal left-aligned recipient block above the salutation, and show the full LinkedIn URL as visible text rather than just a "LinkedIn" hyperlink label (better for ATS - a contact detail carried only by anchor text, not the literal URL, doesn't index cleanly on parsers that don't extract hyperlink annotations):
+```latex
+\namesection{}{\Huge{[YOUR_NAME]}}{  \href{mailto:[EMAIL]}{[EMAIL]} | [PHONE] |  \urlstyle{same}\href{[LINKEDIN_URL]}{linkedin.com/in/[YOUR_HANDLE]}
+}
+
+{\raggedright\currentdate{[Month DD, YYYY]}}
+\companyname{Hiring Team}
+\companyaddress{[Company] \\ Re: [Role Title]}
+
+\lettercontent{Dear [Company] Hiring Team,}
+```
+`\currentdate` defaults to `\raggedleft` (right-aligned) in `cover.cls` - override to `\raggedright` as shown so the date sits with the rest of the left-aligned block, matching a traditional formal business-letter layout. `\companyname{}` and `\companyaddress{}` are existing `cover.cls` commands - use them for this block rather than inventing new formatting.
+
 ### Salutation
 - If you know the hiring manager's name: "Dear [First Last],"
 - If you know the team: "Dear [Company] hiring team,"
@@ -136,6 +151,23 @@ The font wrapper is mandatory — if you just move `\begin{itemize}` outside `\l
 - **Word budget: 250-300 words** of body text (not counting LaTeX markup). This is the safe maximum. 350 words will overflow.
 - **Always count**: opening paragraph + bullet list paragraph + closing paragraph = 3 blocks. Add a 4th only if the others are short.
 - When adding company-specific content, trim other content to compensate rather than adding net length
+
+### Word-count gate (MANDATORY — before presenting to the user)
+Fitting on 1 compiled page is not the same check as staying inside the
+250-300 word budget — a letter can compile to 1 page while sitting well
+over budget, or one large dense paragraph can hide a total near the
+350-word ceiling. Before showing a draft (first draft or a revision) to
+the user, count the words in the body text and state the count. This is
+the cover-letter equivalent of the CV's page-count check and is just as
+mandatory.
+
+### Don't run bullets and prose in parallel
+Pick one mode: prose-only paragraphs, or short paragraphs plus a bullet
+list. Do not describe the same achievement in a flowing paragraph and
+then repeat it in a bullet — that's not more evidence, it's the same
+evidence twice, and it's the fastest way to blow the word budget without
+noticing. If bullets are used, the surrounding paragraphs should
+introduce and connect them, not restate their content.
 
 ### Line Spacing
 - Add `\usepackage{setspace}` and `\setstretch{1.0}` if the letter is long and needs to fit on one page
@@ -158,6 +190,7 @@ The font wrapper is mandatory — if you just move `\begin{itemize}` outside `\l
 
 ## Checklist Before Finalizing
 - [ ] No em-dashes (use commas or periods instead)
+- [ ] No long run-on sentences (a sentence chaining 2-3 ideas together with commas and "and"/"then" is a run-on even if grammatically legal, per `03-writing-style.md`)
 - [ ] No cliches or empty filler
 - [ ] Every claim backed by specific example
 - [ ] Forward-looking framing: focuses on tasks you'll solve, not just past duties

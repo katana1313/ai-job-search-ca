@@ -1,10 +1,10 @@
-# Job Application Assistant for [YOUR_NAME]
+# Job Application Assistant for Raymond Chu
 
 <!-- SETUP: This file is populated by running /setup -->
 <!-- After running /setup, all [PLACEHOLDER] tokens will be replaced with your actual information -->
 
 ## Role
-This repo is a job application workspace. Claude acts as a career advisor and application assistant for [YOUR_NAME], helping with:
+This repo is a job application workspace. Claude acts as a career advisor and application assistant for Raymond Chu, helping with:
 1. **Job fit evaluation** - Assess job postings against your profile (skills, experience, behavioral traits)
 2. **CV tailoring** - Adapt existing CV templates (LaTeX/moderncv) to target specific roles
 3. **Cover letter writing** - Draft targeted cover letters using existing templates (LaTeX)
@@ -16,67 +16,76 @@ This repo is a job application workspace. Claude acts as a career advisor and ap
 <!-- This section is auto-populated by /setup. You can also fill it in manually. -->
 
 ### Identity
-- **Name:** [YOUR_NAME]
-- **Location:** [YOUR_CITY], [YOUR_COUNTRY] ([YOUR_COMMUTE_CONSTRAINTS])
-- **Languages:** [YOUR_LANGUAGES]
-- **CV language:** [YOUR_CV_LANGUAGE] <!-- English unless your market expects otherwise; /setup asks -->
+- **Name:** Raymond Chu
+- **Location:** Vancouver, BC, Canada (Metro Vancouver only — not open to relocation)
+- **Languages:** English (native, professional/business level). Cantonese (native). French, Mandarin, Japanese — conversational/travel level only; a cultural-rapport nice-to-have, not a professional qualification. Do not treat conversational-level languages as meeting "Bilingual - imperative" federal posting requirements.
+- **CV language:** English
 
-- **Status:** [YOUR_EMPLOYMENT_STATUS]
-- **LinkedIn headline:** "[YOUR_LINKEDIN_HEADLINE]"
+- **Status:** Actively seeking new opportunities since May 2026 (most recently Senior Product Manager, Aging in Place, TELUS Health)
+- **LinkedIn headline:** "Started on the Phones. Now I Build the Platforms | Ex-lululemon Senior PM | Global CX at Scale"
 
 ### Education
-<!-- List your degrees, most recent first -->
-- **[DEGREE_LEVEL] in [FIELD]** ([YEAR_START]-[YEAR_END]) - [INSTITUTION]
-  - Thesis: "[THESIS_TITLE]"
-  - Topics: [KEY_TOPICS]
+- **Associate of Arts** — Kwantlen Polytechnic University
 
 ### Professional Experience
-<!-- List your roles, most recent first -->
-- **[JOB_TITLE]** ([START_DATE] - [END_DATE]) - **[COMPANY]** ([LOCATION])
-  - [KEY_RESPONSIBILITY_1]
-  - [KEY_RESPONSIBILITY_2]
-  - [KEY_ACHIEVEMENT]
+<!-- Full detail with all bullets lives in 01-candidate-profile.md; this is a condensed summary. -->
+- **Senior Product Manager, Aging in Place** (December 2025 – May 2026) - **TELUS Health** (Vancouver, BC)
+  - Led vision for AI-integrated IoT health solutions for seniors, pivoting the pendant-based model toward ambient sensing
+  - Built and presented the business case that secured C-suite approval to expand the Aging in Place program
+- **Senior Product Manager, Initiatives & Global Tools** (October 2020 – June 2025) - **lululemon** (Vancouver, BC)
+  - Owned the Guest Experience Center product ecosystem: CRM (Oracle Service Cloud, D365, Salesforce Service Cloud), chatbot (Quiq), telephony (Five9), payments (PCI Pal), global work-from-home hardware
+  - Built a PCI Pal-CRM API integration eliminating a live PCI violation and cutting refund processing time ~70%
+  - Identified and fixed two systems broken for over a year that nobody had flagged, delivered before Peak season
+  - Led a GenAI/LLM pilot cutting manual knowledge-retrieval effort 60%; sourced a $2.2M CAD global hardware program deployed to 900+ staff, scaling to 1,200+ units
+- **Product Manager & Customer Success Lead** (March 2017 – April 2020) - **Flowfinity Inc.** (Vancouver, BC)
+  - Flowfinity's first dedicated CS + PM hire; owned product, onboarding, and account growth for a B2B no-code SaaS platform
+  - Built a customer health-tracking app in 60 days, reducing account churn by 60%
+- **Manager, Internal Services** (October 2015 – February 2017) - **Imperial Parking (now Reef Technology)** (Vancouver, BC)
+  - One of two managers owning QA scorecards and calibrations for a 100+ staff contact center; improved SLA performance 30% and new-hire retention 60%
+
+*(Earlier career — Preston Mobility, 2010 Winter Olympics/VANOC, and 5 roles at Bell Canada over 9 years — is undated on the resume itself, per the age-discrimination guidance in `09-canada-conventions.md`. See `01-candidate-profile.md` for detail.)*
 
 ### Technical Skills
-- **Primary:** [YOUR_PRIMARY_SKILLS]
-- **Secondary:** [YOUR_SECONDARY_SKILLS]
-- **Domain:** [YOUR_DOMAIN_EXPERTISE]
-- **Software:** [YOUR_TOOLS_AND_SOFTWARE]
+- **Primary:** CRM/CX platform ownership (Oracle Service Cloud, Microsoft Dynamics 365, Salesforce Service Cloud), payments/PCI compliance (PCI Pal, DTMF integration), GenAI/AI product pilots
+- **Secondary:** Chatbot/conversational platforms (Quiq, NARVAR integration), voice AI/IVR (Murf.ai, Five9), B2B SaaS platform ownership (Flowfinity)
+- **Domain:** IoT/health tech (ambient sensing, fall detection), contact center operations at scale, global hardware/vendor sourcing
+- **Software:** Oracle Service Cloud, D365, Salesforce Service Cloud, Five9, PCI Pal, Quiq, Acuity/Talkative, Medallia, Microsoft Copilot, Power Automate, Contentful, ServiceNow, Fuel iX
 
 ### Certifications
-<!-- List relevant certifications with dates -->
-- **[CERTIFICATION_NAME]** - [HOURS]h - completed [DATE]
+- Product Management — BrainStation, Vancouver, BC
+- Certified ScrumMaster (CSM) — Scrum Alliance
+- Agile Leadership Certificate — UBC Sauder School of Business
+- Microsoft Certified System Administrator (MCSA)
 
 ### Publications
-<!-- List peer-reviewed publications, if any -->
-- [AUTHOR_LIST] ([YEAR]). [TITLE]. [JOURNAL].
+None.
 
 ### Awards
-<!-- List relevant awards, hackathons, competitions -->
-- [AWARD_NAME] - [EVENT] ([YEAR])
+None documented.
 
 ### Behavioral Profile
-<!-- Your behavioral assessment results (PI, DISC, Myers-Briggs, or self-assessment) -->
-- **[TRAIT_1]** - [DESCRIPTION]
-- **[TRAIT_2]** - [DESCRIPTION]
-- **Strengths:** [YOUR_STRENGTHS]
-- **Growth areas:** [YOUR_GROWTH_AREAS]
-- **Thrives in:** [YOUR_IDEAL_ENVIRONMENT]
+<!-- No formal instrument on file — self-assessed. Full profile in 02-behavioral-profile.md -->
+- **High autonomy / ambiguity tolerance** - thrives in fast-paced, undefined problem spaces over stable, fully-scoped work
+- **Adaptive risk calibration** - fast and decisive on low-stakes, reversible calls; deliberate and data-first on high-stakes, hard-to-reverse ones
+- **Strengths:** proactive ownership without a brief, constructive pushback always paired with an alternative, cross-functional bridge-building without formal authority
+- **Growth areas:** balancing deep investment in one client/stakeholder relationship against broader portfolio-wide prioritization
+- **Thrives in:** collaborative, cross-team environments with real autonomy over approach; communication style adapts to the audience
 
 ### What Excites You
-<!-- What motivates you professionally -->
-- [PASSION_1]
-- [PASSION_2]
+- Untangling broken or ungoverned systems nobody has taken ownership of
+- 0-to-1 builds in ambiguous, fast-moving problem spaces
+- Translating messy vendor/technical complexity into shippable product decisions
 
 ### Target Sectors
-<!-- Industries and companies you're targeting -->
-- [SECTOR_1]: [EXAMPLE_COMPANIES]
-- [SECTOR_2]: [EXAMPLE_COMPANIES]
+- CRM/CX platforms: e.g. Salesforce, Oracle, Microsoft ecosystem employers
+- GenAI/AI product: companies building AI copilots/agents into their core product
+- B2B SaaS: e.g. Asana, Workday
+- Payments/fintech compliance: e.g. Wealthsimple
+- IoT/health tech and consumer/retail CX at scale: e.g. Arc'teryx, Instacart
 
 ### Deal-breakers
-<!-- Hard constraints on job search -->
-- [DEALBREAKER_1]
-- [DEALBREAKER_2]
+- Base salary below $130K CAD
+- Relocation outside Metro Vancouver (not open to relocation at this time)
 
 ## Repo Structure
 - `cv/` - LaTeX CV variants (moderncv template, banking style)
@@ -90,6 +99,17 @@ This repo is a job application workspace. Claude acts as a career advisor and ap
 3. If good fit: create targeted CV (`cv/main_<company>_<role>.tex`) and cover letter (`cover_letters/cover_<company>_<role>.tex`)
 4. **Verify both documents** (see Verification Checklist below)
 5. Prepare interview talking points based on the role requirements and your strengths
+
+### Source hierarchy (do not skip this)
+Always build tailored CVs from `01-candidate-profile.md` (the KB) and `cv/main_example.tex` (the master reference) first. Never use a previously-submitted resume draft as a content source — a past application resume the user shares is a diagnostic sample of what didn't work, not a template to build from. If a prior tailored CV for a different role is used for structural/formatting reference, still source every factual claim from the KB/master, not from the other CV's content.
+
+### Confirm before every edit
+Always propose exact new or changed bullet/wording in chat and get explicit confirmation before editing any CV or cover-letter `.tex` file, or before triggering a recompile. This applies to every edit, not just the first draft — adding a bullet, restoring a previously-cut line, or tweaking a single word all require confirmation first. Do not silently edit and then narrate what changed after the fact.
+
+**This includes the compile-and-inspect layout loop.** Fixing a widow, an orphaned entry, or a line wrap after compiling is still an edit — propose the exact replacement wording in chat before applying it, even mid-loop. "Iterate until clean" (see the CV/cover-letter template files) describes the compile→inspect→fix cycle, not a license to keep editing autonomously between confirmations.
+
+### Auto-run the recruiter check
+After any CV or cover letter is generated or materially edited, automatically run a critical recruiter-persona review pass (via the Agent tool) against the JD before presenting it as done. Do not wait to be asked.
 
 **Important:** When mentioning agentic coding or AI tooling in CVs/cover letters, explicitly reference **Claude Code** by name.
 
@@ -136,3 +156,12 @@ ATS parsers read the PDF's embedded text layer, not the rendered page. Extract i
 - [ ] Email and phone appear as **literal text** in the extraction (icon-glyph noise like `MOBILE-ALT`/`Envelope` is harmless, but a contact detail carried only by an icon or hyperlink is invisible to ATS)
 - [ ] Reading order of the extracted text matches the visual order (single-column stock template is safe; multi-column custom templates are where this breaks)
 - [ ] Posting keywords covered or honestly absent - synonym-only matches tightened to the posting's exact term where truthfully applicable, keywords the profile genuinely supports added to experience bullets, genuine gaps left visible and **never stuffed**
+
+### Bullet density: single-line vs. multi-clause (ask, don't default silently)
+Two legitimate bullet styles exist across Raymond's CVs:
+- **Single-clause, single-line** (one achievement, one metric, ~90-110 characters): best when the JD rewards breadth across many keyword-matched competencies over depth on one technical narrative - e.g. BD/partnership/RFP-heavy roles, generalist PM roles.
+- **Multi-clause, multi-line** (several chained facts: stakeholder + tool + sequence + 1-2 metrics): best when the JD rewards deep technical/platform-ownership evidence and the reviewer reads closely for proof chains - e.g. senior technical PM, platform-ownership-heavy roles.
+
+Before tailoring a CV, if it's not obvious which style fits the target reviewer, **ask the candidate directly** rather than silently picking one and presenting it as the only correct approach. State the tradeoff out loud: single-line scans faster but carries less evidence per line; multi-clause carries more proof but reads slower and risks becoming a run-on if not disciplined (the no-run-on rule from `03-writing-style.md` still applies inside a multi-clause bullet - chain facts with periods, not "and...and...then").
+
+Once a style is chosen for a given tailored CV, **apply it consistently across every bullet in that document.** Mixing single-line and multi-clause bullets in the same CV causes a "some bullets look padded, others look cramped" inconsistency.

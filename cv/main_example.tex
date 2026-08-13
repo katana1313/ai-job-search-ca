@@ -1,8 +1,7 @@
-%% Example CV - [YOUR_NAME]
+%% Example CV - Raymond Chu
 %% Comprehensive overview of all competencies, experience, and achievements.
 %% Use as a master reference when tailoring role-specific CVs.
 %%
-%% SETUP: Run /setup to populate this with your actual information.
 %% Compile with: lualatex main_example.tex
 %% (pdflatex often fails on modern MiKTeX with fontawesome5 font-expansion errors.)
 
@@ -13,29 +12,94 @@
 % Force both first and last name AND section headings to render in moderncv
 % blue (color1). Default banking on lualatex+MiKTeX leaves these black, which
 % looks inconsistent with the rest of the blue accent scheme.
-\renewcommand*{\firstnamestyle}[1]{{\fontsize{34}{36}\bfseries\upshape\color{color1}#1}}
-\renewcommand*{\lastnamestyle}[1]{{\fontsize{34}{36}\bfseries\upshape\color{color1}#1}}
+% Name is deliberately compact (22pt, not moderncv's 34pt default) to match
+% Raymond's preferred single-line contact header style below.
+\renewcommand*{\firstnamestyle}[1]{{\fontsize{22}{24}\bfseries\upshape\color{color1}#1}}
+\renewcommand*{\lastnamestyle}[1]{{\fontsize{22}{24}\bfseries\upshape\color{color1}#1}}
 \renewcommand*{\sectionstyle}[1]{{\sectionfont\color{color1}#1}}
 
 \usepackage[utf8]{inputenc}
+\usepackage{needspace}
+% moderncv's banking style already loads fontawesome5 internally (mapped to
+% FontAwesome 6 icon names on this MiKTeX install) - do NOT add a second
+% \usepackage{fontawesome5}, it causes duplicate-definition compile errors.
+% The \insight lightbulb below uses the low-level \faIcon{icon-name} form
+% since the shortcut macro \faLightbulb is not reliably defined under
+% moderncv's internal load; \faIcon{lightbulb} is the confirmed-working
+% FA6 icon name. The header previously also used \faIcon{location-dot} for
+% a location pin, but it extracts as literal "LOCATION-DOT" text in the
+% PDF's ATS text layer (confirmed via pdftotext) - removed, since it was
+% purely decorative and not worth the parsing risk on platforms like
+% Workday. The lightbulb is lower-risk (it extracts as a real Unicode
+% emoji, not a broken glyph name) so it stays.
 \usepackage{hyperref}
 \hypersetup{
     colorlinks=true,
     linkcolor=blue,
     filecolor=magenta,
     urlcolor=blue,
-    pdftitle={[YOUR_NAME] - CV},
+    pdftitle={Raymond Chu - CV},
     pdfpagemode=FullScreen,
 }
 \usepackage[scale=0.80]{geometry}
 \usepackage{import}
+\usepackage{ifthen}
+\definecolor{lightbulbyellow}{HTML}{FFD400}
+% LaTeX's automatic hyphenation can break "chatbot" as "chat-bot" at a
+% line-wrap boundary (a genuine inserted hyphen, invisible until you check
+% the actual PDF text layer via pdftotext) - an ATS text-layer keyword
+% search for "chatbot" could miss that instance. Exclude it globally.
+\hyphenation{chatbot}
+
+% Remove the top-level itemize bullet glyph (used for Core Competencies,
+% Education & Certifications, Languages, References) - Raymond found the
+% default (large, blue) redundant next to bold labels/company names. Do
+% NOT use \usepackage{enumitem} + \begin{itemize}[label={}] for this -
+% enumitem resets list spacing globally and silently adds a page. This
+% targeted redefinition only removes the glyph.
+\renewcommand*{\labelitemi}{}
+
+% Single-line job header: Title | Company - Location, dates flush right.
+% Replaces moderncv's default 2-line \cventry layout (Company+Location on
+% one line, Title+Dates on the next) with Raymond's preferred single-line
+% format to save vertical space. #1 title, #2 company, #3 location, #4
+% dates (pass #4 empty for undated Earlier Career entries).
+\newcommand{\cvoneline}[4]{%
+  \noindent\textbf{#1} \normalfont | #2 -- #3%
+  \ifthenelse{\equal{#4}{}}{}{\hfill\textit{#4}}%
+  \par\vspace{1pt}%
+}
+% Job-accomplishment bullets under a \cvoneline entry need the dash marker
+% moderncv normally reserves for level-2 lists (\labelitemii) - but since
+% \cvoneline entries aren't nested inside an outer wrapper itemize (unlike
+% moderncv's default \cventry pattern), these bullets are level-1 lists
+% and would otherwise inherit the empty \labelitemi above. Wrap each such
+% itemize block in {\dashitemize \begin{itemize}...\end{itemize}} - the
+% surrounding group keeps the override from leaking into Core
+% Competencies/Education/Languages/References, which stay markerless.
+\newcommand{\dashitemize}{\renewcommand*{\labelitemi}{\strut\textcolor{color1}{\large\bfseries-}}}
+% Markerless lists (Core Competencies, Education & Certifications,
+% Languages, References) still inherit itemize's normal left-margin/
+% label-width geometry even with an empty \labelitemi glyph - the text
+% sits indented into blank space that used to hold the marker. Zero the
+% list-geometry lengths locally (same \leftmargini-override approach as
+% \dashitemize, not enumitem) so the text starts flush with the section
+% heading - this also reduces word-wrap since the text column is wider.
+\newcommand{\flushitemize}{\setlength{\leftmargini}{0pt}\setlength{\labelsep}{0pt}\setlength{\labelwidth}{0pt}\setlength{\itemindent}{0pt}\setlength{\listparindent}{0pt}}
+
+% One-line "so what" synthesis under a role's bullets (Raymond's preferred
+% "insight line" pattern, borrowed from an external template he liked).
+% Use sparingly - most relevant/senior roles only, it costs vertical space.
+% Icon is yellow (lightbulbyellow); text stays color1 to match section
+% headers. Raymond rejected a dark amber - wanted true bright yellow.
+\newcommand{\insight}[1]{\vspace{2pt}\par{\small\itshape\color{lightbulbyellow}\faIcon{lightbulb}\color{color1}\ #1}}
 
 % personal data
-\name{[First]}{[Last]}
-\address{[Your Address, City, Country]}{}{}
-\phone[mobile]{[+XX XXXXXXXXXX]}
-\email{[your.email@example.com]}
-\extrainfo{\href{[https://linkedin.com/in/your-profile]}{LinkedIn}, \href{[https://github.com/your-username]}{GitHub}}
+% Single-line compact contact header: name, then one line of
+% location | email | phone | LinkedIn. City + province only, no full
+% street address or country (see 09-canada-conventions.md).
+\name{Raymond}{Chu}
+\extrainfo{\small Vancouver, BC \enspace$\vert$\enspace \href{mailto:raymond.ck.chu@gmail.com}{raymond.ck.chu@gmail.com} \enspace$\vert$\enspace +1 604-787-8881 \enspace$\vert$\enspace \href{https://linkedin.com/in/raymondckchu}{LinkedIn}}
 
 \begin{document}
 
@@ -46,7 +110,7 @@
 % ============================================================
 
 \vspace{6pt}
-\small{[Write a 3-5 line profile statement tailored to the role you're applying for. Focus on what makes you uniquely qualified. Example: "Data scientist with a PhD in [field] and X years of industry experience. Combines deep domain expertise in [domain] with strong applied machine learning and Python development skills. Experienced in developing end-to-end ML pipelines, from data ingestion to stakeholder-facing dashboards."]}
+\small{Senior Product Manager with 9+ years spanning CRM/CX platforms, IoT/health tech, GenAI pilots, payments/PCI compliance, and B2B SaaS. Known for finding and fixing broken systems nobody flagged. Leads 0-to-1 builds and translates vendor/technical complexity into shippable product decisions.}
 
 % ============================================================
 %     CORE COMPETENCIES
@@ -54,19 +118,20 @@
 
 \section{Core Competencies}
 \vspace{1pt}
+{\flushitemize
 \begin{itemize}
 
-\item \textbf{[Skill Category 1]}: [Specific skills, frameworks, tools. Be concrete.]
+\item \textbf{CRM \& Platforms}: Oracle Service Cloud, Microsoft Dynamics 365, Salesforce Service Cloud, Five9 (CCaaS)
 
-\item \textbf{[Skill Category 2]}: [Specific skills, frameworks, tools.]
+\item \textbf{AI \& Automation}: GenAI/LLM pilots, Microsoft Copilot (governance/go-no-go), Custom Copilot builds, Murf.ai (AI voice/IVR)
 
-\item \textbf{[Skill Category 3]}: [Specific skills, frameworks, tools.]
+\item \textbf{Payments \& Compliance}: PCI Pal, PCI compliance audits, DTMF integration, Fraud prevention system design, Multi-region tax reconciliation logic
 
-\item \textbf{[Skill Category 4]}: [Domain expertise, methods, approaches.]
+\item \textbf{Chat \& Messaging}: Quiq (chatbot platform ownership), NARVAR integration, Live chat-to-SMS channel transfer
 
-\item \textbf{[Skill Category 5]}: [Tools, platforms, software.]
+\item \textbf{IoT \& Hardware}: Ambient sensing / fall-detection IoT, Vendor sourcing and evaluation, Global hardware deployment (1,200+ units, 900+ staff)
 
-\end{itemize}
+\end{itemize}}
 
 % ============================================================
 %     PROFESSIONAL EXPERIENCE
@@ -74,57 +139,127 @@
 
 \section{Professional Experience}
 \vspace{3pt}
-\begin{itemize}
 
 % --- Most Recent Role ---
-\item{\cventry{[YYYY--Present]}{[Job Title]}{[Company]}{[City, Country]}{}{\vspace{1pt}
+\cvoneline{Senior Product Manager, Aging in Place}{TELUS Health}{Vancouver, BC}{Dec 2025--May 2026}
+\textit{0-to-1 product build. Led vision for AI-integrated IoT health solutions for seniors (ambient sensing / nighttime fall detection, ``Future Friendly'' product suite), pivoting the existing pendant-based model toward a broader market opportunity.}
+{\dashitemize
 \begin{itemize}
-    \item [Achievement or responsibility 1 - be specific, use numbers where possible]
-    \item [Achievement or responsibility 2]
-    \item [Achievement or responsibility 3]
-    \item [Achievement or responsibility 4]
-\end{itemize}}}
+    \item Conducted market research on Canada's aging population and the limitations of the pendant-only model. Identified ambient sensing as the technology pivot.
+    \item Conceived and planned a recurring Innovation Day event for ongoing market scans of hardware vendor partners. Defined pilot requirements and evaluation criteria. Role ended before the event ran.
+    \item Built and presented the business case that secured C-suite approval to expand the Aging in Place program.
+    \item Partnered with Engineering on data privacy, alert logic, and system architecture. Translated executive vision into technical hardware specs.
+    \item Proposed a package/tiering pricing structure for the new ambient sensor product alongside the existing pendant line. (Proposal stage only; role ended before pilot/validation ran.)
+    \item Tools: Fuel iX (TELUS internal GenAI platform), FigJam, Google Workspace.
+\end{itemize}}
+\insight{Drives an AI-first product pivot end to end, from market research through executive buy-in.}
 
-\vspace{3pt}
+\vspace{\baselineskip}
 
 % --- Previous Role ---
-\item{\cventry{[YYYY--YYYY]}{[Job Title]}{[Company]}{[City, Country]}{}{\vspace{1pt}
+\cvoneline{Senior Product Manager, Initiatives \& Global Tools}{lululemon}{Vancouver, BC}{Oct 2020--June 2025}
+\textit{Owned and operated lululemon's Guest Experience Center (GEC) product ecosystem: CRM platforms (Oracle Service Cloud, D365, Salesforce Service Cloud), chatbot (Quiq), telephony (Five9), payments (PCI Pal), scheduling (Acuity/Talkative), sentiment (Medallia), and the global work-from-home hardware program.}
+{\dashitemize
 \begin{itemize}
-    \item [Achievement or responsibility 1]
-    \item [Achievement or responsibility 2]
-    \item [Achievement or responsibility 3]
-\end{itemize}}}
+    \item Led discovery/workflow mapping feeding the OSC-to-D365 migration. After migration, stabilized D365 for North America and ran its sunset/deprecation program in the final year, while a separate team built Salesforce Service Cloud. Maintained 100\% PCI security compliance throughout. CX platform adoption increased 40\% globally.
+    \item Partnered with Engineering to build a PCI Pal-CRM API integration using DTMF keypad entry, eliminating a live PCI violation (agents taking card numbers verbally) and automating refund generation. Cut per-transaction time from ~10 min to ~3 min (~70\%), scaled to hundreds of transactions/week globally, and maintained 100\% uptime. PCI Pal also served a second live use case: CS-assisted guest order payment processing.
+    \item Owned the Quiq chatbot platform end-to-end, designing interaction flows solo with no dedicated UX partner. Drove the NARVAR shipment-tracking API integration into Quiq chat, reducing post-purchase support volume by an estimated ~35\%. The integration was later reused by the Marketing team for outreach campaigns beyond the original use case.
+    \item Led a GenAI/LLM pilot automating internal knowledge retrieval for guest support agents, reducing manual workflow effort by 60\%. Owned vendor evaluation, pilot design, and rollout end-to-end.
+    \item Identified and independently fixed two systems that had been broken since a prior CRM implementation, dormant over a year with nobody having flagged them: rebuilt Medallia post-interaction survey triggers, and migrated guest-facing returns web forms from Oracle-hosted to Microsoft-hosted infrastructure. Delivered both before Peak season.
+    \item Closed a known return-fraud vulnerability (guests refunded automatically on shipping-label scan regardless of returned item) and fixed refund tax calculation logic so Accounting could reconcile EMEA/APeC refunds without manual work.
+    \item Redesigned the OSC agent workspace into a single unified view (chat, Five9 telephony, and queue dashboards combined) after 5 years unchanged. Led solo without UX support due to urgency, working directly with a developer. Reduced average handle time (AHT) 30\% and cut order-followup/case resolution time from ~5 days to ~2 days.
+    \item Delivered an EHC IVR fix using Murf.ai integrated into Five9, reducing a multi-day update cycle to under 1 hour. Proactively took the guest-facing application through legal/branding approval and designed a phased global rollout (EHC to AU/NZ to APeC to EMEA) without being asked.
+    \item Ran a Microsoft Copilot for D365 pilot (email/chat summarization). Delivered the full evaluation framework in weeks, working directly with Microsoft engineers, and gave an honest go/no-go recommendation, deprioritizing ahead of Peak when the pilot didn't meet performance thresholds.
+    \item Built and drove organic adoption of a Custom Copilot tool (release-notes summarization) with no mandate, through demo-driven adoption across Guest Services product teams (WFM, ecommerce, chatbot). Saved a solutions architect 2+ days per release cycle.
+    \item Sourced and deployed global work-from-home hardware under COVID supply chain constraints (Lenovo Mini-PCs, standardized imaging via Microsoft Intune). Secured \$2.2M CAD OpsCo/SteerCo budget approval. Deployed 900+ staff before Peak 2021, scaling to 1,200+ units by 2024.
+    \item Mentored 4 PMs with no formal authority via documented feedback. 2 were promoted, 2 exited.
+    \item Led cross-org quarterly planning across 8 product teams and engineering over 3 years. Grew the Senior PM group from 2 to 8.
+    \item Identified that ~40\% of GEC interactions were with non-enrolled guests. Designed and iterated a CRM-based enrollment capture workflow, moving from optional to mandatory consent fields after data showed optional fields couldn't explain guest decline reasons, partnering with UX to tighten the flow. Reached ~80\% capture of the original 40\% gap, contributing to 30,000+ total enrollments in 6 months.
+    \item Partnered with UX/Design on Contentful (CMS) and WCAG 2.2 accessibility work. (Adjacent/UX-partnered exposure, not direct platform ownership.)
+\end{itemize}}
+\insight{Consistently turns ambiguous, cross-functional problems into shipped product decisions.}
 
-\vspace{3pt}
+\vspace{\baselineskip}
 
 % --- Earlier Role ---
-\item{\cventry{[YYYY--YYYY]}{[Job Title]}{[Company]}{[City, Country]}{}{\vspace{1pt}
+\cvoneline{Product Manager \& Customer Success Lead}{Flowfinity Inc.}{Vancouver, BC}{Mar 2017--Apr 2020}
+\textit{Flowfinity's first dedicated CS + PM hire. Owned product, onboarding, and account growth for a B2B no-code app-building SaaS platform, including a consulting/SOW practice as core scope of the role.}
+{\dashitemize
 \begin{itemize}
-    \item [Achievement or responsibility 1]
-    \item [Achievement or responsibility 2]
-\end{itemize}}}
+    \item Built a customer health-tracking app on Flowfinity's own platform within 60 days, a ``product-in-a-product.'' Trained the sales team on adoption and data-entry discipline and used it to weight the roadmap by ARR impact. Reduced account churn by 60\%.
+    \item Defined and owned a 90-day new-client onboarding lifecycle plus ongoing quarterly touchpoints and an annual health check involving Sales.
+    \item Rescued an at-risk new client (Second Harvest, ~2 months into onboarding and near churn) by taking over the relationship, structuring a supplemental billable SOW for extra consulting/dev hours, and bringing in client-side pilot users for faster feedback. Client retained long-term.
+    \item Rebuilt a pre-existing, ungoverned Acuity booking configuration and integration/API layer, inherited from an unsupervised setup, before layering in automation.
+    \item Created a seasonal/usage-based licensing model for Metro Mobile after the client couldn't commit to year-round perpetual license costs. Grew Metro Mobile from 150 to ~280--300 licenses over ~2 years. The model was later adopted by other large seasonal clients, becoming a repeatable pattern.
+    \item Operated a consulting practice for external clients (custom app/dashboard builds) billed at \$200/hr, partnering with Sales to scope and structure SOWs, typically running 1--3 concurrent client engagements. Client roster included Metro Mobile, a geological survey firm, San Diego Zoo (wildlife tracking), and the City of Cincinnati (municipal sewer systems).
+    \item Reduced admin work by 30\% company-wide through workflow/app improvements. Grew license count 25\% year one, organization-wide.
+\end{itemize}}
+\insight{Built the product, pricing, and delivery systems behind every major revenue outcome.}
 
-\end{itemize}
+\vspace{\baselineskip}
+
+% --- Earlier Role ---
+\cvoneline{Manager, Internal Services}{Imperial Parking (now Reef Technology)}{Vancouver, BC}{Oct 2015--Feb 2017}
+\textit{One of two managers owning QA scorecards and calibrations for the entire contact center. Oversaw 7 supervisors across a 100-staff core contact center plus an additional 20 specialized staff under direct responsibility.}
+{\dashitemize
+\begin{itemize}
+    \item Owned QA scorecards and calibrations across the full contact center, improving SLA performance by 30\%.
+    \item Improved new-hire retention by 60\% through onboarding and training process redesign.
+    \item Directed CRM and billing systems integration work across 400+ cities of operation.
+\end{itemize}}
+\insight{Rebuilt both systems and people processes to stabilize a high-volume contact center.}
 
 % ============================================================
-%     EDUCATION
+%     EARLIER CAREER
 % ============================================================
 
-\section{Education}
+\section{Earlier Career}
 \vspace{1pt}
-\begin{itemize}
+\textit{Details available on request.}
+% Rationale for staying undated: Canadian age-discrimination convention,
+% see 09-canada-conventions.md. Keep this section itself to the plain
+% "Details available on request." wording only - the fuller explanatory
+% version was previously getting copied verbatim into tailored CVs.
+\vspace{3pt}
 
-\item{\cventry{[YYYY--YYYY]}{[Degree] in [Field]}{[Institution]}{[City, Country]}{}{\vspace{1pt}
-Thesis: ``[Thesis Title].'' [Brief description of research focus.]
-}}
+\cvoneline{Manager, Sales Operations}{Preston Mobility}{Vancouver, BC}{}
+\textit{Led and won a City of Vancouver RFP using proven scaled-enterprise deployment processes. Improved onboarding and contract processes, boosting client NPS and CSAT.}
 
 \vspace{3pt}
 
-\item{\cventry{[YYYY--YYYY]}{[Degree] in [Field]}{[Institution]}{[City, Country]}{}{\vspace{1pt}
-[Brief description or key topics.]
-}}
+\cvoneline{Rate Card Technology Manager}{2010 Winter Olympics (VANOC)}{Vancouver, BC}{}
+\textit{Directed telecom setup for 9,000+ media devices in one week under strict Olympic readiness deadlines. Led mission-critical support at the Main Media Centre.}
 
-\end{itemize}
+\vspace{3pt}
+
+% Headline reframes the terminal title as "Operational Leadership" (Raymond's
+% preferred framing, broader/more transferable than "Store Manager" alone) -
+% the nested bullet below still names the literal historical title "Store
+% Manager" accurately, since that reframe is a headline-level style choice,
+% not a claim the title was literally called something else.
+\cvoneline{5 roles, Customer Service Rep. to Operational Leadership}{Bell Canada}{Vancouver, BC}{}
+\textit{Progressed from Customer Service Representative through Business Service Center Representative, Contracts Desk Mitigation \& Coordinator, and Assistant Store Manager to Store Manager.}
+{\dashitemize
+\begin{itemize}
+    \item Part of the inaugural training class at Bell's newly opened Vancouver call centre. Selected to represent Vancouver in national billing-system testing at Bell HQ in Toronto, then trained 200+ agents on return.
+    \item Sole BC coordinator for Enterprise \& Mid-Market contracts. Implemented Sarbanes-Oxley-aligned records standards.
+    \item As Store Manager, rotated across 6 corporate store locations (not concurrent) to improve and grow each. Managed device inventory, logistics, and shrinkage controls, and audited POS data, activations, and billing reconciliation.
+\end{itemize}}
+
+% ============================================================
+%     EDUCATION & CERTIFICATIONS
+% ============================================================
+
+\section{Education \& Certifications}
+\vspace{1pt}
+{\flushitemize
+\begin{itemize}
+\item Product Management -- BrainStation, Vancouver, BC
+\item Certified ScrumMaster (CSM) -- Scrum Alliance
+\item Agile Leadership Certificate -- UBC Sauder School of Business
+\item Microsoft Certified System Administrator (MCSA)
+\item Associate of Arts -- Kwantlen Polytechnic University
+\end{itemize}}
 
 % ============================================================
 %     LANGUAGES
@@ -132,29 +267,10 @@ Thesis: ``[Thesis Title].'' [Brief description of research focus.]
 
 \section{Languages}
 \vspace{1pt}
+{\flushitemize
 \begin{itemize}
-\item [Language 1] (native), [Language 2] (fluent), [Language 3] (intermediate).
-\end{itemize}
-
-% ============================================================
-%     PUBLICATIONS (optional)
-% ============================================================
-
-\section{Publications}
-\vspace{1pt}
-\begin{itemize}
-\item [Author(s)] ([Year]). [Title]. [Journal/Conference]. \href{[DOI_URL]}{DOI link}
-\end{itemize}
-
-% ============================================================
-%     HONORS AND AWARDS (optional)
-% ============================================================
-
-\section{Honors and Awards}
-\vspace{1pt}
-\begin{itemize}
-\item{\textbf{[Award Name]} -- [Event/Organization] ([Year]).}
-\end{itemize}
+\item English (native/professional), Cantonese (native). Conversational: French, Mandarin, Japanese.
+\end{itemize}}
 
 % ============================================================
 %     REFERENCES
@@ -162,8 +278,9 @@ Thesis: ``[Thesis Title].'' [Brief description of research focus.]
 
 \section{References}
 \vspace{1pt}
+{\flushitemize
 \begin{itemize}
 \item{Available upon request.}
-\end{itemize}
+\end{itemize}}
 
 \end{document}
