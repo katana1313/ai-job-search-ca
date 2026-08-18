@@ -906,8 +906,21 @@
       "url": "https://ca.linkedin.com/jobs/view/senior-product-manager-at-kabam-4453645487",
       "first_seen": "2026-08-13",
       "fit": "medium",
-      "status": "new",
-      "portal": "linkedin-search"
+      "status": "ranked",
+      "portal": "linkedin-search",
+      "rank_score": 28.75,
+      "rank_verdict": "Poor Fit",
+      "rank_date": "2026-08-13",
+      "location": "PASS",
+      "strengths": [
+        "9+ years PM experience clears the 5+ year bar comfortably",
+        "Strong quantitative/KPI-driven analysis background transfers (Tableau, data-driven optimization)"
+      ],
+      "gaps": [
+        "Gaming/games-as-a-service is explicitly not a background match for Raymond",
+        "No experience with in-game economy analysis, free-to-play models, or games industry trends",
+        "5 days/week on-site studio requirement, no remote flexibility"
+      ]
     },
     "https://ca.linkedin.com/jobs/view/senior-product-manager-ppl-technology-at-autodesk-4450385158": {
       "title": "Senior Product Manager, PPL Technology",
@@ -915,8 +928,22 @@
       "url": "https://ca.linkedin.com/jobs/view/senior-product-manager-ppl-technology-at-autodesk-4450385158",
       "first_seen": "2026-08-13",
       "fit": "medium",
-      "status": "new",
-      "portal": "linkedin-search"
+      "status": "ranked",
+      "portal": "linkedin-search",
+      "rank_score": 56,
+      "rank_verdict": "Moderate Fit",
+      "rank_date": "2026-08-13",
+      "location": "PASS",
+      "strengths": [
+        "Vendor/tool portfolio ownership and consolidation decisions mirror lululemon's CRM/CX vendor stack ownership",
+        "\"Operate with minimal oversight, influence senior stakeholders\" directly matches high-autonomy behavioral profile",
+        "AI-enabled product preferred qualification aligns with GenAI pilot experience"
+      ],
+      "gaps": [
+        "HR/workplace technology (PPL) is not a listed target sector",
+        "No direct HR-tech platform experience (Workday, Eightfold) called out as preferred",
+        "Posted salary floor ($124,700 CAD) sits just under the $130K threshold, though range extends well above it"
+      ]
     },
     "https://ca.linkedin.com/jobs/view/senior-product-manager-%E2%80%93-professional-standards-at-versaterm-4434022251": {
       "title": "Senior Product Manager – Professional Standards (dup posting)",
@@ -933,8 +960,22 @@
       "url": "https://ca.linkedin.com/jobs/view/senior-product-manager-certification-at-clio-4452743234",
       "first_seen": "2026-08-13",
       "fit": "high",
-      "status": "new",
-      "portal": "linkedin-search"
+      "status": "ranked",
+      "portal": "linkedin-search",
+      "rank_score": 33.5,
+      "rank_verdict": "Weak Fit",
+      "rank_date": "2026-08-13",
+      "location": "PASS",
+      "strengths": [
+        "GenAI/AI product trust-layer work aligns with target sector",
+        "6+ years SaaS PM requirement is comfortably cleared",
+        "Comfort navigating ambiguity and fast domain learning matches behavioral profile"
+      ],
+      "gaps": [
+        "Requires strong legal fluency (citators, case law relationships) with no equivalent in background",
+        "Preferred candidate profile is a practicing lawyer/legal-tech professional — a hard domain gap",
+        "No prior legal or compliance-content-specific product experience"
+      ]
     },
     "https://ca.linkedin.com/jobs/view/senior-product-manager-%E2%80%93-customer-success-hybrid-remote-at-kardium-inc-4414422301": {
       "title": "Senior Product Manager – Customer Success (dup posting)",
@@ -951,8 +992,21 @@
       "url": "https://ca.linkedin.com/jobs/view/senior-product-manager-onboarding-and-activation-at-clio-4433471778",
       "first_seen": "2026-08-13",
       "fit": "high",
-      "status": "new",
-      "portal": "linkedin-search"
+      "status": "ranked",
+      "portal": "linkedin-search",
+      "rank_score": 75,
+      "rank_verdict": "Strong Fit",
+      "rank_date": "2026-08-13",
+      "location": "PASS",
+      "strengths": [
+        "\"Driving cross-team outcomes without direct authority\" directly matches Raymond's core strength",
+        "B2B SaaS onboarding/activation ownership mirrors Flowfinity's builder-side B2B SaaS PM/CS work",
+        "Internal tooling for operational teams parallels lululemon's GEC tooling ownership"
+      ],
+      "gaps": [
+        "No legal/vertical SaaS experience (preferred, not required)",
+        "No hands-on experience with the specific analytics stack named (Pendo, Amplitude, Appcues, Segment)"
+      ]
     },
     "https://ca.linkedin.com/jobs/view/director-product-management-examination-analysis-at-magnet-forensics-4433373934": {
       "title": "Director, Product Management - Examination & Analysis",
@@ -960,8 +1014,22 @@
       "url": "https://ca.linkedin.com/jobs/view/director-product-management-examination-analysis-at-magnet-forensics-4433373934",
       "first_seen": "2026-08-13",
       "fit": "medium",
-      "status": "new",
-      "portal": "linkedin-search"
+      "status": "ranked",
+      "portal": "linkedin-search",
+      "rank_score": 24,
+      "rank_verdict": "Poor Fit",
+      "rank_date": "2026-08-13",
+      "location": "PASS",
+      "strengths": [
+        "Director-level scope is within Raymond's target seniority range",
+        "Highest compensation of the batch (CAD $190K-$240K)",
+        "Workflow/JTBD-oriented strategy and cross-functional engagement echo his stakeholder-facing strengths"
+      ],
+      "gaps": [
+        "Digital forensics/cybersecurity is not a background match domain",
+        "Requires 5+ years in formal people leadership managing a team of PMs — contradicts profile built on cross-functional influence without formal authority",
+        "No law enforcement/government agency or forensics customer-facing experience"
+      ]
     },
     "https://ca.linkedin.com/jobs/view/director-%E2%80%93-agentic-trust-product-acceleration-at-mastercard-4430284625": {
       "title": "Director – Agentic Trust Product Acceleration",
@@ -969,8 +1037,22 @@
       "url": "https://ca.linkedin.com/jobs/view/director-%E2%80%93-agentic-trust-product-acceleration-at-mastercard-4430284625",
       "first_seen": "2026-08-13",
       "fit": "high",
-      "status": "new",
-      "portal": "linkedin-search"
+      "status": "ranked",
+      "portal": "linkedin-search",
+      "rank_score": 69.75,
+      "rank_verdict": "Good Fit",
+      "rank_date": "2026-08-13",
+      "location": "PASS",
+      "strengths": [
+        "GenAI/product-incubation background maps to incubating new AI-driven capabilities",
+        "Payments/PCI compliance experience is directly relevant to a fraud/identity/trust mandate",
+        "Strong fit for leading cross-functional teams without direct authority"
+      ],
+      "gaps": [
+        "No direct 'agentic commerce' or autonomous-transaction product experience",
+        "Fraud/identity/cybersecurity is adjacent (via PCI compliance) rather than a core specialization",
+        "Director-level, multi-initiative portfolio ownership at this scale is a stretch"
+      ]
     },
     "https://ca.linkedin.com/jobs/view/director-dynamics-crm-member-engagement-at-first-west-credit-union-4442689915": {
       "title": "Director, Dynamics CRM & Member Engagement",
@@ -978,8 +1060,22 @@
       "url": "https://ca.linkedin.com/jobs/view/director-dynamics-crm-member-engagement-at-first-west-credit-union-4442689915",
       "first_seen": "2026-08-13",
       "fit": "high",
-      "status": "new",
-      "portal": "linkedin-search"
+      "status": "ranked",
+      "portal": "linkedin-search",
+      "rank_score": 84.25,
+      "rank_verdict": "Strong Fit",
+      "rank_date": "2026-08-13",
+      "location": "FLAG",
+      "strengths": [
+        "Direct, hands-on Microsoft Dynamics 365 CRM platform ownership matches the core requirement precisely",
+        "Contact centre / omnichannel engagement leadership overlaps heavily with GEC ownership at lululemon",
+        "AI-enabled digital transformation requirement matches GenAI/Copilot pilot experience"
+      ],
+      "gaps": [
+        "Posted salary range ($120,000-$153,800) has a floor below the $130K deal-breaker threshold",
+        "Location is Langley, BC — borderline under the location rubric",
+        "No direct financial services/credit union industry background (only preferred)"
+      ]
     },
     "https://ca.linkedin.com/jobs/view/director-%E2%80%93-agentic-trust-strategy-at-mastercard-4430286594": {
       "title": "Director – Agentic Trust Strategy",
@@ -987,8 +1083,22 @@
       "url": "https://ca.linkedin.com/jobs/view/director-%E2%80%93-agentic-trust-strategy-at-mastercard-4430286594",
       "first_seen": "2026-08-13",
       "fit": "high",
-      "status": "new",
-      "portal": "linkedin-search"
+      "status": "ranked",
+      "portal": "linkedin-search",
+      "rank_score": 66.75,
+      "rank_verdict": "Good Fit",
+      "rank_date": "2026-08-13",
+      "location": "PASS",
+      "strengths": [
+        "Comfort operating in fast-paced, ambiguous environments closely matches behavioral profile",
+        "Governance/process discipline echoes QA-scorecard and CRM-governance experience",
+        "AI-driven systems and digital ecosystem strategy background is relevant"
+      ],
+      "gaps": [
+        "Strategy/governance role with less hands-on product execution than his background",
+        "No direct agentic commerce, fraud, or identity strategy experience at this scale",
+        "Multi-year, multi-initiative portfolio strategy ownership at Director-of-Director scope is a stretch"
+      ]
     },
     "https://ca.linkedin.com/jobs/view/product-marketing-director-asana-service-management-at-asana-4412048052": {
       "title": "Product Marketing Director, Asana Service Management",
@@ -996,8 +1106,22 @@
       "url": "https://ca.linkedin.com/jobs/view/product-marketing-director-asana-service-management-at-asana-4412048052",
       "first_seen": "2026-08-13",
       "fit": "medium",
-      "status": "new",
-      "portal": "linkedin-search"
+      "status": "ranked",
+      "portal": "linkedin-search",
+      "rank_score": 34.5,
+      "rank_verdict": "Weak Fit",
+      "rank_date": "2026-08-13",
+      "location": "PASS",
+      "strengths": [
+        "B2B SaaS target sector match (Asana is explicitly named as a target employer type)",
+        "Translating technical capabilities into business value echoes his core strength",
+        "Cross-functional alignment matches his bridge-building without formal authority"
+      ],
+      "gaps": [
+        "This is a Product Marketing role, not Product Management — no messaging/GTM/sales-enablement experience",
+        "No ITSM/ESM domain background",
+        "8-12 years of product marketing experience specifically required; his years are all in product/CS, not marketing"
+      ]
     },
     "https://ca.linkedin.com/jobs/view/head-of-product-experience-fc-at-electronic-arts-ea-4267831094": {
       "title": "Head of Product Experience, FC",
@@ -1005,8 +1129,22 @@
       "url": "https://ca.linkedin.com/jobs/view/head-of-product-experience-fc-at-electronic-arts-ea-4267831094",
       "first_seen": "2026-08-13",
       "fit": "medium",
-      "status": "new",
-      "portal": "linkedin-search"
+      "status": "ranked",
+      "portal": "linkedin-search",
+      "rank_score": 14.5,
+      "rank_verdict": "Poor Fit",
+      "rank_date": "2026-08-13",
+      "location": "PASS",
+      "strengths": [
+        "Cross-functional leadership with production/creative/product stakeholders overlaps with his bridge-building strength",
+        "Executive-stakeholder influence experience is transferable",
+        "Compensation band well above his floor"
+      ],
+      "gaps": [
+        "Gaming/game industry is explicitly flagged as not a background match",
+        "10+ years in game production/design specifically required — a hard requirement he cannot meet",
+        "Not in any of his target sectors"
+      ]
     },
     "https://ca.linkedin.com/jobs/view/product-manager-activation-deployment-evisort-ai-at-workday-4353965644": {
       "title": "Product Manager - Activation & Deployment, Evisort AI (dup posting)",
@@ -1032,8 +1170,22 @@
       "url": "https://ca.linkedin.com/jobs/view/product-manager-global-e-commerce-at-lululemon-4441082535",
       "first_seen": "2026-08-13",
       "fit": "medium",
-      "status": "new",
-      "portal": "linkedin-search"
+      "status": "ranked",
+      "portal": "linkedin-search",
+      "rank_score": 82.5,
+      "rank_verdict": "Strong Fit",
+      "rank_date": "2026-08-13",
+      "location": "PASS",
+      "strengths": [
+        "Direct prior ownership of lululemon's CRM/CX ecosystem and 9+ years PM experience well above the 5+ year minimum",
+        "Hands-on payments/checkout and NARVAR-Quiq ecommerce integration experience matches scope",
+        "lululemon culture/values fit is a known quantity given prior tenure"
+      ],
+      "gaps": [
+        "Posted base range ($112,200-$147,200) partially falls below the $130K floor — confirm actual offer",
+        "Hybrid minimum 4 days on-site is more restrictive than fully remote roles",
+        "Role is mid-scale/mid-complexity scope, arguably a step down from Senior PM previously held"
+      ]
     },
     "https://ca.linkedin.com/jobs/view/product-manager-at-kabam-4453642460": {
       "title": "Product Manager",
@@ -1041,8 +1193,21 @@
       "url": "https://ca.linkedin.com/jobs/view/product-manager-at-kabam-4453642460",
       "first_seen": "2026-08-13",
       "fit": "medium",
-      "status": "new",
-      "portal": "linkedin-search"
+      "status": "ranked",
+      "portal": "linkedin-search",
+      "rank_score": 21,
+      "rank_verdict": "Poor Fit",
+      "rank_date": "2026-08-13",
+      "location": "PASS",
+      "strengths": [
+        "Vancouver on-site location is geographically fine",
+        "Cross-functional collaboration and data-driven decision-making themes overlap generically"
+      ],
+      "gaps": [
+        "DEAL-BREAKER: posted salary $95,000-$120,000 CAD is below the $130K floor",
+        "Free-to-play mobile gaming/live-ops/monetization is explicitly a non-match domain",
+        "Only 3+ years experience required — role is junior relative to his 9+ years"
+      ]
     },
     "https://ca.linkedin.com/jobs/view/product-manager-at-parallel-domain-4448449842": {
       "title": "Product Manager",
@@ -1050,8 +1215,22 @@
       "url": "https://ca.linkedin.com/jobs/view/product-manager-at-parallel-domain-4448449842",
       "first_seen": "2026-08-13",
       "fit": "medium",
-      "status": "new",
-      "portal": "linkedin-search"
+      "status": "ranked",
+      "portal": "linkedin-search",
+      "rank_score": 41.25,
+      "rank_verdict": "Weak Fit",
+      "rank_date": "2026-08-13",
+      "location": "PASS",
+      "strengths": [
+        "Entrepreneurial, full-lifecycle ownership and comfort with ambiguity matches behavioral profile well",
+        "B2B platform/API product management and technical-to-business translation are transferable",
+        "Salary range (CAD $125K-$180K) is close to/above the $130K floor at the midpoint"
+      ],
+      "gaps": [
+        "Requires Python proficiency and working knowledge of ML/embodied AI/simulation — not part of his skill set",
+        "Autonomous vehicles/robotics/computer vision simulation is outside target domains",
+        "Preferred qualifications lean toward a former software engineer or TPM/TAM background — structural mismatch"
+      ]
     },
     "https://ca.linkedin.com/jobs/view/product-manager-at-rbc-4454042115": {
       "title": "Product Manager (dup posting)",
@@ -1068,8 +1247,22 @@
       "url": "https://ca.linkedin.com/jobs/view/product-management-lead-ai-at-magnet-forensics-4433377739",
       "first_seen": "2026-08-13",
       "fit": "high",
-      "status": "new",
-      "portal": "linkedin-search"
+      "status": "ranked",
+      "portal": "linkedin-search",
+      "rank_score": 69,
+      "rank_verdict": "Good Fit",
+      "rank_date": "2026-08-13",
+      "location": "PASS",
+      "strengths": [
+        "Salary $175K-$225K CAD comfortably clears the $130K floor",
+        "7-10 years enterprise SaaS PM experience matches his 9+ years and B2B SaaS background",
+        "Direct GenAI/LLM pilot experience is relevant to an AI-native product role"
+      ],
+      "gaps": [
+        "JD requires (not prefers) proven track record shipping agentic/AI-native products in production — his AI work is pilot/integration-level, not shipped agentic products",
+        "Digital forensics/cybersecurity is an unfamiliar industry domain",
+        "Growth-loop/PLG-style adoption metrics ownership isn't clearly evidenced"
+      ]
     },
     "https://ca.linkedin.com/jobs/view/principal-product-manager-ai-solutions-at-rbc-4454046088": {
       "title": "Principal Product Manager, AI Solutions",
@@ -1077,8 +1270,22 @@
       "url": "https://ca.linkedin.com/jobs/view/principal-product-manager-ai-solutions-at-rbc-4454046088",
       "first_seen": "2026-08-13",
       "fit": "medium",
-      "status": "new",
-      "portal": "linkedin-search"
+      "status": "ranked",
+      "portal": "linkedin-search",
+      "rank_score": 62,
+      "rank_verdict": "Good Fit",
+      "rank_date": "2026-08-13",
+      "location": "PASS",
+      "strengths": [
+        "Fintech/payments-adjacent (mortgage AI) aligns with PCI Pal/payments compliance background",
+        "Cross-functional influence without formal authority and executive communication are strong matches",
+        "8+ years PM experience requirement is well within his 9+ years"
+      ],
+      "gaps": [
+        "Explicit requirement for a 'strong technical background' understanding architecture/AI-ML evaluation is a real gap versus his product-side AI exposure",
+        "Salary not stated in posting — cannot confirm it clears the $130K floor",
+        "'Top-tier tech companies' framing is a subjective bar his retail/CX-vendor background may not obviously satisfy to a screener"
+      ]
     },
     "https://ca.linkedin.com/jobs/view/principal-product-manager-ai-platform-at-electronic-arts-ea-4435917881": {
       "title": "Principal Product Manager, AI Platform",
@@ -1086,8 +1293,22 @@
       "url": "https://ca.linkedin.com/jobs/view/principal-product-manager-ai-platform-at-electronic-arts-ea-4435917881",
       "first_seen": "2026-08-13",
       "fit": "medium",
-      "status": "new",
-      "portal": "linkedin-search"
+      "status": "ranked",
+      "portal": "linkedin-search",
+      "rank_score": 45,
+      "rank_verdict": "Moderate Fit",
+      "rank_date": "2026-08-13",
+      "location": "PASS",
+      "strengths": [
+        "GenAI/LLM pilot experience is relevant to an AI-platform mandate",
+        "Cross-functional bridge-building without formal authority matches the VP-level cross-org influence requirement",
+        "Vancouver, BC role meets salary and location requirements"
+      ],
+      "gaps": [
+        "No hands-on experience building/shipping AI/ML infrastructure or developer-facing platform tooling",
+        "Gaming industry (EA) is explicitly not a background match",
+        "Role is Director-level scope beyond current CRM/CX platform-ownership experience"
+      ]
     },
     "https://ca.linkedin.com/jobs/view/sr-product-manager-tech-sr-product-manager-tech-xb-ai-products-at-amazon-4453604484": {
       "title": "Sr. Product Manager-Tech, XB AI Products",
@@ -1095,8 +1316,22 @@
       "url": "https://ca.linkedin.com/jobs/view/sr-product-manager-tech-sr-product-manager-tech-xb-ai-products-at-amazon-4453604484",
       "first_seen": "2026-08-13",
       "fit": "medium",
-      "status": "new",
-      "portal": "linkedin-search"
+      "status": "ranked",
+      "portal": "linkedin-search",
+      "rank_score": 57.5,
+      "rank_verdict": "Moderate Fit",
+      "rank_date": "2026-08-13",
+      "location": "PASS",
+      "strengths": [
+        "9+ years PM experience exceeds the 5+ year requirement, with direct GenAI/AI product pilot experience",
+        "Direct ecommerce integration experience (NARVAR-Quiq shipment tracking) aligns with pricing/promotions/selection ecosystem",
+        "Vancouver, BC location matches; adaptive risk calibration fits an ambiguous, agile AI-ops environment"
+      ],
+      "gaps": [
+        "Posting requires hands-on LLM/agent-architecture/prompt-engineering fluency and SQL/MySQL proficiency, neither documented",
+        "Salary band floor ($128,100 CAD) sits just under the $130K threshold, though band extends to $214K",
+        "No stated experience contributing to engineering technology/architecture discussions at Amazon's technical bar"
+      ]
     },
     "https://ca.linkedin.com/jobs/view/principal-product-manager-ai-powered-security-operations-at-motorola-solutions-4395202593": {
       "title": "Principal Product Manager, AI-Powered Security Operations",
@@ -1113,8 +1348,22 @@
       "url": "https://ca.linkedin.com/jobs/view/senior-staff-product-manager-at-kaseya-4453220323",
       "first_seen": "2026-08-13",
       "fit": "medium",
-      "status": "new",
-      "portal": "linkedin-search"
+      "status": "ranked",
+      "portal": "linkedin-search",
+      "rank_score": 55,
+      "rank_verdict": "Moderate Fit",
+      "rank_date": "2026-08-13",
+      "location": "FLAG",
+      "strengths": [
+        "B2B SaaS ownership experience matches the enterprise SaaS launch requirement",
+        "Track record influencing executive/C-suite stakeholders matches the exec-influence requirement",
+        "Strong compensation ($200K-$210K CAD + 10% bonus) well clears the salary floor"
+      ],
+      "gaps": [
+        "Posting is listed for Vancouver 'or Toronto Office' — unclear if Vancouver placement is guaranteed",
+        "10+ years PM experience required vs. his 9+ years",
+        "Role includes formally mentoring PMs across the organization — formal people-management requirement flagged as a rank-down signal; no cybersecurity/MSP domain experience"
+      ]
     },
     "https://ca.linkedin.com/jobs/view/senior-product-manager-identity-authentication-platform-bu-at-diligent-4433389750": {
       "title": "Senior Product Manager, Identity & Authentication Platform BU",
@@ -1122,8 +1371,22 @@
       "url": "https://ca.linkedin.com/jobs/view/senior-product-manager-identity-authentication-platform-bu-at-diligent-4433389750",
       "first_seen": "2026-08-13",
       "fit": "high",
-      "status": "new",
-      "portal": "linkedin-search"
+      "status": "ranked",
+      "portal": "linkedin-search",
+      "rank_score": 40,
+      "rank_verdict": "Weak Fit",
+      "rank_date": "2026-08-13",
+      "location": "PASS",
+      "strengths": [
+        "PCI/payments compliance experience is domain-adjacent to identity/auth compliance work",
+        "GenAI/AI-native tool usage matches the 'active AI-native work style' requirement",
+        "Vancouver location and $131K-$164K CAD salary both clear deal-breaker thresholds"
+      ],
+      "gaps": [
+        "No hands-on experience with SAML, OIDC/OAuth, JWT, or token lifecycle management — the core required protocols",
+        "No documented IAM product ownership or experience with Okta/Azure AD/Ping Identity",
+        "Identity/authentication platform is a narrower technical niche than his target sectors"
+      ]
     },
     "https://ca.linkedin.com/jobs/view/senior-product-manager-%E2%80%93-professional-standards-at-versaterm-4434015874": {
       "title": "Senior Product Manager – Professional Standards (dup posting)",
@@ -1140,8 +1403,22 @@
       "url": "https://ca.linkedin.com/jobs/view/product-manager-kyb-at-trulioo-4425962350",
       "first_seen": "2026-08-13",
       "fit": "high",
-      "status": "new",
-      "portal": "linkedin-search"
+      "status": "ranked",
+      "portal": "linkedin-search",
+      "rank_score": 64.95,
+      "rank_verdict": "Good Fit",
+      "rank_date": "2026-08-13",
+      "location": "PASS",
+      "strengths": [
+        "Direct payments/compliance-adjacent experience maps onto KYB/KYC/AML domain",
+        "9+ years senior PM experience exceeds the 5+ year requirement, matching customer discovery and GTM experience",
+        "Vancouver hybrid (3 days/week), well within Metro Vancouver commute range"
+      ],
+      "gaps": [
+        "No direct KYC/AML/identity-verification product experience, only adjacent PCI/fraud-prevention work",
+        "Salary not disclosed in posting — cannot confirm it clears the $130K floor",
+        "'AI fluency as a default' framed as baseline expectation, more generic than his GenAI pilot depth"
+      ]
     },
     "https://ca.linkedin.com/jobs/view/senior-product-manager-enterprise-data-governance-at-asana-4442270360": {
       "title": "Senior Product Manager, Enterprise Data Governance",
@@ -1149,8 +1426,22 @@
       "url": "https://ca.linkedin.com/jobs/view/senior-product-manager-enterprise-data-governance-at-asana-4442270360",
       "first_seen": "2026-08-13",
       "fit": "high",
-      "status": "new",
-      "portal": "linkedin-search"
+      "status": "ranked",
+      "portal": "linkedin-search",
+      "rank_score": 72.9,
+      "rank_verdict": "Good Fit",
+      "rank_date": "2026-08-13",
+      "location": "PASS",
+      "strengths": [
+        "Asana is an explicitly named target-sector employer (B2B SaaS)",
+        "Salary $176K-$240K CAD comfortably clears the $130K floor",
+        "Cross-functional coordination across Engineering, Security, Legal, Compliance, GTM without direct authority is his strongest behavioral trait"
+      ],
+      "gaps": [
+        "No direct identity/authentication, data-governance, or regulated-industry compliance product experience",
+        "Role wants deep technical fluency modeling data relationships/protocols, not evidenced in his CRM/CX platform-ownership background",
+        "Office-centric hybrid schedule (Mon/Tue/Thu in-office) is more rigid than roles typically favoring his autonomy preference"
+      ]
     },
     "https://ca.linkedin.com/jobs/view/program-manager-office-infrastructure-excellence-oie-at-amazon-4443044159": {
       "title": "Program Manager, Office Infrastructure Excellence (OIE)",
@@ -1212,8 +1503,22 @@
       "url": "https://ca.linkedin.com/jobs/view/program-manager-omni-channel-retail-experience-at-arc-teryx-equipment-4453339680",
       "first_seen": "2026-08-13",
       "fit": "medium",
-      "status": "new",
-      "portal": "linkedin-search"
+      "status": "ranked",
+      "portal": "linkedin-search",
+      "rank_score": 41.7,
+      "rank_verdict": "Weak Fit",
+      "rank_date": "2026-08-13",
+      "location": "PASS",
+      "strengths": [
+        "Arc'teryx is a named target-sector employer (consumer/retail CX at scale)",
+        "Cross-functional partnering across Operations, Ecommerce, Retail, and IT echoes his bridge-building strength",
+        "North Vancouver location is within Metro Vancouver"
+      ],
+      "gaps": [
+        "DEAL-BREAKER: posted salary range CAD $94,000-$124,000 is entirely below the $130,000 CAD floor",
+        "Role is retail-ops Program/Project Management, not product management — no CRM/AI/payments platform ownership involved",
+        "Title and comp band sit below his Senior PM level"
+      ]
     },
     "https://www.jobbank.gc.ca/jobsearch/jobposting/50042538": {
       "title": "product manager (dup posting)",
@@ -1248,8 +1553,22 @@
       "url": "https://www.eluta.ca/spl/job-935ce42dcec15aafbf703c9c33f3598e",
       "first_seen": "2026-08-13",
       "fit": "medium",
-      "status": "new",
-      "portal": "eluta-search"
+      "status": "ranked",
+      "portal": "eluta-search",
+      "rank_score": 27.2,
+      "rank_verdict": "Poor Fit",
+      "rank_date": "2026-08-13",
+      "location": "PASS",
+      "strengths": [
+        "8+ years PM experience requirement is met",
+        "Cross-functional stakeholder alignment and business-case building are transferable core PM skills",
+        "Vancouver-based, within Metro Vancouver"
+      ],
+      "gaps": [
+        "Gaming/game industry is explicitly flagged as NOT a background match",
+        "Salary range $114,300-$156,200 CAD dips below the $130K floor at the low end",
+        "No overlap with CRM/CX, payments, IoT/health, or GenAI product domains; core focus is player acquisition/monetization"
+      ]
     },
     "https://www.eluta.ca/spl/job-e95f49d79dc1ee8c53cccb57ed4b0625": {
       "title": "Senior Manager, Game Product Management - EA Sports FC",
@@ -1257,8 +1576,22 @@
       "url": "https://www.eluta.ca/spl/job-e95f49d79dc1ee8c53cccb57ed4b0625",
       "first_seen": "2026-08-13",
       "fit": "medium",
-      "status": "new",
-      "portal": "eluta-search"
+      "status": "ranked",
+      "portal": "eluta-search",
+      "rank_score": 28.9,
+      "rank_verdict": "Poor Fit",
+      "rank_date": "2026-08-13",
+      "location": "PASS",
+      "strengths": [
+        "Salary $133,500-$186,400 CAD clears the $130K floor",
+        "Mentoring other PMs and influencing stakeholders without direct authority match his demonstrated strengths",
+        "Vancouver-based, within Metro Vancouver"
+      ],
+      "gaps": [
+        "Gaming/game industry explicitly flagged as NOT a background match",
+        "Requires minimum 10 years in product management; he has 9+ years, slightly under the bar",
+        "No connection to CRM/CX, payments, IoT/health, or GenAI target domains"
+      ]
     },
     "https://www.eluta.ca/spl/job-87b6b3734f6c5b923071a93193dec877": {
       "title": "Product Manager",
@@ -1284,8 +1617,22 @@
       "url": "https://www.eluta.ca/spl/job-67de0a420b2f3f396c46a6ddef6d92df",
       "first_seen": "2026-08-13",
       "fit": "medium",
-      "status": "new",
-      "portal": "eluta-search"
+      "status": "ranked",
+      "portal": "eluta-search",
+      "rank_score": 44.75,
+      "rank_verdict": "Weak Fit",
+      "rank_date": "2026-08-13",
+      "location": "PASS",
+      "strengths": [
+        "Direct IoT product ownership (TELUS Health ambient sensing) is relevant to a hardware/telemetry-based grid platform",
+        "Behavioral fit for stakeholder influence and business case development matches role demands",
+        "Burnaby location is in-territory"
+      ],
+      "gaps": [
+        "Posted salary range is $110,000-$145,000 CAD — the floor sits below the $130K threshold",
+        "Utility/smart-grid domain and 'building and mentoring a PM team' are outside direct experience and target sectors",
+        "10+ years in smart grid/utility-specific PM is a stated requirement he does not meet; his IoT background is health-tech, not grid infrastructure"
+      ]
     },
     "https://www.eluta.ca/spl/job-bad208baf475e71b4c204f70bf98b709": {
       "title": "Sr. Product Manager",
@@ -1293,8 +1640,22 @@
       "url": "https://www.eluta.ca/spl/job-bad208baf475e71b4c204f70bf98b709",
       "first_seen": "2026-08-13",
       "fit": "medium",
-      "status": "new",
-      "portal": "eluta-search"
+      "status": "ranked",
+      "portal": "eluta-search",
+      "rank_score": 77.75,
+      "rank_verdict": "Strong Fit",
+      "rank_date": "2026-08-13",
+      "location": "PASS",
+      "strengths": [
+        "B2B SaaS product ownership and regulated-industry/compliance exposure map directly to the fintech/mortgage regulatory context",
+        "Strong behavioral match: ambiguity tolerance, self-directed ownership, and earning cross-functional trust without formal authority",
+        "Vancouver-based, fully remote-friendly"
+      ],
+      "gaps": [
+        "Posted salary range is $102,500-$154,000 CAD — the floor is well below the $130K threshold, though the top half clears it",
+        "No direct mortgage/real estate domain experience (preferred, not required)",
+        "Requires proven success in a fully remote environment; his most relevant roles were in-office/hybrid"
+      ]
     },
     "https://www.eluta.ca/spl/job-ccc7fae9b21ade9ee7c2e749a15c7424": {
       "title": "Product Manager (dup posting)",
@@ -1320,8 +1681,22 @@
       "url": "https://www.eluta.ca/spl/job-2174d41c4ecc6fa02e788ded95200f8d",
       "first_seen": "2026-08-13",
       "fit": "high",
-      "status": "new",
-      "portal": "eluta-search"
+      "status": "ranked",
+      "portal": "eluta-search",
+      "rank_score": 57,
+      "rank_verdict": "Moderate Fit",
+      "rank_date": "2026-08-13",
+      "location": "PASS",
+      "strengths": [
+        "Direct payments-domain experience aligns with Mastercard's payments-systems focus",
+        "Salary range ($150,000-$234,000 CAD) is comfortably above the $130K floor",
+        "Vancouver-based — in-territory"
+      ],
+      "gaps": [
+        "Requires leading and managing others through direct manager relationships — a formal people-management requirement flagged as a rank-down signal",
+        "Deep technical architecture/event-driven-systems/CI-CD-DevOps expectations skew toward technical-PM/engineering background",
+        "Principal-level scope managing globally distributed teams is a step up in technical depth"
+      ]
     },
     "https://ca.talent.com/view?id=575869767790571080": {
       "title": "Product - Senior Manager/Manager, Fabric",
@@ -1392,8 +1767,22 @@
       "url": "https://ca.talent.com/view?id=631499467879614093",
       "first_seen": "2026-08-13",
       "fit": "medium",
-      "status": "new",
-      "portal": "talent-com-search"
+      "status": "ranked",
+      "portal": "talent-com-search",
+      "rank_score": 21.5,
+      "rank_verdict": "Poor Fit",
+      "rank_date": "2026-08-13",
+      "location": "PASS",
+      "strengths": [
+        "Vancouver-based — in-territory",
+        "Agile/backlog-ownership and stakeholder-visioning responsibilities are broadly transferable PM skills",
+        "Cross-functional collaboration and communication demands fit his bridge-building strength"
+      ],
+      "gaps": [
+        "DEAL-BREAKER: posted salary is $105,000-$120,000 CAD, entirely below the $130K minimum",
+        "Requires only 2+ years of Product Owner/Manager experience — a significant seniority downgrade from his 9+ years",
+        "Asset management domain and required tool stack are outside his direct experience and target sectors"
+      ]
     },
     "https://ca.talent.com/view?id=631705256375484931": {
       "title": "Product Analyst, Commercial Real Estate",
@@ -1401,8 +1790,22 @@
       "url": "https://ca.talent.com/view?id=631705256375484931",
       "first_seen": "2026-08-13",
       "fit": "medium",
-      "status": "new",
-      "portal": "talent-com-search"
+      "status": "ranked",
+      "portal": "talent-com-search",
+      "rank_score": 14.5,
+      "rank_verdict": "Poor Fit",
+      "rank_date": "2026-08-13",
+      "location": "PASS",
+      "strengths": [
+        "Vancouver-based — in-territory",
+        "Stakeholder translation and requirements-gathering responsibilities loosely echo his cross-functional bridge-building strength",
+        "Some tooling overlap (JIRA/DevOps) with prior CX-platform ownership"
+      ],
+      "gaps": [
+        "DEAL-BREAKER: posted salary is $60,000-$75,000 CAD, far below the $130K minimum",
+        "'Product Analyst' with 2 years' experience required is an entry/junior-level role, a major seniority mismatch",
+        "Commercial real estate/mortgage lending domain and analyst-level scope do not match his product-leadership profile"
+      ]
     },
     "https://ca.talent.com/view?id=620620657723382882": {
       "title": "Product Experience Testing Coordinator",
@@ -1428,8 +1831,22 @@
       "url": "https://4dayweek.io/job/product-manager-1-many-merchant-growth-at-affirm-fdd4d83a?utm_source=freehire.me",
       "first_seen": "2026-08-13",
       "fit": "medium",
-      "status": "new",
-      "portal": "freehire-search"
+      "status": "ranked",
+      "portal": "freehire-search",
+      "rank_score": 78.75,
+      "rank_verdict": "Strong Fit",
+      "rank_date": "2026-08-13",
+      "location": "PASS",
+      "strengths": [
+        "Direct payments/PCI compliance background aligns with fintech/BNPL preferred qualification",
+        "Role rewards translating ambiguous inputs into actionable roadmaps and cross-functional GTM collaboration",
+        "Fully remote, Canada-based, salary CAD $153K-$213K comfortably clears the $130K floor"
+      ],
+      "gaps": [
+        "Title is 'Product Manager' not 'Senior Product Manager' — possible scope/seniority step down",
+        "No direct BNPL/lending experience; posting treats fintech/lending as preferred, not required",
+        "Role is commercial/partner-growth focused rather than platform ownership, a narrower slice of his CRM/CX platform strength"
+      ]
     },
     "https://job-boards.greenhouse.io/scopely/jobs/5195068008?gh_jid=5195068008&utm_source=freehire.me": {
       "title": "Product Manager - WWE Champions",
@@ -1500,8 +1917,22 @@
       "url": "https://job-boards.greenhouse.io/appdirect/jobs/8547561002?utm_source=freehire.me",
       "first_seen": "2026-08-13",
       "fit": "high",
-      "status": "new",
-      "portal": "freehire-search"
+      "status": "ranked",
+      "portal": "freehire-search",
+      "rank_score": 79.7,
+      "rank_verdict": "Strong Fit",
+      "rank_date": "2026-08-13",
+      "location": "PASS",
+      "strengths": [
+        "Direct payments API and PCI/compliance overlap matches PCI Pal-CRM integration and fraud-prevention work",
+        "9+ years PM experience fits the 5-10 years required, and billing/subscription platform ownership parallels his CRM ecosystem ownership",
+        "AI-assisted billing feature roadmap aligns with his GenAI/Copilot pilot experience"
+      ],
+      "gaps": [
+        "Posted range is $100,000-$135,000 CAD — the bottom of the band sits well under the $130K floor, so actual offer could violate the hard minimum",
+        "No direct consumption/usage-based or token-metering billing experience specifically",
+        "No enterprise billing/ERP platform (Zuora, Chargebee, NetSuite) experience noted"
+      ]
     },
     "https://www.fivetran.com/careers/job?gh_jid=7865162003&utm_source=freehire.me": {
       "title": "Senior Product Manager, Enterprise & Deployments (Toronto - out of area)",
@@ -1518,8 +1949,22 @@
       "url": "https://job-boards.greenhouse.io/stackadapt/jobs/4299171009?utm_source=freehire.me",
       "first_seen": "2026-08-13",
       "fit": "medium",
-      "status": "new",
-      "portal": "freehire-search"
+      "status": "ranked",
+      "portal": "freehire-search",
+      "rank_score": 54.95,
+      "rank_verdict": "Moderate Fit",
+      "rank_date": "2026-08-13",
+      "location": "PASS",
+      "strengths": [
+        "Remote-first, Canada salary CAD $168K-$231K well above the $130K floor",
+        "Senior PM seniority and multi-milestone project delivery matches his experience level",
+        "Requires managing ambiguity and cross-functional consensus-building, matching his behavioral strengths"
+      ],
+      "gaps": [
+        "No adtech, attribution, or marketing-measurement domain experience — core technical requirement is a genuine gap",
+        "AdTech is not one of his listed target sectors, weakening career alignment",
+        "Role is a peer PM position rather than platform ownership he's used to"
+      ]
     },
     "https://job-boards.greenhouse.io/stackadapt/jobs/4301393009?utm_source=freehire.me": {
       "title": "Senior Product Manager (Campaign Execution) - already applied 2026-08-05",
@@ -1545,8 +1990,22 @@
       "url": "https://job-boards.greenhouse.io/levelaccess/jobs/8531834002?utm_source=freehire.me",
       "first_seen": "2026-08-13",
       "fit": "medium",
-      "status": "new",
-      "portal": "freehire-search"
+      "status": "ranked",
+      "portal": "freehire-search",
+      "rank_score": 69,
+      "rank_verdict": "Good Fit",
+      "rank_date": "2026-08-13",
+      "location": "PASS",
+      "strengths": [
+        "AI-native product discovery and shipping AI-enabled features aligns directly with his GenAI knowledge-retrieval pilot and Copilot work",
+        "Cross-disciplinary alignment without direct authority is an explicit requirement matching his named behavioral strength",
+        "5+ years senior PM, multi-squad platform/SaaS delivery matches his 9+ years owning the lululemon CX platform ecosystem"
+      ],
+      "gaps": [
+        "No digital accessibility domain experience — a stated preferred qualification he lacks entirely",
+        "Salary not disclosed in posting, so the $130K floor cannot be confirmed",
+        "Accessibility SaaS is adjacent to, but not squarely within, his named target sectors"
+      ]
     },
     "https://en-ca.whatjobs.com/pub_api__cpl__133313942__7103?geoID=6399&utm_campaign=publisher&utm_medium=api&utm_source=freehire.me": {
       "title": "Senior Product Manager - AI",
@@ -1554,7 +2013,7 @@
       "url": "https://en-ca.whatjobs.com/pub_api__cpl__133313942__7103?geoID=6399&utm_campaign=publisher&utm_medium=api&utm_source=freehire.me",
       "first_seen": "2026-08-13",
       "fit": "high",
-      "status": "new",
+      "status": "expired",
       "portal": "freehire-search"
     },
     "https://en-ca.whatjobs.com/pub_api__cpl__133028168__7103?geoID=6225&utm_campaign=publisher&utm_medium=api&utm_source=freehire.me": {
@@ -1572,7 +2031,7 @@
       "url": "https://4dayweek.io/job/senior-product-manager-at-greenhouse-software-3b61b271?utm_source=freehire.me",
       "first_seen": "2026-08-13",
       "fit": "medium",
-      "status": "new",
+      "status": "expired",
       "portal": "freehire-search"
     },
     "https://job-boards.greenhouse.io/zyngacareers/jobs/6122577004?utm_source=freehire.me": {

@@ -102,6 +102,41 @@ claim these stakeholders were literally external clients.
   Salesforce Service Cloud. (Not migration architecture owner — see
   correction in KB.) Maintained 100% PCI security compliance throughout;
   CX platform adoption increased 40% globally.
+- Held direct vendor/contract governance accountability — not just
+  integration work — across Oracle (OSC), PCI Pal, Five9, Quiq, Speridian
+  (including 2 embedded developers Raymond directly managed), Acuity,
+  Talkative, Lenovo (global hardware program), and Level10 (hardware
+  program logistics). Managed these relationships against agreed
+  outcomes, commitments, and service performance, not solely technical
+  integration.
+  - Of these, the genuine MSP-model (managed-service, not SaaS/product)
+    engagements were: Speridian (embedded developer staff augmentation),
+    Level10, and Insight — both Level10 and Insight were logistics/
+    delivery partners collecting and deploying remote hardware kits for
+    the global work-from-home hardware program. Insight was terminated
+    from the engagement for failing to meet SLA commitments — a genuine
+    vendor-accountability outcome, not just a governance claim.
+- Ran Scrum ceremonies hands-on: hosted daily standups (alternating with
+  the team's Project Manager), backlog grooming, sprint planning, and
+  retros. (CSM certification is practiced, not credential-only.)
+- Operated a "two-in-a-box" ownership model with Operations on GEC
+  initiatives: Raymond owned the roadmap and technical implementation
+  side; Operations stakeholders owned the business side — providing
+  discovery input in sessions Raymond ran, participating in pilots/UAT,
+  and owning human change management (training, adoption). Both sides
+  held joint accountability for outcomes.
+- Led readiness, adoption, communications, training, and support
+  transition for international GEC rollouts, partnering with business
+  process owners in each region. Named examples: PCI Pal rollout,
+  chatbot (Quiq) launch in Korea and Japan, OSC launch in Korea, and the
+  global remote-hardware program. This spans the full readiness/
+  adoption/sustainment lifecycle, not just technical delivery.
+- Broader compliance ownership beyond PCI: tax compliance work with
+  Finance, cross-border documentation/labels for returns, Data Subject
+  Request (DSR) processing (initially manual, later automated via a
+  script built by one of Raymond's developers, with reporting added),
+  Bill 96 Quebec French-language requirements compliance, and branding
+  compliance.
 - Partnered with Engineering to build a PCI Pal–CRM API integration using
   DTMF keypad entry, eliminating a live PCI violation (agents taking card
   numbers verbally) and automating refund generation. Cut per-transaction
@@ -233,9 +268,6 @@ consulting/SOW practice as core scope of the role (not side work).
   supplemental billable SOW for extra consulting/dev hours, and bringing
   in client-side pilot users for faster feedback — client retained
   long-term.
-- Rebuilt a pre-existing, ungoverned Acuity booking configuration and
-  integration/API layer (inherited from an unsupervised setup) before
-  layering in automation.
 - Created a seasonal/usage-based licensing model for Metro Mobile after
   the client couldn't commit to year-round perpetual license costs;
   inactive named licenses billed at a reduced rate. Grew Metro Mobile from
@@ -310,7 +342,13 @@ responsibility.
 - Led technology upgrades, pilots, and QA testing for the CRM/billing
   system on an ongoing basis, working with the tech org (distinct from
   the post-M&A migration work below — this is standing platform
-  ownership, not a one-time integration project).
+  ownership, not a one-time integration project). Owned requirements
+  gathering and discovery, ran vendor evaluations, and prioritized the
+  upgrade roadmap — not execution-only. Led user-group UAT, regression,
+  and smoke testing for each release.
+- Led the contact centre's Safety Standards Committee: owned learning/
+  training compliance tracking, follow-up and clearance of reported
+  issues, and summarized status to C-suite on a monthly basis.
 - Directed CRM and billing systems integration work across 400+ cities of
   operation. Context: Impark acquired many smaller/regional parking
   companies during this period (e.g. San Francisco city park operations);
@@ -370,9 +408,18 @@ Raymond's direction; do not add further precision beyond what he's
 confirmed.
 
 ### Rate Card Technology Manager — 2010 Winter Olympics (VANOC)
-Directed telecom setup for 9,000+ media devices in one week under strict
-Olympic readiness deadlines. Led mission-critical support at the Main
-Media Centre.
+This was a **secondment from Bell Canada**, not a separate employer — Bell
+seconded Raymond to VANOC for the Olympic buildup. Directed telecom setup
+for 9,000+ media devices in one week under strict Olympic readiness
+deadlines. Led mission-critical support at the Main Media Centre.
+
+MS Project: used extensively here (heavy, sustained use leading up to the
+Feb 2010 games). Also general/lighter exposure during Bell Canada overall,
+and later as an "updater" (maintaining existing plans, not primary owner)
+at Impark (Oct 2015–Feb 2017). Recurring across three periods (2002–2011
+Bell, 2009–2010 VANOC, 2015–2017 Impark) — legitimate to list as a real
+skill, but always at "updater/support," not "administrator," seniority
+unless further confirmed.
 
 ### Bell Canada — 5 roles over 9 years (2002–2011)
 Progressed through Customer Service Representative → Business Service
