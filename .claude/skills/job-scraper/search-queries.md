@@ -21,6 +21,8 @@ The Danish demo skills (`jobindex-search`, `jobnet-search`, `jobbank-search`,
 **Set `enabled: false` in their `SKILL.md` frontmatter so `/scrape` skips them** — they
 will otherwise run Danish queries on every scrape.
 
+**Language scope:** write every query category in every language listed in your CLAUDE.md Languages table (typically 1-2, sometimes more). A posting requiring a language you have *not* declared, as a job condition, is excluded before scoring; a posting requiring a *higher level* than you declared in a language you *do* work in is flagged for your own judgment, not excluded — see `04-job-evaluation.md`'s Language Gate, the single source of truth for this rule. Translate each category's keywords rather than machine-translating word-for-word (e.g. "Frontend Developer" -> "Desarrollador Frontend", not a literal word-for-word translation) if you work in more than one language.
+
 > `jobbank-search` (upstream, Danish `jobbank.dk`) and `jobbank-ca-search` (this fork,
 > Canadian `jobbank.gc.ca`) are different boards with confusingly similar names. The
 > Canadian one always carries the `-ca` suffix.
@@ -158,6 +160,10 @@ Canadian specifics worth encoding:
 - Postings covering several sites appear as "Various locations" — open the posting to
   see whether Vancouver is included.
 - Winter commute distances are not summer commute distances; be honest about the limit.
+
+## Language Filter
+
+Your working languages and levels are in CLAUDE.md's Languages table. When filtering scraped results, apply `04-job-evaluation.md`'s Language Gate: a posting requiring a language you haven't declared at all is excluded; a posting requiring a higher level than you declared in a language you do work in is not excluded, flag it clearly instead (see `job-scraper/SKILL.md`'s Step 3 "Quick Fit Assessment" for how the flag surfaces in `/scrape` output). Postings simply *written* in a language you don't work in, that don't require it on the job, are fine.
 
 ## Date filter
 

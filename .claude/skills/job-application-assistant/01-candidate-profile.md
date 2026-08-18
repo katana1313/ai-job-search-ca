@@ -1,3 +1,7 @@
+---
+framework_version: 1.1.1
+---
+
 # Candidate Profile — Raymond Chu
 
 ## Contact
@@ -16,7 +20,17 @@ product decisions.
 ## Work Authorization
 Canadian citizen. No sponsorship required for any Canadian role.
 
----
+### Languages
+<!-- Used by the Language Gate in 04-job-evaluation.md and by job-scraper/search-queries.md's
+query-language generation. -->
+
+| Language | Level | Notes |
+|----------|-------|-------|
+| English | Native / professional-business | CV language |
+| Cantonese | Native | |
+| French | Conversational / travel-level | Cultural-rapport nice-to-have, not a professional qualification |
+| Mandarin | Conversational / travel-level | Cultural-rapport nice-to-have, not a professional qualification |
+| Japanese | Conversational / travel-level | Cultural-rapport nice-to-have, not a professional qualification |
 
 ## Experience
 

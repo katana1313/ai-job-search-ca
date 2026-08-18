@@ -18,7 +18,19 @@ This repo is a job application workspace. Claude acts as a career advisor and ap
 ### Identity
 - **Name:** Raymond Chu
 - **Location:** Vancouver, BC, Canada (Metro Vancouver only — not open to relocation)
-- **Languages:** English (native, professional/business level). Cantonese (native). French, Mandarin, Japanese — conversational/travel level only; a cultural-rapport nice-to-have, not a professional qualification. Do not treat conversational-level languages as meeting "Bilingual - imperative" federal posting requirements.
+- **Languages:**
+  | Language | Level |
+  |----------|-------|
+  | English | Native, professional/business |
+  | Cantonese | Native |
+  | French | Conversational/travel-level |
+  | Mandarin | Conversational/travel-level |
+  | Japanese | Conversational/travel-level |
+  <!-- French, Mandarin, Japanese are a cultural-rapport nice-to-have, not a professional
+  qualification. Do not treat conversational-level languages as meeting "Bilingual - imperative"
+  federal posting requirements. An undeclared language is a hard deal-breaker if a posting
+  requires it; a declared language at a lower level than a posting wants is flagged for
+  Raymond's own judgment, not auto-rejected. See 04-job-evaluation.md's Language Gate. -->
 - **CV language:** English
 
 - **Status:** Actively seeking new opportunities since May 2026 (most recently Senior Product Manager, Aging in Place, TELUS Health)
@@ -84,6 +96,8 @@ None documented.
 - IoT/health tech and consumer/retail CX at scale: e.g. Arc'teryx, Instacart
 
 ### Deal-breakers
+<!-- Hard constraints on job search. Language requirements are handled separately and
+automatically from your Languages table above - don't duplicate them here. -->
 - Base salary below $130K CAD
 - Relocation outside Metro Vancouver (not open to relocation at this time)
 

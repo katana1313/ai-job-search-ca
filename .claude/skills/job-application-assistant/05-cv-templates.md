@@ -1,5 +1,5 @@
 ---
-framework_version: 1.3.0
+framework_version: 1.4.0
 ---
 
 # CV Templates and Tailoring Guide
@@ -338,6 +338,31 @@ What to check in the extraction:
 - **Keyword coverage.** Match the posting's required/preferred terms against the extracted text, in the posting's language. Prefer the posting's exact term over a synonym when it is truthfully applicable - ATS matching is often literal. Never add a keyword the profile does not support.
 - **Decorative icons that extract as broken glyph names.** Not every `\faIcon{...}` extracts cleanly - `\faIcon{lightbulb}` in the insight-line convention extracts as a real Unicode emoji (harmless), but `\faIcon{location-dot}` in an earlier header version extracted as the literal text `LOCATION-DOT` sitting directly in front of "Vancouver, BC" - a real risk on parsing-fragile platforms like Workday, which sometimes auto-extracts a location field straight from resume text. The fix isn't a better icon, it's asking whether the icon carries real information at all: a location pin doesn't (the text "Vancouver, BC" already says it), so it was simply removed rather than swapped for another icon. Check every icon this way - if `pdftotext` extraction shows something other than the intended emoji or is silent (a blank glyph), and the icon is purely decorative, drop it rather than hunt for a cleaner icon name.
 - **Automatic hyphenation can break a keyword across a line-wrap.** LaTeX's hyphenation algorithm inserted a genuine hyphen in "chatbot" - "chat-bot" - purely because it fell at a line-wrap point, not because of anything in the source text. This is invisible in a visual PDF read and only shows up in the actual extracted text layer. A literal ATS keyword search for "chatbot" (candidate-pool search in Greenhouse/Ashby, for instance) could miss that specific instance. Fix with `\hyphenation{chatbot}` in the preamble (add other JD-critical compound keywords there too if a compile-and-extract check catches them mid-hyphenated) - cheaper and more reliable than trying to reword around every possible line-break point.
+
+### Date fields must be ASCII ranges (confirmed ATS import failure)
+
+This one is worth knowing about because it fails **silently**. A CV that passes every other check in this section - clean extraction, no `(cid:)` markers, contact details intact, correct reading order - can still have its dates dropped on import. In a real Workday resume import, a CV built from this template lost the end date of a short contract role and failed to import **any** education entry at all, forcing manual re-entry. Nothing about the PDF or its text layer looked wrong.
+
+Two independent causes, both easy to avoid:
+
+1. **`--` in a `\cventry` date renders as an en-dash (U+2013), not a hyphen.** LaTeX ligatures `--` (two ASCII hyphens, U+002D) into a single en-dash glyph, so `2016--2024` reaches the PDF text layer as `2016<U+2013>2024`. Many parsers split date ranges only on an ASCII hyphen and see no range at all. Write the date argument with a **single hyphen**:
+
+   ```latex
+   \item{\cventry{2016-2024}{Role Title}{Organization}{Location}{}{...}}   % parses
+   \item{\cventry{2016--2024}{Role Title}{Organization}{Location}{}{...}}  % en-dash, may not
+   ```
+
+   This applies to the **date argument only**. Keep `--` everywhere it is typographically correct in prose, for example a numeric range like `EUR 600k--1M`.
+
+2. **A bare single year gives the parser no end date.** A short contract, mandate or internship written as `\cventry{2016}` imports as a start date with nothing to close it. Use an explicit range, with months where the role ran under a year:
+
+   ```latex
+   \item{\cventry{Mar 2016 - Jul 2016}{Contract Role}{Client}{Location}{}{...}}
+   ```
+
+   Where a genuine range exists, use it even when a single year would be factually accurate - a degree written `1995` is true but imports worse than `1992-1995`. Do not invent a start date you do not have; a lone graduation year is fine, just expect it to be typed in by hand.
+
+**Add this to the step 5d checks**: after extracting the text layer, confirm every experience entry shows a start *and* an end separated by an ASCII hyphen. Because the failure is silent and invisible in the PDF, the candidate otherwise discovers it only while filling in the application form.
 
 ## Page Budget - Hard 2-Page Limit
 
