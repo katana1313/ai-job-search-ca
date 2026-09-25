@@ -9,13 +9,18 @@
 \moderncvstyle{banking}
 \moderncvcolor{blue}
 
-% Force both first and last name AND section headings to render in moderncv
-% blue (color1). Default banking on lualatex+MiKTeX leaves these black, which
-% looks inconsistent with the rest of the blue accent scheme.
+% Force the name and section headings to render in moderncv blue (color1).
+% Default banking on lualatex+MiKTeX leaves these black: moderncvstylebanking.sty's
+% \colorlet copies (not aliases) the pre-scheme accent colour, so the name colours
+% are frozen before \moderncvcolor runs. Re-let them after. \namefont is the hook
+% every name-style macro routes through, so this also works on moderncv 2.3.1
+% (Debian/Ubuntu apt), which has no \firstnamestyle/\lastnamestyle at all.
 % Name is deliberately compact (22pt, not moderncv's 34pt default) to match
 % Raymond's preferred single-line contact header style below.
-\renewcommand*{\firstnamestyle}[1]{{\fontsize{22}{24}\bfseries\upshape\color{color1}#1}}
-\renewcommand*{\lastnamestyle}[1]{{\fontsize{22}{24}\bfseries\upshape\color{color1}#1}}
+\renewcommand*{\namefont}{\fontsize{22}{24}\bfseries\upshape}
+\colorlet{firstnamecolor}{color1}
+\colorlet{lastnamecolor}{color1}
+\colorlet{namecolor}{color1}
 \renewcommand*{\sectionstyle}[1]{{\sectionfont\color{color1}#1}}
 
 \usepackage[utf8]{inputenc}
@@ -32,15 +37,20 @@
 % purely decorative and not worth the parsing risk on platforms like
 % Workday. The lightbulb is lower-risk (it extracts as a real Unicode
 % emoji, not a broken glyph name) so it stays.
-\usepackage{hyperref}
-\hypersetup{
+% moderncv loads hyperref itself in an \AtEndPreamble hook, so \hypersetup
+% must go in an \AtEndPreamble of our own: on moderncv < 2.4 a top-level
+% \usepackage{hyperref} clashes with the class's own
+% \RequirePackage[unicode]{hyperref}.
+\AtEndPreamble{\hypersetup{
     colorlinks=true,
     linkcolor=blue,
     filecolor=magenta,
     urlcolor=blue,
     pdftitle={Raymond Chu - CV},
-    pdfpagemode=FullScreen,
-}
+    % Keep pdfpagemode=UseNone: FullScreen would open every CV in
+    % fullscreen presentation mode on open.
+    pdfpagemode=UseNone,
+}}
 \usepackage[scale=0.80]{geometry}
 \usepackage{import}
 \usepackage{ifthen}

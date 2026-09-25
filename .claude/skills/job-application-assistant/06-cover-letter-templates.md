@@ -211,8 +211,22 @@ Task-execution verbs ("closed," "fixed," "built") read as individual-contributor
 With only 3-5 bullets available, an achievement that maps to one of the JD's explicit **Required Skills/Qualifications** generally outranks one that only illustrates a "typical day" responsibility area - the required-qualifications list is the hard-screen checklist a recruiter or ATS is actually checking candidates against, while a responsibilities section describes role scope more loosely. When two candidate KB facts are otherwise comparable in strength, the one demonstrating a named requirement should usually win the limited slot.
 
 ### LaTeX Special Characters
-- Underscore: `\_`
-- Ampersand: `\&`
+
+| Character | Write | Typical trigger |
+|---|---|---|
+| `&` | `\&` | company names: Bang \& Olufsen, H\&M |
+| `%` | `\%` | quantified achievements: "cut latency by 40\%" |
+| `$` | `\$` | salary and cost figures |
+| `#` | `\#` | "ranked \#1" |
+| `_` | `\_` | file names, code identifiers |
+| `~` | `\textasciitilde{}` | URLs, "approx." tildes |
+| `^` | `\textasciicircum{}` | version strings |
+
+Two failure modes deserve special care:
+- **`%` fails silently.** An unescaped `%` starts a LaTeX comment: the compile succeeds with zero errors, and everything after the `%` on that line vanishes from the PDF. Check every `%` in every bullet before compiling.
+- **`&` fails loudly** (alignment-tab errors, `Missing } inserted`) - the compile loop catches it, but escape company names up front rather than debugging the compile.
+
+A bullet whose text begins with a literal `[` must be braced: `\item {[text]}`. Unbraced, LaTeX parses `[text]` as `\item`'s optional label and renders it off the left page edge, missing from the PDF text layer entirely.
 
 ### Non-English Cover Letters
 - Same template structure, just write content in the posting's language
