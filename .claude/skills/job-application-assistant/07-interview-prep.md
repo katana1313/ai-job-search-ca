@@ -38,12 +38,15 @@ License growth 25% | Admin work -30% | SLA improvement 30% | Hardware:
 | Billing / Financial Data Pipelines | Return Fraud & Tax Reconciliation | PCI Pal DTMF API |
 | Platform Rebuild / Re-Architecture | Educator Booking API (Acuity rebuild) | OSB-to-Kafka Backend |
 | Early-Career / "How Did You Start" | Bell National Billing Rollout | — |
+| Conflict Resolution / Standing Up for Your Team | Lagardere YVR Stand (interview-only) | — |
+| Process/Governance Design, Removing Approval Friction | Bell Pre-Approved Offer Grids | Impark QA Ownership |
+| Solution Shaping Before Delivery / Principal-Level Judgment | Copilot Pilot | TELUS AiP Expansion |
+| Conflict/Tradeoffs, Foresight Ignored Then Vindicated | OSC PII Archive & Oracle Storage Cost | Return Fraud & Tax Reconciliation |
 
-**Known gaps — ask Raymond before claiming these:** conflict resolution
-(no true interpersonal-conflict story yet), data-analytics deep dive (a
-time data changed direction or killed a feature), full onboarding-funnel
-instrumentation built from scratch (membership enrollment story is a
-partial fit only).
+**Known gaps — ask Raymond before claiming these:** data-analytics deep
+dive (a time data changed direction or killed a feature), full
+onboarding-funnel instrumentation built from scratch (membership
+enrollment story is a partial fit only).
 
 ---
 
@@ -527,32 +530,58 @@ management, onboarding/retention process design.
 **Company:** lululemon | **Competencies:** AI pilot governance, Microsoft
 partnership, executive communication, protecting business over optics
 
-**Situation:** Raymond was handed a Copilot for D365 pilot (email/chat
-summarization for GEC educators) roughly one month before Peak season,
-with no extra runway.
+**Situation:** lululemon runs an October-January Peak change-freeze
+window; no tech updates, deployments, or changes go in during that
+period. In early September, Microsoft announced Copilot summarization
+for chat and email channels, and lululemon leadership was eager to adopt
+it for educator time savings.
 
-**Task:** Design and run a full pilot evaluation in a compressed timeline
-and deliver an honest recommendation, not just a rubber-stamped rollout.
+**Task:** Weigh the value of the new feature against the risk of the
+short timeline and the feasibility of a newly-released feature actually
+delivering, and give an honest recommendation rather than a
+rubber-stamped rollout.
 
-**Action:** Designed and ran the full pilot evaluation framework in weeks.
-Worked directly with Microsoft engineers and product teams to communicate
-test results and fix requests. Partnered with Tech, Legal, and Operations
-on compliance and performance risk.
+**Action:** Deployed the feature to a dev instance for testing and ran a
+structured test plan with dedicated Operations team members and his QA
+lead across multiple scenarios, with agreed-upon accuracy thresholds and
+educator (agent) survey feedback as the evaluation criteria. Worked
+directly with Microsoft engineers and product teams to communicate test
+results and fix requests. Partnered with Tech, Legal, and Operations on
+compliance and performance risk.
 
-**Result:** Delivered a clear go/no-go recommendation, deprioritized ahead
-of Peak when the pilot did not meet the minimum performance bar and
-Microsoft could not commit to a fix timeline. Protected the business over
+**Result:** Testing found accuracy issues and hallucinations, below the
+agreed thresholds. Microsoft engineering promised fixes but couldn't
+deliver until October — too tight against lululemon's Peak change-freeze
+window. Brought the testing results, issues found, and Microsoft's
+timeline to OpsCo and recommended a strong no-go given Peak risk and the
+compressed timeline for agent training; the committee agreed. Post-Peak,
+the Salesforce Service Cloud build began anyway, retroactively validating
+the no-go by avoiding wasted training/operational friction on a rollout
+that would have been replaced shortly after. Protected the business over
 the optics of shipping something unready.
 
 **Metrics:** Full pilot designed and evaluated in weeks [CONFIRMED] |
-go/no-go delivered to senior stakeholders [CONFIRMED] | deprioritized on
-performance grounds [CONFIRMED]
+structured test plan with dedicated Ops + QA lead, agreed accuracy
+thresholds, educator survey feedback [CONFIRMED] | accuracy issues and
+hallucinations found, below threshold [CONFIRMED] | Microsoft fix
+timeline (October) confirmed too late for Peak [CONFIRMED] | go/no-go
+delivered to OpsCo [CONFIRMED] | deprioritized on performance grounds
+[CONFIRMED] | SFSC build began post-Peak, retroactively validating the
+no-go [CONFIRMED]
 
-**Soundbite:** "I was handed a Copilot pilot a month before Peak with no
-runway. I designed the full evaluation framework, worked directly with
-Microsoft engineers, and when it didn't meet the bar and they couldn't
-commit to timelines, I recommended we don't ship it. Protecting Peak was
-the right call."
+**Soundbite:** "Microsoft announced Copilot summarization for our chat
+and email channels right at the start of September, and leadership was
+excited to jump on it. My task was to weigh that value against the risk
+of the short timeline and the feasibility of a newly released feature. I
+deployed it to a dev instance, ran a structured test plan with dedicated
+Ops and QA resources against agreed accuracy thresholds and educator
+feedback, and found real issues — accuracy problems, even some
+hallucinations. Microsoft couldn't fix it before October, too tight
+against our Peak freeze. I brought that to our governance committee with
+the full picture and recommended a strong no-go. They agreed, and
+Salesforce ended up replacing that instance anyway right after Peak, so
+it also saved us the training friction of rolling out something we'd
+have had to unwind."
 
 **Use for:** AI governance/go-no-go, Microsoft platform experience,
 protecting business over optics. Not a strong fit for "tell me about a
@@ -867,6 +896,199 @@ owning the technical implementation myself."
 **Use for:** backend/platform re-architecture, defining technical
 requirements for engineering, driving change without owning the technical
 decision.
+
+---
+
+## Story: Lagardere YVR Stand (interview-only — NEVER put on resume, CV, or LinkedIn)
+**Company:** Lagardere Group, YVR Airport (iStores) | **Competencies:**
+conflict resolution, integrity under pressure, standing up for your team,
+multi-site people management
+
+**Do not add this employer to the resume, CV, cover letter, or LinkedIn.**
+Raymond has deliberately kept this ~3-month stint off all public-facing
+materials because the tenure is too short to read well on paper. It exists
+here purely as an interview answer, to be used only if directly and
+specifically relevant to a question asked (e.g. conflict resolution,
+standing up for a team, working through hostile/adversarial dynamics,
+early days in a new leadership role). Do not volunteer it unprompted.
+
+**Situation:** Took on a 3-month Area Manager role for Lagardere Group at
+YVR Airport (iStores division), managing 2 stores directly and providing
+oversight across roughly 10 additional stores at YVR [unconfirmed exact
+count — Raymond said "I think," verify before citing a specific number].
+Walked into open hostility from frontline retail staff from day one,
+pre-existing resentment toward the Area Manager role itself.
+
+**Task:** Win over a resistant, adversarial frontline team while
+operating inside a leadership culture where the Director and some other
+managers were treating staff poorly.
+
+**Action:** Worked through the initial hostility and won the team over.
+When Raymond witnessed the Director and other managers abusing their
+employees, he stood up for his team against that treatment rather than
+staying quiet to protect his own position during probation.
+
+**Result:** Dismissed before his probation period ended, specifically
+because of pushing back on the abusive treatment of staff. Strongest
+signal of impact: his second-in-command chose to leave the company
+alongside him rather than accept the Area Manager position that was
+offered as his replacement — real evidence of the trust and loyalty
+built with the team in a very short, hostile window.
+
+**Metrics:** [CONFIRMED: 3-month tenure, 2 direct stores, dismissed
+before end of probation, second-in-command left in solidarity.
+UNCONFIRMED: exact count of indirectly-overseen stores ("~10, I think") —
+ask Raymond before citing a specific number.]
+
+**Soundbite:** "I took on an Area Manager role at YVR airport managing a
+couple of stores directly, with oversight across close to a dozen more.
+The team was hostile from day one, there was real resentment toward the
+role. I won them over anyway. But partway through, I saw the Director and
+some of the managers treating staff badly, and I stood up for my team.
+I was let go before my probation ended for it. The thing I'm proudest of:
+my second-in-command was offered my job when I left, and he turned it
+down to leave with me instead."
+
+**Use for:** conflict resolution (fills a previously flagged known gap),
+standing up for a team under pressure, integrity vs. self-preservation,
+early-tenure/hostile-team turnaround, multi-site people management scope.
+
+---
+
+## Story: Bell Pre-Approved Offer Grids
+**Company:** Bell Canada (Contracts Desk Mitigation & Coordinator) |
+**Competencies:** process/governance design, removing approval friction,
+identifying patterns, cross-functional tool-building, solution scaling
+beyond personal ownership
+
+**Framing note:** a previously submitted resume/cover letter for a
+different application described this as "pioneered a national rollout
+of web-based Preapproved Sales Offers, adopted across Bell's enterprise
+teams." Raymond considers this defensible (he did originate the idea,
+and it was later replicated elsewhere without credit) but he did not
+personally lead or run the national/Eastern Canada expansion — if
+pressed on the mechanics of how that expansion happened, use the honest
+version below rather than implying he ran it.
+
+**Situation:** As Bell's sole BC Contracts Desk Coordinator (later
+effectively covering Western Canada, before a separate Alberta branch
+was established), every sales-desired promotion or discount, feature
+discounts like call display or enhanced voicemail, mobile hardware
+discounts, required manual, case-by-case review and approval from
+finance and a manager to close a business/enterprise deal. This was
+slow, and cost sales reps deals that started late in the month before
+month-end deadlines.
+
+**Task:** Speed up approvals without losing the financial control the
+review process existed to provide.
+
+**Action:** Raymond noticed the requests repeated in predictable
+patterns and identified the revenue thresholds (line count needed to
+justify a given discount amount) at which deals were reliably approved
+anyway. It was his idea, and he worked with the business analyst to
+turn the analyst's existing "show the work" cost-analysis tool into a
+protected, locked-down self-serve template: most fields locked, with
+number of lines, contract length, and discount selections left open,
+and an approval output that flipped to approved/not-approved depending
+on which options were selected. Raymond then acted as gatekeeper,
+reviewing every approval that came through, filing them, and personally
+creating the resulting billing accounts with the approved discounts
+configured. A colleague separately built a
+BlackBerry-browser-compatible web form version of the same offers that
+triggered templated Outlook emails, a delivery layer on top of
+Raymond's original framework.
+
+**Result:** Significantly faster approvals, faster deal closing, and
+sales hitting month-end targets even on deals that started late in the
+month. About 8 months later, Ontario and Eastern Canada launched a
+near-identical version of the same tool (Excel first, a website came
+later) — Raymond originated it in the West, but did not lead or run
+that expansion, and was not given credit for it.
+
+**Metrics:** [CONFIRMED: BC/Western Canada scope; it was Raymond's idea,
+built with the business analyst on top of the analyst's existing tool
+(not built from scratch by Raymond alone), Raymond then acted as
+gatekeeper reviewing approvals and setting up billing, colleague added
+the web-form delivery layer, ~8 months later Ontario/Eastern Canada
+launched a near-identical uncredited version. UNCONFIRMED: no hard
+number for approval-time reduction or deal-close-rate improvement, ask
+Raymond before citing one.]
+
+**Soundbite:** "I was the BC contracts coordinator handling discount
+approvals for enterprise deals, everything needed manual sign-off from
+finance and a manager. I noticed the same requests kept coming in at
+predictable thresholds, so it was my idea to work with our business
+analyst and turn her cost-analysis tool into a locked-down, self-serve
+template with preset pre-approved discount grids for deals that fit a
+pattern. I acted as gatekeeper, reviewing approvals and setting up the
+resulting billing accounts myself. A colleague built a simple mobile
+page on top of it to deliver the offers. It sped up approvals enough
+that sales started hitting month-end targets on deals that would've
+missed the deadline before. About eight months later, Eastern Canada
+launched a version that looked identical, though I wasn't the one who
+led that expansion and didn't get credit for originating it."
+
+**Use for:** process/governance design, identifying patterns and
+building frameworks that remove friction, cross-functional
+partnership on delivery, honest framing of a solution that scaled
+beyond personal control, "principal-level judgment" (shaping the right
+solution before/instead of case-by-case delivery) for
+process-and-governance-focused roles like BCFSA's Solutions
+Enablement.
+
+---
+
+## Story: OSC PII Archive & Oracle Storage Cost
+**Company:** lululemon (Guest Experience Center, OSC platform) |
+**Competencies:** conflict/tradeoffs, foresight overruled then
+vindicated, executive/governance-body presentation, cost avoidance,
+cross-functional escalation, risk-mitigation planning
+
+**Situation:** Early in ownership of the OSC (Oracle Service Cloud)
+platform, Raymond identified that PII guest data had no
+archive/purge/delete policy, a compliance risk and a growing
+storage-cost risk. He raised it and was told there was no budget to
+address it, so it went into the backlog.
+
+**Task:** Years passed with no action (OSC ran 8+ years without any
+purging or archiving). At an Oracle contract renewal, Oracle notified
+the team of a new $10,000/month cloud storage overage charge, the risk
+Raymond had flagged years earlier had become a real, immediate cost.
+
+**Action:** Raymond escalated to the Data Product Manager and his own
+manager. His manager directed him to present the issue at OpsCo
+(Operations Committee), a governance/steering body. He built and
+delivered a presentation laying out the risk, mitigation options, and
+an execution plan for archiving/purging the backlog of PII data.
+
+**Result:** The plan was approved and executed. This resolved the
+$10K/month cost exposure, improved system speed and performance as a
+side effect of the data cleanup, and, critically, drove the team to
+proactively build the same archive/purge discipline into the
+then-upcoming SFSC (Salesforce Service Cloud) migration instead of
+repeating the same 8-year mistake there.
+
+**Metrics:** [CONFIRMED: $10K/month Oracle storage overage charge
+triggered by 8+ years without purging; resolved via OpsCo-approved
+plan; proactively applied to the SFSC migration afterward. No hard
+number confirmed for the performance/speed improvement, ask Raymond
+before citing one.]
+
+**Soundbite:** "Early on I flagged that we needed a data archive and
+purge policy for PII on our CRM, both for compliance and storage cost.
+There was no budget, so it sat in the backlog. Years later, with zero
+purging in eight-plus years, Oracle hit us with a $10,000-a-month
+storage overage charge at renewal. I escalated it, ended up presenting
+risk and mitigation at our Operations Committee, and got it approved.
+We fixed the cost problem, the system got noticeably faster, and it
+pushed the team to build that discipline into our next migration from
+day one instead of waiting for it to become a crisis again."
+
+**Use for:** the classic "tell me about a conflict or tradeoff"
+question, foresight that was overruled for budget reasons and later
+proven right, presenting to a governance/executive body, cost
+avoidance with a real number, turning a past mistake into a
+proactive practice for a future project.
 
 ---
 

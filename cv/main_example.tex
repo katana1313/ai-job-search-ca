@@ -65,25 +65,25 @@
 % format to save vertical space. #1 title, #2 company, #3 location, #4
 % dates (pass #4 empty for undated Earlier Career entries).
 \newcommand{\cvoneline}[4]{%
-  \noindent\textbf{#1} \normalfont | #2 -- #3%
-  \ifthenelse{\equal{#4}{}}{}{\hfill\textit{#4}}%
+  \noindent\textbf{#1} \normalfont | \textbf{#2} -- #3%
+  \ifthenelse{\equal{#4}{}}{}{\hfill#4}%
   \par\vspace{1pt}%
 }
-% Job-accomplishment bullets under a \cvoneline entry need the dash marker
+% Job-accomplishment bullets under a \cvoneline entry need a visible marker
 % moderncv normally reserves for level-2 lists (\labelitemii) - but since
 % \cvoneline entries aren't nested inside an outer wrapper itemize (unlike
 % moderncv's default \cventry pattern), these bullets are level-1 lists
 % and would otherwise inherit the empty \labelitemi above. Wrap each such
-% itemize block in {\dashitemize \begin{itemize}...\end{itemize}} - the
+% itemize block in {\bulletitemize \begin{itemize}...\end{itemize}} - the
 % surrounding group keeps the override from leaking into Core
 % Competencies/Education/Languages/References, which stay markerless.
-\newcommand{\dashitemize}{\renewcommand*{\labelitemi}{\strut\textcolor{color1}{\large\bfseries-}}}
+\newcommand{\bulletitemize}{\renewcommand*{\labelitemi}{\strut\textcolor{color1}{\textbullet}}}
 % Markerless lists (Core Competencies, Education & Certifications,
 % Languages, References) still inherit itemize's normal left-margin/
 % label-width geometry even with an empty \labelitemi glyph - the text
 % sits indented into blank space that used to hold the marker. Zero the
 % list-geometry lengths locally (same \leftmargini-override approach as
-% \dashitemize, not enumitem) so the text starts flush with the section
+% \bulletitemize, not enumitem) so the text starts flush with the section
 % heading - this also reduces word-wrap since the text column is wider.
 \newcommand{\flushitemize}{\setlength{\leftmargini}{0pt}\setlength{\labelsep}{0pt}\setlength{\labelwidth}{0pt}\setlength{\itemindent}{0pt}\setlength{\listparindent}{0pt}}
 
@@ -109,7 +109,8 @@
 %     PROFILE STATEMENT
 % ============================================================
 
-\vspace{6pt}
+\section{Professional Summary}
+\vspace{1pt}
 \small{Senior Product Manager with 9+ years spanning CRM/CX platforms, IoT/health tech, GenAI pilots, payments/PCI compliance, and B2B SaaS. Known for finding and fixing broken systems nobody flagged. Leads 0-to-1 builds and translates vendor/technical complexity into shippable product decisions.}
 
 % ============================================================
@@ -143,7 +144,7 @@
 % --- Most Recent Role ---
 \cvoneline{Senior Product Manager, Aging in Place}{TELUS Health}{Vancouver, BC}{Dec 2025--May 2026}
 \textit{0-to-1 product build. Led vision for AI-integrated IoT health solutions for seniors (ambient sensing / nighttime fall detection, ``Future Friendly'' product suite), pivoting the existing pendant-based model toward a broader market opportunity.}
-{\dashitemize
+{\bulletitemize
 \begin{itemize}
     \item Conducted market research on Canada's aging population and the limitations of the pendant-only model. Identified ambient sensing as the technology pivot.
     \item Conceived and planned a recurring Innovation Day event for ongoing market scans of hardware vendor partners. Defined pilot requirements and evaluation criteria. Role ended before the event ran.
@@ -159,7 +160,7 @@
 % --- Previous Role ---
 \cvoneline{Senior Product Manager, Initiatives \& Global Tools}{lululemon}{Vancouver, BC}{Oct 2020--June 2025}
 \textit{Owned and operated lululemon's Guest Experience Center (GEC) product ecosystem: CRM platforms (Oracle Service Cloud, D365, Salesforce Service Cloud), chatbot (Quiq), telephony (Five9), payments (PCI Pal), scheduling (Acuity/Talkative), sentiment (Medallia), and the global work-from-home hardware program.}
-{\dashitemize
+{\bulletitemize
 \begin{itemize}
     \item Led discovery/workflow mapping feeding the OSC-to-D365 migration. After migration, stabilized D365 for North America and ran its sunset/deprecation program in the final year, while a separate team built Salesforce Service Cloud. Maintained 100\% PCI security compliance throughout. CX platform adoption increased 40\% globally.
     \item Partnered with Engineering to build a PCI Pal-CRM API integration using DTMF keypad entry, eliminating a live PCI violation (agents taking card numbers verbally) and automating refund generation. Cut per-transaction time from ~10 min to ~3 min (~70\%), scaled to hundreds of transactions/week globally, and maintained 100\% uptime. PCI Pal also served a second live use case: CS-assisted guest order payment processing.
@@ -174,7 +175,7 @@
     \item Sourced and deployed global work-from-home hardware under COVID supply chain constraints (Lenovo Mini-PCs, standardized imaging via Microsoft Intune). Secured \$2.2M CAD OpsCo/SteerCo budget approval. Deployed 900+ staff before Peak 2021, scaling to 1,200+ units by 2024.
     \item Mentored 4 PMs with no formal authority via documented feedback. 2 were promoted, 2 exited.
     \item Led cross-org quarterly planning across 8 product teams and engineering over 3 years. Grew the Senior PM group from 2 to 8.
-    \item Identified that ~40\% of GEC interactions were with non-enrolled guests. Designed and iterated a CRM-based enrollment capture workflow, moving from optional to mandatory consent fields after data showed optional fields couldn't explain guest decline reasons, partnering with UX to tighten the flow. Reached ~80\% capture of the original 40\% gap, contributing to 30,000+ total enrollments in 6 months.
+    \item Identified that ~40\% of GEC interactions were with non-enrolled guests. Built the CRM-based guest-enrollment capture workflow in Oracle Service Cloud from scratch, no equivalent system existed for Guest Services before, moving from optional to mandatory consent fields after data showed optional fields couldn't explain guest decline reasons, partnering with UX to tighten the flow. Reached ~80\% capture of the original 40\% gap, contributing to 30,000+ total enrollments in 6 months.
     \item Partnered with UX/Design on Contentful (CMS) and WCAG 2.2 accessibility work. (Adjacent/UX-partnered exposure, not direct platform ownership.)
 \end{itemize}}
 \insight{Consistently turns ambiguous, cross-functional problems into shipped product decisions.}
@@ -184,9 +185,9 @@
 % --- Earlier Role ---
 \cvoneline{Product Manager \& Customer Success Lead}{Flowfinity Inc.}{Vancouver, BC}{Mar 2017--Apr 2020}
 \textit{Flowfinity's first dedicated CS + PM hire. Owned product, onboarding, and account growth for a B2B no-code app-building SaaS platform, including a consulting/SOW practice as core scope of the role.}
-{\dashitemize
+{\bulletitemize
 \begin{itemize}
-    \item Built a customer health-tracking app on Flowfinity's own platform within 60 days, a ``product-in-a-product.'' Trained the sales team on adoption and data-entry discipline and used it to weight the roadmap by ARR impact. Reduced account churn by 60\%.
+    \item Built a customer health-tracking app on Flowfinity's own platform within 60 days, a ``product-in-a-product.'' Trained the sales team on adoption and data-entry discipline and used it to weight the roadmap by ARR impact. Reduced account churn by 45\%.
     \item Defined and owned a 90-day new-client onboarding lifecycle plus ongoing quarterly touchpoints and an annual health check involving Sales.
     \item Rescued an at-risk new client (Second Harvest, ~2 months into onboarding and near churn) by taking over the relationship, structuring a supplemental billable SOW for extra consulting/dev hours, and bringing in client-side pilot users for faster feedback. Client retained long-term.
     \item Rebuilt a pre-existing, ungoverned Acuity booking configuration and integration/API layer, inherited from an unsupervised setup, before layering in automation.
@@ -200,8 +201,8 @@
 
 % --- Earlier Role ---
 \cvoneline{Manager, Internal Services}{Imperial Parking (now Reef Technology)}{Vancouver, BC}{Oct 2015--Feb 2017}
-\textit{One of two managers owning QA scorecards and calibrations for the entire contact center. Oversaw 7 supervisors across a 100-staff core contact center plus an additional 20 specialized staff under direct responsibility.}
-{\dashitemize
+\textit{Led the call centre, overseeing 7 supervisors and 120 staff (100-staff core contact center plus an additional 20 specialized staff) under direct responsibility.}
+{\bulletitemize
 \begin{itemize}
     \item Owned QA scorecards and calibrations across the full contact center, improving SLA performance by 30\%.
     \item Improved new-hire retention by 60\% through onboarding and training process redesign.
@@ -213,6 +214,7 @@
 %     EARLIER CAREER
 % ============================================================
 
+\newpage
 \section{Earlier Career\hfill{\color{black}\normalfont\itshape\small Details available on request.}}
 % Rationale for staying undated: Canadian age-discrimination convention,
 % see 09-canada-conventions.md. Keep this section itself to the plain
@@ -220,13 +222,26 @@
 % version was previously getting copied verbatim into tailored CVs.
 \vspace{3pt}
 
-\cvoneline{Manager, Sales Operations}{Preston Mobility}{Vancouver, BC}{}
-\textit{Led and won a City of Vancouver RFP using proven scaled-enterprise deployment processes. Improved onboarding and contract processes, boosting client NPS and CSAT.}
+\cvoneline{Preston Mobility}{Manager, Sales Operations}{Vancouver, BC}{}
+\textit{Ran sales operations for Bell's \#1 authorized business dealer, serving B2B enterprise mobility clients.}
+{\bulletitemize
+\begin{itemize}
+    \item Won a City of Vancouver RFP, provisioning and transitioning 2,000+ corporate mobility lines.
+    \item Grew the dealer's account base \textasciitilde{}40\% by removing onboarding and deployment friction.
+    \item Partnered with Bell Mobility engineering to streamline device enrollment and lifecycle logistics.
+\end{itemize}}
 
 \vspace{3pt}
 
-\cvoneline{Rate Card Technology Manager}{2010 Winter Olympics (VANOC)}{Vancouver, BC}{}
-\textit{Directed telecom setup for 9,000+ media devices in one week under strict Olympic readiness deadlines. Led mission-critical support at the Main Media Centre.}
+\cvoneline{2010 Winter Olympics (VANOC)}{Rate Card Technology Manager}{Vancouver, BC}{}
+\textit{Ran Main Media Centre rate-card operations serving global broadcast and print media at the Olympics.}
+{\bulletitemize
+\begin{itemize}
+    \item Wrote contingency plans and the rate-card change-request process ahead of the Games.
+    \item Directed device shipping, mass imaging, and distribution across all Olympic venues pre-Games.
+    \item Owned Main Media Centre rate-card operations as its manager, including overnight shifts.
+    \item Fulfilled ad-hoc rate-card orders 24/7 under short SLA for outlets like Associated Press.
+\end{itemize}}
 
 \vspace{3pt}
 
@@ -235,13 +250,13 @@
 % the nested bullet below still names the literal historical title "Store
 % Manager" accurately, since that reframe is a headline-level style choice,
 % not a claim the title was literally called something else.
-\cvoneline{5 roles, Customer Service Rep. to Operational Leadership}{Bell Canada}{Vancouver, BC}{}
+\cvoneline{Bell Canada}{5 roles, Customer Service Rep. to Operational Leadership}{Vancouver, BC}{}
 \textit{Progressed from Customer Service Representative through Business Service Center Representative, Contracts Desk Mitigation \& Coordinator, and Assistant Store Manager to Store Manager.}
-{\dashitemize
+{\bulletitemize
 \begin{itemize}
     \item Part of the inaugural training class at Bell's newly opened Vancouver call centre. Selected to represent Vancouver in national billing-system testing at Bell HQ in Toronto, then trained 200+ agents on return.
     \item Sole BC coordinator for Enterprise \& Mid-Market contracts. Implemented Sarbanes-Oxley-aligned records standards.
-    \item As Store Manager, rotated across 6 corporate store locations (not concurrent) to improve and grow each. Managed device inventory, logistics, and shrinkage controls, and audited POS data, activations, and billing reconciliation.
+    \item As Store Manager, rotated across 6 corporate store locations (not concurrent) to improve and grow each. Managed device inventory, logistics, and shrinkage controls, plus daily POS reconciliation and cellular activations.
 \end{itemize}}
 
 % ============================================================
@@ -256,7 +271,7 @@
 \item Certified ScrumMaster (CSM) -- Scrum Alliance
 \item Agile Leadership Certificate -- UBC Sauder School of Business
 \item Microsoft Certified System Administrator (MCSA)
-\item Associate of Arts -- Kwantlen Polytechnic University
+\item Diploma of Arts -- Kwantlen Polytechnic University
 \end{itemize}}
 
 % ============================================================

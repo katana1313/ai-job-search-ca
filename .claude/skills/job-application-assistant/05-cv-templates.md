@@ -12,6 +12,8 @@ All CVs use the moderncv LaTeX package with the "banking" style and "blue" color
 
 **Output file:** `cv/main_<company>_<role>.tex`
 **Compile with:** **lualatex** on MiKTeX/TeX Live. pdflatex often fails on modern MiKTeX installs with `fontawesome5` font-expansion errors; lualatex handles the same sources cleanly.
+
+**Export filename (for delivery to Raymond / actual submission):** once a CV is finalized (passed the compile-and-inspect loop and verification checklist), produce a renamed copy of the compiled PDF as `Raymond Chu_CV-<Role>-<Company>.pdf` alongside the working `cv/main_<company>_<role>.pdf` - do not rename the working file itself, add a copy. Derive `<Role>` and `<Company>` from the working filename's `<role>`/`<company>` slug: title-case each word, preserve acronyms uppercase (e.g. `tpm_growth` -> `TPM Growth`, `crm` -> `CRM`), spaces instead of underscores. Example: `main_stripe_tpm_growth.tex` -> `Raymond Chu_CV-TPM Growth-Stripe.pdf`. This is the file to actually hand to Raymond or upload to a job portal; the `main_<company>_<role>` naming stays the git-tracked working-file convention (unchanged, matches all prior tailored CVs in `cv/`).
 **Master reference:** `cv/main_example.tex` (comprehensive CV with all competencies, experience, and achievements - use as source when building targeted CVs). Deliberately not page-budgeted or bullet-capped: it holds more raw material per role than any single targeted CV needs, so `/apply` has real options to select from when relevance-weighted cutting (below) trims it down per JD.
 
 ### Compile command
@@ -99,7 +101,7 @@ Put location, email, phone, and LinkedIn all on **one line** via `\extrainfo{...
 
 A one-line italic synthesis after a role's bullets, using the `\insight{...}` macro defined in the preamble - e.g. `\insight{Drives an AI-first product pivot end to end, from market research through executive buy-in.}` placed right after `\end{itemize}` and before the closing `}}` of the `\cventry`. This is a deliberate borrow from an external Word-template style Raymond liked: it gives a skimming recruiter a 1-second "so what" without reading every bullet.
 
-Use it selectively - it costs a full line of vertical space per role, so on a page-budgeted (2-page) tailored CV, prioritize it for the most senior/relevant 2-3 roles and drop it first if a role gets cut down to conserve space, before cutting a substantive bullet.
+**Resolved default: every dated Professional Experience role gets an insight line, always** - TELUS Health and Impark included, not just the 2-3 most senior/relevant roles. **Earlier Career entries never get one.** This overrides the "selectively... most relevant 2-3 roles" framing above; that framing is what caused repeated rework (see `feedback_cv_structural_defaults` in memory) and should not be re-derived. If a page-budget crunch forces a genuine tradeoff, ask Raymond rather than silently dropping a role's insight line.
 
 The icon is yellow (`\definecolor{lightbulbyellow}{HTML}{FFD400}` in the preamble), not blue - Raymond wanted a true bright yellow, not the muted amber/gold that was tried first. The icon itself uses `\color{lightbulbyellow}`, then resets to `\color{color1}` before the text so the synthesis text stays blue like the rest of the document's accent color.
 
@@ -113,25 +115,29 @@ This empties the glyph everywhere `\labelitemi` is used (first-level `itemize`: 
 
 **Do not use `\usepackage{enumitem}` with `\begin{itemize}[label={}]` for this** - tried first, and it silently resets itemize spacing (topsep/itemsep/parsep) document-wide once loaded, including in itemize environments that never used the optional argument. That widened the gaps between the nested "-" job bullets too (untouched second-level `\labelitemii`, which should look exactly the same as before) and pushed the tailored CV from 2 pages to 3. The `\renewcommand*{\labelitemi}{}` approach doesn't touch enumitem or spacing internals at all - verify with a page-count check either way, this class of regression won't show up as a compile error, only as an unexpected page-count change.
 
-**Emptying the glyph alone still leaves the list indented.** `itemize` reserves its normal left-margin/label-width geometry (`\leftmargini`, `\labelwidth`, `\labelsep`, `\itemindent`) even when `\labelitemi` renders nothing - the text sits indented into blank space that used to hold the marker. This is visible on close inspection (Core Competencies/Education/Languages/References text not starting flush with the section heading rule) and it costs word-wrap: a narrower text column wraps sooner than necessary. Fix with a second local-group macro, same non-enumitem approach as `\dashitemize`:
+**Emptying the glyph alone still leaves the list indented.** `itemize` reserves its normal left-margin/label-width geometry (`\leftmargini`, `\labelwidth`, `\labelsep`, `\itemindent`) even when `\labelitemi` renders nothing - the text sits indented into blank space that used to hold the marker. This is visible on close inspection (Core Competencies/Education/Languages/References text not starting flush with the section heading rule) and it costs word-wrap: a narrower text column wraps sooner than necessary. Fix with a second local-group macro, same non-enumitem approach as `\bulletitemize`:
 ```latex
 \newcommand{\flushitemize}{\setlength{\leftmargini}{0pt}\setlength{\labelsep}{0pt}\setlength{\labelwidth}{0pt}\setlength{\itemindent}{0pt}\setlength{\listparindent}{0pt}}
 ```
-Wrap every markerless `itemize` (Core Competencies, Education & Certifications, Languages, References) in `{\flushitemize \begin{itemize}...\end{itemize}}`. Do not apply this to the job-accomplishment bullet lists wrapped in `\dashitemize` - those keep their normal indent, since a visible dash marker reads correctly with standard indentation; only the markerless lists need flushing.
+Wrap every markerless `itemize` (Core Competencies, Education & Certifications, Languages, References) in `{\flushitemize \begin{itemize}...\end{itemize}}`. Do not apply this to the job-accomplishment bullet lists wrapped in `\bulletitemize` - those keep their normal indent, since a visible bullet marker reads correctly with standard indentation; only the markerless lists need flushing.
 
 ### Single-line job entry header (replaces moderncv's 2-line `\cventry` default)
 
 moderncv's default `\cventry` layout renders company+location on one line and title+dates on the next. Raymond prefers everything on one line - `Title | Company -- Location`, dates flush right - to save vertical space, matching a Word template style he likes. Don't fight moderncv's internal `\cventry`/`\cvitem` engine to get this; define a standalone replacement and stop using `\cventry` for entries built this way:
 ```latex
 \newcommand{\cvoneline}[4]{%
-  \noindent\textbf{#1} \normalfont | #2 -- #3%
-  \ifthenelse{\equal{#4}{}}{}{\hfill\textit{#4}}%
+  \noindent\textbf{#1} \normalfont | \textbf{#2} -- #3%
+  \ifthenelse{\equal{#4}{}}{}{\hfill#4}%
   \par\vspace{1pt}%
 }
 ```
-(`\usepackage{ifthen}` required.) Usage: `\cvoneline{Senior Product Manager, Aging in Place}{TELUS Health}{Vancouver, BC}{Dec 2025--May 2026}` - pass an empty 4th argument for undated Earlier Career entries (the date block is omitted entirely, not left as blank space). Follow immediately with the italicized overview line and the bullet list, exactly as under a `\cventry` - `\cvoneline` is a drop-in replacement for the header only.
+(`\usepackage{ifthen}` required.) **Both #1 and #2 render bold** (title and company/organization) - resolved 2026-09-02 after Raymond asked for the company name bolded too, not just the title. **The date field (#4) renders plain - not italic.** It previously used `\hfill\textit{#4}`; Raymond asked for the "light font version" instead, meaning upright and non-bold, not italicized - the plain `#4` after `\hfill` already inherits that from the surrounding `\normalfont` context, no explicit font command needed.
 
-**Side effect to watch for:** moderncv's default pattern wraps each entry in an outer `\begin{itemize}\item{\cventry{...}}\end{itemize}` (originally just for spacing). Once entries switch to `\cvoneline`, drop that outer wrapper entirely - don't keep it out of habit. If it's dropped, the job-accomplishment bullet list *inside* the entry is no longer nested inside another list, so it becomes a level-1 list instead of level-2, and silently inherits the empty `\labelitemi` from the markerless-list fix above instead of the dash marker (`\labelitemii`). This is exactly why `\dashitemize` exists - wrap every job-accomplishment bullet list in `{\dashitemize \begin{itemize}...\end{itemize}}` to restore the dash. Verify after converting any entry: check that its bullets still show dashes, not blank markers.
+Usage: `\cvoneline{Senior Product Manager, Aging in Place}{TELUS Health}{Vancouver, BC}{Dec 2025--May 2026}` - pass an empty 4th argument for undated Earlier Career entries (the date block is omitted entirely, not left as blank space). Follow immediately with the italicized overview line and the bullet list, exactly as under a `\cventry` - `\cvoneline` is a drop-in replacement for the header only.
+
+**Argument order differs between Professional Experience and Earlier Career.** Professional Experience entries pass Title first, Company second (`\cvoneline{Title}{Company}{Location}{Dates}`) - both still render bold, order alone changes which comes first. **Earlier Career entries pass Company first, Title second instead** (`\cvoneline{Company}{Title}{Location}{}`) - e.g. `\cvoneline{Preston Mobility}{Manager, Sales Operations}{Vancouver, BC}{}`. This is a deliberate, Raymond-requested distinction between the two sections, not an inconsistency to "fix" by matching them - apply Company-first only within Earlier Career.
+
+**Side effect to watch for:** moderncv's default pattern wraps each entry in an outer `\begin{itemize}\item{\cventry{...}}\end{itemize}` (originally just for spacing). Once entries switch to `\cvoneline`, drop that outer wrapper entirely - don't keep it out of habit. If it's dropped, the job-accomplishment bullet list *inside* the entry is no longer nested inside another list, so it becomes a level-1 list instead of level-2, and silently inherits the empty `\labelitemi` from the markerless-list fix above instead of the bullet marker (`\labelitemii`). This is exactly why `\bulletitemize` exists - wrap every job-accomplishment bullet list in `{\bulletitemize \begin{itemize}...\end{itemize}}` to restore the bullet. Verify after converting any entry: check that its bullets still show bullet markers, not blank markers.
 
 **Gap between entries within Professional Experience: a full line, not a tight 3pt.** `\vspace{\baselineskip}` between entries (after each entry's closing `\insight{...}` or last bullet, before the next `\cvoneline`) reads as properly separated roles rather than a dense block; `\vspace{3pt}` (moderncv's tighter default, still used for the gap between the section heading and the first entry) is too tight once entries are stacked without an outer wrapper. Before applying this to a page-budgeted tailored CV, compile and check the page count doesn't change, and visually confirm the entry that used to sit right at a page boundary (usually the 2nd role) still fits fully - `\baselineskip` per gap adds up across 3-4 entries and can tip a tight layout onto a 3rd page.
 
@@ -167,6 +173,21 @@ Two related patterns are fine and should be kept:
 
 Section headings such as `\section{Core Competencies}`, `Professional Experience`, `Education`, `Languages`, `Publications`, `Honors and Awards`, `References` (and any others your template defines), plus the `Available upon request.` line under References, are all **literal English text baked into the template** - they do not translate themselves. Whenever the CV language (see `CV language` in the candidate profile) is not English, translate every one of these too, whatever they are, not just the body prose - a CV with a fully localized profile statement and bullets sitting under untouched English section headers reads as sloppy and inconsistent, and it's an easy thing to forget precisely because the prose translation is the obvious, visible part of the job. Worked example for Spanish: `Competencias Clave`, `Experiencia Profesional`, `Educaci\'on`, `Idiomas`, `Publicaciones`, `Distinciones y Premios`, `Referencias`, `Disponibles a solicitud.` The same rule applies for any other target language - check this explicitly during the verification pass.
 
+## Pre-Drafting Checklist (before writing the first bullet)
+
+Do these before drafting content, not reactively after the candidate points out what's missing. Skipping this step is why a first draft typically needs 5+ rounds of correction to reach the quality a careful first pass could hit directly (observed across the Arc'teryx and Tru Cooperative Bank sessions, 2026-08-18).
+
+1. **JD keyword-frequency scan.** Count terms the posting repeats 3+ times. Confirm the draft naturally uses the top ones before presenting it - a JD repeating "roadmap" 7 times and a draft using it zero times is a mechanical miss, not a judgment call, and should never require the candidate to point it out.
+2. **Read each target role's full KB entry, not just enough to find one usable bullet.** The strongest available fact for a bullet slot is sometimes several lines past the first plausible one. Skimming picks the first fit; reading the whole entry picks the best fit. (Example: an already-documented "translated executive vision into technical hardware specs" sat unused in favor of a weaker generic duty-description bullet, for an entire draft cycle, purely because the fuller entry wasn't reread.)
+3. **Ask about thin or older roles directly, batched, before drafting:** "For [role], is there a stronger or more specific story than what's in the KB that fits this JD better?" Don't draft from thin material and wait for the candidate to notice a weak section and volunteer better facts reactively - ask once, upfront, especially for Earlier Career entries where the KB tends to be thinnest.
+4. **Ask about structural preferences as one batched question, not silent defaults:** insight-line coverage (all roles vs. top 2-3) and Core Competencies count are both soft-guidance judgment calls - see the structural-defaults pattern in memory. Bullet density defaults to single-line per `CLAUDE.md` and no longer needs asking.
+5. **Default to outcome/translator framing on every bullet, especially for senior/Director-level targets.** Ask "what did this prove," not "what did I do" - a bullet that only states the task ("Partnered with Engineering on data privacy...") is weaker than one that states what it proved, even when both describe the same underlying fact.
+6. **Before stating any claim that bridges two KB facts, check it's literally supported, not inferred.** If connecting two facts requires an inference the KB doesn't state outright (e.g., contractors coordinated → "direct reports"; a title held → assuming it wasn't a genuine job title), flag it as a proposal for confirmation rather than writing it as a stated fact on the page. Every one of the factual corrections needed on the Tru Cooperative Bank CV (2026-08-18) traced back to this kind of unflagged inferential bridge.
+
+## Every element gets tailored to the JD - nothing carries over verbatim
+
+`main_example.tex` stays fully populated with real content by design (confirmed 2026-09-02) - it is not a blank skeleton, and tailored CVs are built by pulling and trimming from it. But "pull from the master" means pull the *facts*, not the *wording*. Every element - profile statement, Core Competencies, role overview lines, accomplishment bullets, insight lines, Earlier Career entries - must be evaluated for relevance to the specific target JD and rewritten to fit it, not copied because the master's version is "good enough." This generalizes the overview-line and Earlier-Career-specific rules already stated below (both are instances of this same principle, not separate rules) to every section without exception. Before presenting any drafted section, check: does this wording actually reflect what this JD asks for, or is it the master's generic phrasing left untouched because nothing forced a rewrite?
+
 ## Section-by-Section Tailoring
 
 ### Profile Statement / Elevator Pitch (Best Practice)
@@ -194,7 +215,7 @@ Statements labeled *[Used for: <company>_<role>]* were extracted from archived a
 ### Core Competencies / Skills Section (Best Practice)
 Reorder and emphasize based on the role. Use bold category labels.
 
-List **5-7 key competencies** in bullet format, tailored to the specific job. For each competency, briefly explain how it adds value to the position.
+**Resolved default: exactly 4 categories, every time.** Do not propose 5, 6, or 7 "because the range allows it" - Raymond has corrected this same mistake repeatedly (see `feedback_cv_structural_defaults` in memory). A section literally named "Core" stops reading as core past 4 items. If a specific JD genuinely seems to need a 5th category, ask Raymond explicitly before drafting rather than defaulting to it - don't pad to a round number, and don't silently pick a count and present it as settled. When narrowing to 4, cut the categories with the weakest JD-relevance first (a generic platform list the JD never asks for loses to a category the JD's own language names), not by dropping the newest or shortest one.
 
 Use the posting's own core term in the matching bullet's bold label when it truthfully applies - ATS and skim-reading hiring managers match literally, and "MLOps" in a heading outperforms a paraphrase like "ML Deployment".
 
@@ -205,7 +226,7 @@ Use the posting's own core term in the matching bullet's bold label when it trut
 Raymond's degree (Associate of Arts) is a weaker credential than his certifications (BrainStation Product Management, CSM, UBC Sauder Agile Leadership, MCSA) - bolding it as its own `\cventry`-style section header gave it more visual weight than it's earned. Merge Education into the Certifications list instead: one `\section{Education \& Certifications}`, each item a plain `\item Credential -- Institution` line (no bold, no separate `\cventry`), **certifications first, degree last** - matching the order in Raymond's external Word master template. Do not give the degree its own subsection or bold treatment above the certifications.
 
 - Always include the highest degree
-- Include thesis topics when relevant to the target role (rare for Raymond's profile - Associate of Arts has none)
+- Include thesis topics when relevant to the target role (rare for Raymond's profile - Diploma of Arts has none)
 
 #### In-progress qualifications must say so explicitly
 
@@ -229,6 +250,7 @@ Claiming a credential not yet held is a factual misstatement, and it is the kind
 - Rewrite bullet points to emphasize aspects most relevant to the target role
 - Use 4-6 bullets for most recent role, 3-4 for previous, 2-3 for older
 - **Emphasize measurable results** where possible: "Reduced processing time by X%", "Model adopted by the team"
+- **Overview lines must be rewritten per JD, never copied verbatim from `main_example.tex`.** The italicized intro sentence(s) under each role exist to frame that role's scope in the target JD's own terms - carrying the master's generic overview forward unchanged is a tailoring miss just like an untouched bullet would be. This applies to every dated role, including Earlier Career (see below) - a role can keep its underlying facts unchanged while still being reframed toward the posting's language.
 
 **Italicize the role-overview line** (the intro sentence(s) before the bullet list in each `\cventry`'s description). Plain-text overview text sitting directly above plain-text bullets reads as one undifferentiated block. Italics separates it typographically at zero page-cost - prefer this over adding `\vspace` before the bullet list, which costs vertical space on an already page-budgeted (2-page) document. Wrap the whole overview sentence(s) in `\textit{...}`.
 
@@ -259,6 +281,14 @@ Three honest fixes, in order of preference:
 ### Languages
 
 Keep this to one line. Group every conversational-level language behind a single `Conversational:` label rather than repeating `(conversational)` after each one - e.g. `English (native/professional), Cantonese (native). Conversational: French, Mandarin, Japanese.` List native-level languages individually with their own label (they're the load-bearing claim); only the conversational tier benefits from grouping.
+
+### Earlier Career always starts on page 2 - force it with `\newpage`, not `\needspace`
+
+**Resolved 2026-09-02, after repeated failures on the same document:** put a bare `\newpage` immediately before `\section{Earlier Career...}`. Earlier attempts used `\needspace{5\baselineskip}` before the first Earlier Career `\cvoneline` entry to prevent it from orphaning across the page 1/2 boundary - that only prevents the specific orphan (title separated from its bullets), it does not guarantee the section *starts* at the top of page 2, and a small content edit anywhere earlier in the document can shift exactly where page 1 ends, silently reintroducing the problem next time (which is exactly what happened - Raymond flagged this as a recurring failure, not a one-off). `\newpage` is unconditional and content-independent: Earlier Career (and everything after it - Education, Languages, References) always starts page 2 on a standard 2-page CV, full stop, regardless of how Professional Experience content above it changes. This assumes Professional Experience content fits on page 1 on its own merits (already required by the page budget) - if it doesn't, that is a separate overflow problem to fix by cutting content per "Relevance-weighted cutting" below, not by removing this `\newpage`.
+
+### Earlier Career must also be JD-framed, not copied from the master
+
+Earlier Career keeps its overview + bullets structure per the retention rule above (never collapses to overview-only), but the overview and bullet *wording* still needs to be reframed toward the target JD like every other role - carrying Preston Mobility/VANOC/Bell Canada text forward unchanged from `main_example.tex` is the same miss as leaving a recent role's overview untouched. Reread the full KB entry for each Earlier Career role (`01-candidate-profile.md`) before drafting - it holds more raw material than the master CV's compressed 2-bullet version, and the strongest JD-relevant fact for an Earlier Career bullet is often not the one already selected in the master.
 
 ### Earlier Career - date consistency (important)
 
@@ -344,6 +374,12 @@ What to check in the extraction:
 - **Keyword coverage.** Match the posting's required/preferred terms against the extracted text, in the posting's language. Prefer the posting's exact term over a synonym when it is truthfully applicable - ATS matching is often literal. Never add a keyword the profile does not support.
 - **Decorative icons that extract as broken glyph names.** Not every `\faIcon{...}` extracts cleanly - `\faIcon{lightbulb}` in the insight-line convention extracts as a real Unicode emoji (harmless), but `\faIcon{location-dot}` in an earlier header version extracted as the literal text `LOCATION-DOT` sitting directly in front of "Vancouver, BC" - a real risk on parsing-fragile platforms like Workday, which sometimes auto-extracts a location field straight from resume text. The fix isn't a better icon, it's asking whether the icon carries real information at all: a location pin doesn't (the text "Vancouver, BC" already says it), so it was simply removed rather than swapped for another icon. Check every icon this way - if `pdftotext` extraction shows something other than the intended emoji or is silent (a blank glyph), and the icon is purely decorative, drop it rather than hunt for a cleaner icon name.
 - **Automatic hyphenation can break a keyword across a line-wrap.** LaTeX's hyphenation algorithm inserted a genuine hyphen in "chatbot" - "chat-bot" - purely because it fell at a line-wrap point, not because of anything in the source text. This is invisible in a visual PDF read and only shows up in the actual extracted text layer. A literal ATS keyword search for "chatbot" (candidate-pool search in Greenhouse/Ashby, for instance) could miss that specific instance. Fix with `\hyphenation{chatbot}` in the preamble (add other JD-critical compound keywords there too if a compile-and-extract check catches them mid-hyphenated) - cheaper and more reliable than trying to reword around every possible line-break point.
+
+### A bare `~` renders invisible, not as a tilde (confirmed rendering bug)
+
+Writing `~40\%` or `~\$200K` to mean "approximately" does not print a tilde character — in LaTeX, a bare `~` is the non-breaking-space command, not a printable glyph. It compiles cleanly (no warning, no error) and silently swallows the tilde, leaving a slightly odd extra space where it sat (e.g. "account base  40%"). This is invisible on a quick skim and only shows up on close visual inspection of the compiled PDF, the same class of silent failure as the date-range issue below. Confirmed present in `main_example.tex` itself (`~35%`), so it has likely propagated into other tailored CVs built from it.
+
+**Fix:** use `\textasciitilde{}` wherever an approximation tilde is intended (`\textasciitilde{}40\%`, `\textasciitilde{}\$200K`) — it renders a real tilde glyph cleanly in this template's font. Check for this specifically during the compile-and-inspect pass: a bare `~` anywhere in bullet/overview text is a bug, not a style choice.
 
 ### Date fields must be ASCII ranges (confirmed ATS import failure)
 
@@ -440,7 +476,7 @@ When the candidate's documented experience involved working with staff/engineers
 
 ### Overview-line and insight-line length (the italicized intro and the 💡 line under each `\cvoneline`)
 
-Target **1 line** for both each role's overview/intro sentence(s) and its insight line, the same "prefer shorter" instinct as the profile statement. Bullets get no exception — they stay single-line always. Overview and insight lines can hit 1 line once bullets underneath already carry the supporting detail — if a fact is already stated in a bullet, cut it from the overview/insight line rather than the reverse. Reserve 2-line wrapping for overview lines that are inherently enumerative and would lose real information if compressed: naming several distinct job titles for a career-progression role (e.g. Bell Canada's 5-title progression), or — only if not already covered by the bullets underneath — naming several distinct platforms/systems. For insight lines, reserve 2-line wrapping only for a specific "so what" synthesis that would lose its point if compressed further. Don't force a 2-line-worthy line down to 1 line by deleting real information; don't leave a compressible line at 2 lines when the detail is already redundant with a bullet.
+This is the CV-specific application of `CLAUDE.md`'s "Single-line by default, everywhere except the profile/summary" rule — read that first, it's the canonical statement, and it also covers Core Competency lines and Earlier Career entries, not just these two. Target **1 line** for both each role's overview/intro sentence(s) and its insight line, the same "prefer shorter" instinct as the profile statement. Bullets get no exception — they stay single-line always. Overview and insight lines can hit 1 line once bullets underneath already carry the supporting detail — if a fact is already stated in a bullet, cut it from the overview/insight line rather than the reverse. Reserve 2-line wrapping for overview lines that are inherently enumerative and would lose real information if compressed: naming several distinct job titles for a career-progression role (e.g. Bell Canada's 5-title progression), or — only if not already covered by the bullets underneath — naming several distinct platforms/systems. For insight lines, reserve 2-line wrapping only for a specific "so what" synthesis that would lose its point if compressed further. Don't force a 2-line-worthy line down to 1 line by deleting real information; don't leave a compressible line at 2 lines when the detail is already redundant with a bullet.
 
 **When a 2-line wrap is used (profile statement, overview, or insight line), the wrapped second line must use at least 70% of the available line width.** A wrap that leaves a short orphaned tail — two or three words alone on the second line — reads as unbalanced and must be fixed: either trim further to fit 1 line, or add enough real content that the second line is substantially full. This is the same widow-avoidance discipline already required for the profile statement (see above), applied consistently everywhere a 2-line wrap is allowed.
 
@@ -463,6 +499,29 @@ keywords genuinely pull more weight toward an otherwise-lower-priority role (e.g
 contact-center-operations posting where the Impark QA/SLA story is the single strongest
 match on the CV), let that JD-specific relevance win rather than mechanically enforcing
 the employer ranking above it.
+
+### Impark's default section: Earlier Career, not Professional Experience
+
+**Resolved 2026-09-18.** Default Impark into the `Earlier Career` section (undated,
+`\cvoneline{Company}{Title}{Location}{}` argument order, overview + bullets, no insight
+line — identical treatment to Preston Mobility/VANOC/Bell Canada) rather than a fourth
+dated entry in `Professional Experience`. With TELUS Health, lululemon, and Flowfinity
+as genuinely product-relevant Professional Experience roles, a fourth dated entry
+(Impark) routinely pushes page 1 over budget before any JD-specific trimming even
+starts — confirmed on the Workday Senior PM (Agent Factory) draft, where TELUS (3) +
+lululemon (5) + Flowfinity (4, per `feedback_flowfinity_four_bullets` in memory) already
+filled page 1 on their own.
+
+Within Earlier Career, order reverse-chronologically even though dates aren't displayed:
+**Impark (Oct 2015-Feb 2017) → Preston Mobility (Mar 2013-) → VANOC (2010) → Bell
+Canada (earliest)**.
+
+**Override condition:** if a specific JD is genuinely contact-center/CX-ops relevant (the
+same condition that unlocks Impark's QA-scorecard framing per
+`feedback_impark_qa_scorecards_framing` in memory), Impark can move back to a dated
+Professional Experience entry instead — that role's content is the strongest match in
+that specific case and dating it adds credibility. Otherwise, this is the default, not a
+per-CV judgment call to re-derive each time.
 
 ## Recommended Section Order
 

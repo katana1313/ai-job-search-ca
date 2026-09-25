@@ -113,7 +113,9 @@ How well do the required/preferred skills align with the candidate's capabilitie
 
 **Strong match areas:** CRM/CX platform ownership (Oracle Service Cloud, D365, Salesforce Service Cloud), payments/PCI compliance (PCI Pal, DTMF), GenAI/AI product pilots
 **Moderate match areas:** Chatbot/conversational platforms (Quiq, NARVAR), voice AI/IVR (Murf.ai, Five9), B2B SaaS platform ownership (Flowfinity)
-**Weak match areas:** Deep hands-on engineering/coding, formal people-management of a PM team
+**Weak match areas:** Deep hands-on engineering/coding, formal people-management of a PM/CRM team in recent roles
+
+**Formal people-management, historical:** Raymond does have real formal direct-report management history — Impark (7 supervisors, 100+ staff indirect), Bell Canada Store Manager (up to 15 staff/location), VANOC (30-person service/fulfillment/prep team), Preston Mobility (2-person team) — but all of it is 2002-2017, pre-dating his PM career, and none of it was CRM/product-team management specifically. For a JD requiring recent, CRM/platform-specific team leadership, cite this history honestly as "formal people management is not new to me, just not exercised in a PM-titled role recently" rather than either overclaiming currency or ceding the point entirely as a clean gap.
 
 ### 2. Experience Match (0-100)
 Does work history align with what they're looking for?

@@ -10,6 +10,8 @@ Cover letters use a custom LaTeX document class (`cover.cls`) with Lato/Raleway 
 
 **Output file:** `cover_letters/cover_<company>_<role>.tex`
 **Compile with:** XeLaTeX (cover.cls requires fontspec)
+
+**Export filename (for delivery to Raymond / actual submission):** once a cover letter is finalized, produce a renamed copy of the compiled PDF as `Raymond Chu_Cover Letter-<Role>-<Company>.pdf` alongside the working `cover_letters/cover_<company>_<role>.pdf`, mirroring the CV export-filename convention in `05-cv-templates.md`. Derive `<Role>`/`<Company>` the same way: title-case, acronyms preserved uppercase, spaces instead of underscores. The `cover_<company>_<role>` naming stays the git-tracked working-file convention.
 **Font directory:** `cover_letters/OpenFonts/fonts/`
 
 ### Compile command
@@ -27,6 +29,7 @@ After writing the cover letter and before presenting to the user, always compile
 1. Run `xelatex -interaction=nonstopmode cover_<company>_<role>.tex`
 2. Confirm page count is exactly 1 and compile succeeded
 3. Read the PDF via the Read tool and visually check: signature fits at the bottom, no text cut off, bullet font matches body
+4. **Check every bullet for a line-wrap widow, the same discipline as the CV.** A bullet that wraps to a second line holding only 1-3 words (e.g., "reconciliation." or "cut." alone on line two) reads as unbalanced. Read the extracted or rendered text of each bullet individually - a page-count-only check will miss this, since the letter can compile to a clean 1 page while individual bullets still wrap badly inside it. Trim the bullet to fit one line, or if a 2-line bullet is unavoidable, the wrapped second line must be substantially full (comparable to the CV's 70% rule in `05-cv-templates.md`), not a short widow.
 
 ### Known template pitfall: itemize inside `\lettercontent{}`
 
@@ -54,6 +57,8 @@ The `\lettercontent{}` macro appends `\\` to its argument. This breaks when the 
 ```
 
 The font wrapper is mandatory — if you just move `\begin{itemize}` outside `\lettercontent{}` without the `\fontspec` block, bullets render in the default body font (Lato) and visually mismatch the rest of the letter.
+
+**The `\fontspec` call above must declare `BoldFont`, or every `\textbf{Label:}` inside the bullets silently renders as regular weight.** Confirmed twice (Mercury and Coalition cover letters, both 2026-09-02) - `\fontspec[Path = ...]{Raleway-Medium}` alone loads only the medium weight, so `\textbf{}` has no bold face to switch to and LaTeX substitutes the regular weight with only a compile-time warning (`Font shape ... undefined`) as the tell. `Raleway-Bold.otf` already exists in `OpenFonts/fonts/raleway/`, so the fix is one added key: `\fontspec[Path = OpenFonts/fonts/raleway/, BoldFont = Raleway-Bold]{Raleway-Medium}`. Check the compile log for this specific warning every time a cover letter is built, not just when the bullets look wrong on inspection - the regular-weight substitution is easy to miss on a visual skim.
 
 ## Document Structure
 
@@ -169,6 +174,19 @@ evidence twice, and it's the fastest way to blow the word budget without
 noticing. If bullets are used, the surrounding paragraphs should
 introduce and connect them, not restate their content.
 
+### Paragraph density
+Keep each paragraph to **2-3 sentences, 3-5 lines max**, readable in about 10 seconds. A paragraph running to 4-5 sentences reads as a dense block even when the letter as a whole is within the word budget - total word count and per-paragraph density are different checks, and a letter can pass the first while failing the second. Each paragraph should center on one idea: a strong topic sentence, one or two supporting sentences, done. Leave a full blank line between paragraphs so the page reads as distinct, scannable blocks rather than one continuous wall of text.
+
+When a paragraph runs long, the fix is to **cut content**, not to split it into more, shorter paragraphs - splitting keeps every word but dilutes the letter's structure (a 3-4 paragraph cover letter is itself a best-practice target, so fragmenting into 6-7 paragraphs to solve density trades one problem for another). Identify the least load-bearing sentence in the dense paragraph (often a summary/restatement sentence that doesn't add new information) and cut it outright.
+
+### Closing paragraph structure
+The closing paragraph needs to do more work than a single "I look forward to hearing from you" line - that alone reads as a placeholder, not a close. A proper closing is **2-4 sentences, roughly 50-75 words**, and covers:
+1. A brief restatement of the value you bring (don't just repeat the opening - tie back to the specific role)
+2. Genuine, specific excitement about this opportunity or company - ideally something concrete (a verified company fact, mission detail, or structural distinction), not generic enthusiasm
+3. A clear, confident call to action (welcoming the chance to discuss the role, not a vague hope)
+4. Thanks for the reader's time and consideration
+Match the tone of the rest of the letter and keep the sign-off professional ("Kind regards," / "Sincerely," / "Best regards," are all safe).
+
 ### Line Spacing
 - Add `\usepackage{setspace}` and `\setstretch{1.0}` if the letter is long and needs to fit on one page
 - Use `\vspace{.5cm}` between major sections for readability (only if space permits)
@@ -178,6 +196,19 @@ introduce and connect them, not restate their content.
 - 3-5 bullets is ideal
 - Start each bullet with bold label or action verb
 - Use `\textbf{Label:}` for category-style bullets
+- Each bullet should be one sentence (two only if it truly can't be said in one), never exceeding two lines, and all bullets in the same list should read as parallel in length and grammatical structure - one noticeably longer or differently-shaped bullet stands out as unbalanced next to short, punchy ones.
+
+### Don't duplicate resume content
+Do not repeat resume bullets verbatim in the cover letter, and do not simply restate a resume achievement in prose form either - both waste the one page available to make a distinct case. Two legitimate options instead:
+1. **Use different achievements entirely** - pull KB facts that never made it onto the tailored resume.
+2. **Reuse the same achievement but add real context the resume doesn't have** - the mechanism behind a number, the specific stakeholder story, why it mattered. A resume bullet states an outcome; a cover letter can explain how it happened.
+Before finalizing bullet or paragraph content, check it against the tailored CV for this same application - if a sentence could be lifted straight from one document into the other with no change, it needs either different content or genuinely new detail, not a synonym swap.
+
+### Bullet framing at the Director/senior level
+Task-execution verbs ("closed," "fixed," "built") read as individual-contributor work even when the underlying achievement is substantial. For Director-level or senior-leadership target roles specifically, prefer ownership and direction language ("owned," "led," "built the case that got...") over pure task-completion phrasing - the same outcome/translator-framing principle documented in `05-cv-templates.md`'s Pre-Drafting Checklist, applied to cover letter bullets. This matters more here than on the CV because a cover letter has only 3-5 bullets total, so each one needs to read as scope-appropriate on its own, not rely on surrounding bullets to establish seniority.
+
+### Choosing which achievements to feature (limited slots, prioritize deliberately)
+With only 3-5 bullets available, an achievement that maps to one of the JD's explicit **Required Skills/Qualifications** generally outranks one that only illustrates a "typical day" responsibility area - the required-qualifications list is the hard-screen checklist a recruiter or ATS is actually checking candidates against, while a responsibilities section describes role scope more loosely. When two candidate KB facts are otherwise comparable in strength, the one demonstrating a named requirement should usually win the limited slot.
 
 ### LaTeX Special Characters
 - Underscore: `\_`
