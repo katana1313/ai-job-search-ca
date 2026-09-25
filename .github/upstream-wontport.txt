@@ -1,0 +1,48 @@
+# Upstream commits this fork has consciously decided never to port.
+# tools/upstream_triage.py skips anything listed here so it stops re-surfacing
+# in the weekly Upstream watch report. One SHA per line (short or full); text
+# after # is a note.
+#
+# Only for commits you've reviewed and rejected on purpose. Commits you DO
+# port drop off automatically once cherry-picked (patch-id match), so they
+# never need an entry here. Likewise commits that only touch files your fork
+# removed are auto-skipped - you don't need to list those either.
+
+# Danish-only portals (the Canadian fork ships with Danish portals disabled)
+04186b9  # fix(jobnet-search): emit /scrape contract fields (Danish jobnet portal)
+17bc698  # fix(jobdanmark-search): emit /scrape contract fields (Danish jobdanmark portal)
+df7919c  # fix(jobbank-search): emit date key derived from posted (Danish jobbank.dk portal)
+7aba0b4  # fix(jobdanmark-search): accept comma after postcode (Danish jobdanmark portal)
+b067928  # fix(jobindex-search): map ASAP deadlines to null (Danish jobindex portal)
+4896596  # fix(jobbank-search): emit deadline as YYYY-MM-DD (Danish jobbank.dk portal)
+56f679e  # fix(jobdanmark-search): drop presentation-only keys (Danish jobdanmark portal)
+bcba687  # fix(jobnet-search): map 1900-01-01 sentinel to null (Danish jobnet portal)
+dab2150  # fix(jobdanmark-search): normalize detail HTML fallback (Danish jobdanmark portal)
+c85640e  # fix(jobindex-search): rewrite detail parser against page shapes (Danish jobindex portal)
+c2cd71d  # fix(jobdanmark-search): back off on 429/5xx in detail (Danish jobdanmark portal)
+c7bd494  # fix(jobindex-search): reject non-jobindex detail URLs (Danish jobindex portal)
+f8c606f  # fix(jobnet-search): fallback to search endpoint on detail 404 (Danish jobnet portal)
+71674d0  # fix(portal-clis): accept full posting URLs in detail commands (Danish portals)
+c844359  # fix(jobdanmark-search): skip autocomplete items without text (Danish jobdanmark portal)
+ba9b1d8  # fix(jobnet-search): degrade a null publicationDate to a null date (Danish jobnet portal)
+0883958  # fix(jobbank-search): degrade an unparseable pubDate to a null date (Danish jobbank.dk portal)
+fa8db56  # fix(portal-clis): reject undefined single-dash flags in the unknown-flag guard (Danish portals)
+
+# Danish salary data / formatting (not applicable to Canadian market)
+621ce5a  # fix(convert-salary-excel): reject ambiguous dot thousands separators (Danish krone)
+1c19f6c  # fix(salary-tools): number locale by last separator (Danish salary)
+7d00ec7  # fix(salary): stop dropping dotted A.M.B.A. suffix (Danish corporate entities)
+9833a5d  # fix(salary): treat null metadata as absent (Danish salary lookup)
+362ef6a  # test(salary): exercise real workbook conversion through the CLI
+b91c612  # fix(salary): print the privacy footnote only when a row rendered N/A*
+968fb1b  # fix(salary): pair a bare Count/Index column pair instead of splitting it into two categories
+7f709ed  # fix(salary): require corroboration before accepting a header row
+
+# Upstream release chores / tags / changelog churn (the Canadian fork tracks its own releases)
+45d55a7  # chore(release): cut v1.5.0
+ab91c60  # chore(release): cut v1.6.0
+93fb0e6  # chore(release): cut v1.7.0
+1a116b3  # chore(release): cut v1.7.1
+b959d6a  # style(changelog): restore blank line between Fixed entries
+ccf786b  # changelog: move entries out of released 1.7.1 section
+6de14ea  # changelog: fork-reconcile note on #458 entry
