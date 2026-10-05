@@ -51,15 +51,15 @@ jobs:
 
       - name: Fetch upstream template
         run: |
-          git remote add upstream https://github.com/MadsLorentzen/ai-job-search.git 2>/dev/null || true
-          git fetch --quiet upstream master
+          git remote add upstream https://github.com/p3ji/ai-job-search-ca.git 2>/dev/null || true
+          git fetch --quiet upstream canada
 
       - name: Build triage report
         run: |
           {
             echo "_Last checked: $(date -u '+%Y-%m-%d %H:%M UTC') · [run](${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }})_"
             echo
-            python tools/upstream_triage.py --remote upstream --branch master
+            python tools/upstream_triage.py --remote upstream --branch canada
           } > report.md
           cat report.md
 
