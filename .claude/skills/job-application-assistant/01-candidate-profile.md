@@ -369,10 +369,13 @@ claim these stakeholders were literally external clients.
   each A/B test (standard IVR metrics: queue wait, abandonment, IVR
   completion; and chatbot metrics: deflection, resolution), rather than
   building custom dashboards from scratch.
-- Delivered an EHC IVR fix using Murf.ai integrated into Five9 (multi-day
-  update cycle reduced to under 1 hour), then proactively took the
-  guest-facing application through legal/branding approval and designed a
-  phased global rollout (EHC → AU/NZ → APeC → EMEA) without being asked.
+- Shipped to production (confirmed 2026-10-07): EHC IVR fix using Murf.ai
+  (AI voice) integrated into Five9 (multi-day update cycle reduced to under
+  1 hour), then proactively took the guest-facing application through
+  legal/branding approval and designed a phased global rollout (EHC → AU/NZ
+  → APeC → EMEA) without being asked. LIVE in EHC, EMEA and APeC. AU/NZ
+  status not confirmed, so do not claim it. Safe to cite as a production AI
+  deployment, not a pilot.
 - Ran a Microsoft Copilot for D365 pilot (email/chat summarization) — full
   evaluation framework delivered in weeks, working directly with Microsoft
   engineers; delivered an honest go/no-go recommendation, deprioritizing
