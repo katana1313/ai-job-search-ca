@@ -527,6 +527,14 @@ claim these stakeholders were literally external clients.
   touchpoint experience for educators (agents) and the WFM team, not just
   guests. Safe to frame as an end-to-end journey redesign spanning
   booking, reminders, and the video-appointment experience.
+  Confirmed 2026-10-07 (Raymond, live): the original ask was only to get
+  rid of Zoom. In-person discovery with the educators and WFM is how he
+  found the real problem (manual booking, scheduling and video setup) and
+  reframed it into the Acuity/Talkative API workflow automation. In-person
+  discovery was a standing method at both lululemon and Flowfinity, not a
+  one-off. See 07-interview-prep.md: Educator Booking Automation, Membership
+  Enrollment (shadowed educators), Metro Mobile License Growth (shadowed
+  client teams, ran discovery sessions).
 - Delivering for Digital Educators surfaced Workforce Management (WFM) as
   the next underserved stakeholder group. Identified that Verint — WFM's
   scheduling tool — was implemented as a sub-contract through Five9 and
