@@ -374,6 +374,13 @@ claim these stakeholders were literally external clients.
   and his team also monitored guest review feedback (Medallia and Stella
   reviews) as an ongoing usage/satisfaction signal. Specific figures are
   not recorded, so ask before citing a number.
+  Confirmed 2026-10-07: as Five9 owner, monitored on a weekly basis, with his
+  team, the live operating metrics of the platforms he owned: phone
+  (abandon rate, AHT), Quiq chatbot (deflection, resolution rate,
+  escalation), guest returns processed through Guest Services (case counts
+  and dollar amounts), and email average response time (emails ran through
+  the CRM). Recurring weekly monitoring is confirmed; specific values are not
+  recorded, so ask before citing a number.
 - Shipped to production (confirmed 2026-10-07): EHC IVR fix using Murf.ai
   (AI voice) integrated into Five9 (multi-day update cycle reduced to under
   1 hour), then proactively took the guest-facing application through
