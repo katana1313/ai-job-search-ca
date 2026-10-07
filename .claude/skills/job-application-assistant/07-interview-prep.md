@@ -28,7 +28,6 @@ License growth 25% | Admin work -30% | SLA improvement 30% | Hardware:
 | Security / PCI | PCI Pal DTMF API | D365 Stabilization |
 | Scale / Infrastructure | Work-at-Home Hardware | Quarterly Planning |
 | Proactive Initiative / No Brief | Medallia & Web Forms | AI IVR Rollout |
-| Contact Center QA | Impark QA Ownership | — |
 | Expectation-Setting / Pushback | Metro Mobile License Growth | Membership Enrollment |
 | OKR / Cross-Org Planning | Quarterly Planning Leadership | TELUS AiP Expansion |
 | Ecommerce Ownership | NARVAR–Quiq Integration | Educator Booking API |
@@ -39,7 +38,7 @@ License growth 25% | Admin work -30% | SLA improvement 30% | Hardware:
 | Platform Rebuild / Re-Architecture | Educator Booking API (Acuity rebuild) | OSB-to-Kafka Backend |
 | Early-Career / "How Did You Start" | Bell National Billing Rollout | — |
 | Conflict Resolution / Standing Up for Your Team | Lagardere YVR Stand (interview-only) | — |
-| Process/Governance Design, Removing Approval Friction | Bell Pre-Approved Offer Grids | Impark QA Ownership |
+| Process/Governance Design, Removing Approval Friction | Bell Pre-Approved Offer Grids | — |
 | Solution Shaping Before Delivery / Principal-Level Judgment | Copilot Pilot | TELUS AiP Expansion |
 | Conflict/Tradeoffs, Foresight Ignored Then Vindicated | OSC PII Archive & Oracle Storage Cost | Return Fraud & Tax Reconciliation |
 
@@ -115,20 +114,23 @@ for expanding it guest-facing.
 cutting the update cycle from multi-day to under an hour. Proactively took
 the guest-facing application through legal and branding approval without
 being asked, pre-negotiated vendor pricing, and designed a phased global
-rollout: EHC → AU/NZ → APeC → EMEA (NA scoped next at time of departure).
-Established a reusable regional implementation pattern at each stage.
+rollout: EHC (internal-facing) first, then guest-facing APeC, then EMEA
+(NA scoped next at time of departure). Quality-tested the voice output and
+wrong-case handling before implementation, through a pilot (specifics not
+yet recorded). Established a reusable regional implementation pattern at
+each stage.
 
-**Result:** Turned a single internal fix into a four-region enterprise AI
-voice program. Enabled same-day emergency IVR updates for guest-facing
+**Result:** Turned a single internal fix into a three-region enterprise AI
+voice program (EHC, APeC, EMEA). Enabled same-day emergency IVR updates for guest-facing
 incidents, turning IVR into a proactive call-deflection tool.
 
 **Metrics:** ~85% cycle time reduction [CALCULATED EST] | multi-day → under
-1 hour [CONFIRMED] | 4 regions sequenced [CONFIRMED] | legal/branding
+1 hour [CONFIRMED] | live in EHC, APeC, EMEA [CONFIRMED 2026-10-07] | legal/branding
 approval secured proactively [CONFIRMED]
 
 **Soundbite:** "I was asked to fix one internal phone line. I recognized
 the broader opportunity, took it through legal and branding myself,
-negotiated vendor pricing, and turned it into a four-region global AI
+negotiated vendor pricing, and turned it into a three-region global AI
 voice rollout, without anyone asking me to."
 
 **Use for:** proactive initiative, AI implementation, global rollout
@@ -279,21 +281,23 @@ opportunity, and build a case for program expansion with C-suite.
 **Action:** Conducted market research on Canada's aging population and the
 pendant model's limitations. Identified ambient sensing as the technology
 that could solve for nighttime falls and broader willingness-to-pay.
-Defined pilot requirements. Designed and ran an Innovation Day event to
-source vendor partners. Built and presented the business case for C-suite
-approval.
+Defined pilot requirements. Conceived, created, planned and designed an
+Innovation Day event to source vendor partners (role ended before it ran).
+Built and presented the business case for C-suite approval. Also planned
+and designed the pilot.
 
-**Result:** Received C-suite approval to expand the AiP program. Pilot
-launched to validate ambient sensing use cases.
+**Result:** Received C-suite approval to expand the AiP program. Pilot and
+Innovation Day were fully planned and designed; the role ended before
+either could run.
 
-**Metrics:** C-suite approval secured [CONFIRMED] | Pilot launched
-[CONFIRMED] | Hard outcome metrics [MISSING — pilot in progress, role
-ended before results]
+**Metrics:** C-suite approval secured [CONFIRMED] | Pilot and Innovation
+Day planned and designed, not run [CONFIRMED 2026-10-07] | Hard outcome
+metrics [MISSING — role ended before the pilot ran]
 
 **Soundbite:** "I identified that TELUS Health's pendant solution was too
 narrow for Canada's aging population opportunity. I researched the
-market, reframed the product around ambient sensing, ran an Innovation Day
-to source pilot vendors, and secured C-suite approval to expand the
+market, reframed the product around ambient sensing, designed an Innovation Day
+to source pilot vendors and planned the pilot, and secured C-suite approval to expand the
 program."
 
 **Use for:** 0-to-1 strategy, market research, executive influence, IoT.
@@ -492,37 +496,6 @@ took 10-15 seconds. We ended up capturing about 80% of the original gap."
 with a skeptical stakeholder team, UX partnership. This is the deep-dive
 version — use for STAR-format questions specifically; the shorter summary
 lives in 01-candidate-profile.md for elevator-pitch framing.
-
----
-
-## Story: Impark QA Ownership
-**Company:** Imperial Parking (now Reef Technology) | **Competencies:** Contact center
-QA, scorecard design, calibration facilitation, coaching frameworks,
-people leadership
-
-**Situation:** Post-acquisition, Impark's contact center needed a
-functioning quality program alongside CRM and billing integration work.
-Raymond was one of two managers responsible for the entire contact center
-operation.
-
-**Task:** Own the QA program, including scorecards, calibrations, and
-coaching workflows, across 7 supervisors and 100+ agents.
-
-**Action:** Designed and maintained call quality scorecards and evaluation
-frameworks. Led calibration sessions with 7 supervisors to align scoring
-standards and coaching approaches. Built on earlier Bell Mobility
-experience as a frontline agent with direct call quality responsibilities.
-
-**Result:** Improved SLA performance by 30%. Improved new-hire retention
-by 60%. Established consistent quality standards across a post-M&A
-contact center spanning 400+ cities.
-
-**Metrics:** SLA improvement 30% [CONFIRMED] | retention improvement 60%
-[CONFIRMED] | 7 supervisors led through calibrations [CONFIRMED] | 100
-core + 20 specialized staff under direct responsibility [CONFIRMED]
-
-**Use for:** contact center QA, people leadership at scale, SLA
-management, onboarding/retention process design.
 
 ---
 

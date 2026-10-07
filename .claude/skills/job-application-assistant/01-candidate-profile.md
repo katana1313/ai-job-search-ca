@@ -48,7 +48,9 @@ market opportunity.
 - Conceived and planned a recurring Innovation Day event for ongoing
   market scans of hardware vendor partners; defined pilot requirements
   and evaluation criteria. Role ended before the event ran — do not cite
-  as executed.
+  as executed. Confirmed 2026-10-07: Raymond conceived, created, planned
+  and designed the Innovation Day, and also planned and designed the pilot.
+  Neither ran before he left.
 - Separately, real vendor evaluation work: Pontosense (ambient sensing
   vendor) had a preliminary agreement in place before Raymond joined.
   His manager was let go ~3 months into his tenure and the program was
@@ -368,12 +370,17 @@ claim these stakeholders were literally external clients.
   team to modify and filter these for the specific metrics relevant to
   each A/B test (standard IVR metrics: queue wait, abandonment, IVR
   completion; and chatbot metrics: deflection, resolution), rather than
-  building custom dashboards from scratch.
+  building custom dashboards from scratch. Confirmed 2026-10-07: Raymond
+  and his team also monitored guest review feedback (Medallia and Stella
+  reviews) as an ongoing usage/satisfaction signal. Specific figures are
+  not recorded, so ask before citing a number.
 - Shipped to production (confirmed 2026-10-07): EHC IVR fix using Murf.ai
   (AI voice) integrated into Five9 (multi-day update cycle reduced to under
   1 hour), then proactively took the guest-facing application through
   legal/branding approval and designed and led the phased global rollout (led confirmed 2026-10-07) (EHC → AU/NZ
-  → APeC → EMEA) without being asked. EHC = Educator Help Center, the
+  → APeC → EMEA) without being asked. Corrected 2026-10-07: actual order
+  was EHC first (internal-facing), then guest-facing APeC, then EMEA; do not
+  cite AU/NZ. EHC = Educator Help Center, the
   internal helpdesk for lululemon's educators (confirmed 2026-10-07); spell
   it out on a CV, a recruiter won't know the acronym. LIVE in EHC, EMEA and
   APeC. AU/NZ
@@ -384,10 +391,13 @@ claim these stakeholders were literally external clients.
     evaluation with demos and scorecards completed with stakeholders
     present. Scored vendors against the product roadmap, for immediate use
     and future needs, then put the chosen vendor through security vetting
-    and the standard vendor-onboarding process before launch. Not yet
-    recorded: vendor count, scorecard criteria, why Murf won, and any
-    quality-testing or failure-handling detail. Ask before citing any of
-    those.
+    and the standard vendor-onboarding process before launch. Quality
+    testing and wrong-case handling were done before implementation, via a
+    pilot, then rollout began with the internal-facing EHC before guest-
+    facing APeC and then EMEA (confirmed 2026-10-07). Not yet recorded:
+    vendor count, scorecard criteria, why Murf won, what was tested, which
+    wrong cases came up and how they were handled. Ask before citing any
+    of those specifics.
 - Ran a Microsoft Copilot for D365 pilot (email/chat summarization) — full
   evaluation framework delivered in weeks, working directly with Microsoft
   engineers; delivered an honest go/no-go recommendation, deprioritizing
@@ -719,18 +729,14 @@ direct responsibility.
 
 - Confirmed 2026-08-26: the contact center's telephony platform was
   Avaya.
-- Owned QA scorecards and calibrations across the full contact center —
-  this QA function specifically evaluated individual agents' performance
-  on client interactions, a narrower scope than the SLA metric itself.
-  Corrected 2026-08-2x: the 30% SLA performance improvement was driven by
-  Raymond's broader operational leadership and process reviews across
-  Lot Administration, Internal Services, and the contact center — not
-  attributable to the QA scorecard function specifically. Do not frame
-  the 30% SLA figure as a QA outcome; frame it as an operational-
-  leadership/process-improvement outcome instead. This SLA improvement
-  applied to the admin/support teams serving regional parking offices
-  across the US and Canada as well, not the customer-facing contact
-  center alone.
+- The 30% SLA performance improvement was driven by Raymond's broader
+  operational leadership and process reviews across Lot Administration,
+  Internal Services, and the contact center. Frame it as an operational-
+  leadership/process-improvement outcome. This SLA improvement applied to
+  the admin/support teams serving regional parking offices across the US
+  and Canada as well, not the customer-facing contact center alone.
+  (QA scorecards/calibrations removed from the KB at Raymond's direction,
+  2026-10-07. Do not cite them.)
 - Improved new-hire retention by 60%: implemented a new agent training
   simulation process using headsets and Discord technology to simulate
   live call scenarios, replacing the prior onboarding/training approach.
@@ -809,10 +815,9 @@ direct responsibility.
 **Framing this role depends on the target JD.** Default to a scope/scale
 framing (e.g. "Oversaw 7 supervisors and 20 specialized staff across a
 100-staff contact center") for the overview line and bullets, rather than
-leading with QA scorecards/SLA/calibrations — that framing reads as
-irrelevant filler on non-contact-center applications. Only lead with the
-QA-scorecards/SLA story when the target JD is itself contact-center or
-CX-ops relevant, where it's genuinely the strongest match on the CV.
+leading with the SLA story — that framing reads as irrelevant filler on
+non-contact-center applications. Only lead with the SLA/operations story
+when the target JD is itself contact-center or CX-ops relevant.
 
 ---
 

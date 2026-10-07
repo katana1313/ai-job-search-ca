@@ -496,7 +496,7 @@ generally retain the fewest.
 
 This is a starting prior, not an override of relevance scoring. If a specific JD's
 keywords genuinely pull more weight toward an otherwise-lower-priority role (e.g. a
-contact-center-operations posting where the Impark QA/SLA story is the single strongest
+contact-center-operations posting where the Impark SLA/operations story is the single strongest
 match on the CV), let that JD-specific relevance win rather than mechanically enforcing
 the employer ranking above it.
 
@@ -517,8 +517,7 @@ Within Earlier Career, order reverse-chronologically even though dates aren't di
 Canada (earliest)**.
 
 **Override condition:** if a specific JD is genuinely contact-center/CX-ops relevant (the
-same condition that unlocks Impark's QA-scorecard framing per
-`feedback_impark_qa_scorecards_framing` in memory), Impark can move back to a dated
+same condition that unlocks Impark's operational-leadership framing), Impark can move back to a dated
 Professional Experience entry instead — that role's content is the strongest match in
 that specific case and dating it adds credibility. Otherwise, this is the default, not a
 per-CV judgment call to re-derive each time.
