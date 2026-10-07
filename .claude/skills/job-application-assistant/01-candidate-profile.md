@@ -376,6 +376,15 @@ claim these stakeholders were literally external clients.
   → APeC → EMEA) without being asked. LIVE in EHC, EMEA and APeC. AU/NZ
   status not confirmed, so do not claim it. Safe to cite as a production AI
   deployment, not a pilot.
+  - Vendor selection process (confirmed 2026-10-07): ran a scan of AI voice
+    tools (Murf.ai and others such as ElevenLabs), then a formal vendor
+    evaluation with demos and scorecards completed with stakeholders
+    present. Scored vendors against the product roadmap, for immediate use
+    and future needs, then put the chosen vendor through security vetting
+    and the standard vendor-onboarding process before launch. Not yet
+    recorded: vendor count, scorecard criteria, why Murf won, and any
+    quality-testing or failure-handling detail. Ask before citing any of
+    those.
 - Ran a Microsoft Copilot for D365 pilot (email/chat summarization) — full
   evaluation framework delivered in weeks, working directly with Microsoft
   engineers; delivered an honest go/no-go recommendation, deprioritizing
