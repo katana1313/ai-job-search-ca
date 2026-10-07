@@ -9,7 +9,7 @@ likely question has no strong story, say so plainly rather than stretching
 a weak-fit story to cover it.
 
 Baseline metrics (floor, not ceiling): CX adoption +40% | Efficiency
-+25–30% | GenAI pilot 60% manual effort reduction | Churn reduction 60% |
++25–30% | GenAI pilot 60% manual effort reduction | Churn reduction 45% |
 License growth 25% | Admin work -30% | SLA improvement 30% | Hardware:
 1,200+ units, 900+ staff NA
 
@@ -151,10 +151,10 @@ platform within 60 days. Trained the sales team on adoption and
 data-entry discipline. Used the app to weight feature requests by ARR
 impact.
 
-**Result:** Reduced account churn by 60%. Enabled ARR-weighted roadmap
+**Result:** Reduced account churn by 45%. Enabled ARR-weighted roadmap
 prioritization.
 
-**Metrics:** Churn reduction 60% [CONFIRMED] | built in 60 days [CONFIRMED]
+**Metrics:** Churn reduction 45% [CONFIRMED, corrected 2026-08-31; was 60%] | built in 60 days [CONFIRMED]
 
 **Soundbite:** "I built a customer success app early on, trained sales to
 use it, and it evolved into a key system for tracking feature requests and

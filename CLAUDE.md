@@ -51,7 +51,7 @@ This repo is a job application workspace. Claude acts as a career advisor and ap
   - Led a GenAI/LLM pilot cutting manual knowledge-retrieval effort 60%; sourced a $2.2M CAD global hardware program deployed to 900+ staff, scaling to 1,200+ units
 - **Product Manager & Customer Success Lead** (March 2017 – April 2020) - **Flowfinity Inc.** (Vancouver, BC)
   - Flowfinity's first dedicated CS + PM hire; owned product, onboarding, and account growth for a B2B no-code SaaS platform
-  - Built a customer health-tracking app in 60 days, reducing account churn by 60%
+  - Built a customer health-tracking app in 60 days, reducing account churn by 45%
 - **Manager, Internal Services** (October 2015 – February 2017) - **Imperial Parking (now Reef Technology)** (Vancouver, BC)
   - Led the call centre, overseeing 7 supervisors and 120 staff; improved SLA performance 30% and new-hire retention 60%
 
