@@ -372,7 +372,7 @@ claim these stakeholders were literally external clients.
 - Shipped to production (confirmed 2026-10-07): EHC IVR fix using Murf.ai
   (AI voice) integrated into Five9 (multi-day update cycle reduced to under
   1 hour), then proactively took the guest-facing application through
-  legal/branding approval and designed a phased global rollout (EHC → AU/NZ
+  legal/branding approval and designed and led the phased global rollout (led confirmed 2026-10-07) (EHC → AU/NZ
   → APeC → EMEA) without being asked. EHC = Educator Help Center, the
   internal helpdesk for lululemon's educators (confirmed 2026-10-07); spell
   it out on a CV, a recruiter won't know the acronym. LIVE in EHC, EMEA and
