@@ -595,6 +595,10 @@ claim these stakeholders were literally external clients.
   that ceremony work happened inside this same Jira instance, safe to
   cite together as end-to-end delivery ownership (admin, planning, and
   execution), not just board setup.
+  Confirmed 2026-10-07 (Raymond, live): owned and maintained decision logs
+  on all of his projects, usually in Confluence (problem, options, what was
+  decided and why). A standing practice, not a one-off. Safe to cite as
+  "owned decision logs on every project"; no specific log examples recorded.
 
 ### Product Manager & Customer Success Lead — Flowfinity Inc.
 **Vancouver, BC | March 2017 – April 2020**
