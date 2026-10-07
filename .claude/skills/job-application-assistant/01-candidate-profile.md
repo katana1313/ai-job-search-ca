@@ -381,6 +381,10 @@ claim these stakeholders were literally external clients.
   and dollar amounts), and email average response time (emails ran through
   the CRM). Recurring weekly monitoring is confirmed; specific values are not
   recorded, so ask before citing a number.
+  CONFIDENTIAL (Raymond, 2026-10-07): these weekly metrics and their values are
+  confidential lululemon information. Never put a figure from them on a CV,
+  cover letter, or application form. It is safe to say he OWNED the weekly
+  monitoring and reporting across these platforms, without numbers.
 - Shipped to production (confirmed 2026-10-07): EHC IVR fix using Murf.ai
   (AI voice) integrated into Five9 (multi-day update cycle reduced to under
   1 hour), then proactively took the guest-facing application through
